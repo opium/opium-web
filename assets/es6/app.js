@@ -5,7 +5,8 @@ const opiumApp = angular.module('opiumApp', [
     'ngTouch',
     'cfp.hotkeys',
     'leaflet-directive',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'angularFileUpload'
 ]);
 
 function routeProvider($routeProvider, $locationProvider) {
@@ -17,9 +18,14 @@ function routeProvider($routeProvider, $locationProvider) {
       controller: 'LoginCtrl',
       reloadOnSearch: false
     })
-    .when('/:path\/_map', {
+    .when('/:path\/_page_map', {
       templateUrl: 'views/album-map.html',
       controller: 'AlbumMapCtrl',
+      reloadOnSearch: false
+    })
+    .when('/:path\/_page_upload', {
+      templateUrl: 'views/upload.html',
+      controller: 'AlbumUploadCtrl',
       reloadOnSearch: false
     })
     .when('/:path\/:photo', {

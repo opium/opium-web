@@ -180,6 +180,29 @@ opiumControllers.controller(
 )
 
 opiumControllers.controller(
+  'AlbumUploadCtrl',
+  function AlbumUploadCtrl($scope, $routeParams, Album, FileUploader, localStorageService) {
+    let path = $routeParams.path;
+    $scope.uploader = new FileUploader({
+      autoUpload: true,
+      method: 'PATCH',
+      headers: {
+        Authorization: localStorageService.get('Authorization')
+      }
+    });
+
+    Album
+    .one(path)
+    .get()
+    .then((data) => {
+      $scope.folder = data;
+      $scope.uploader.url = API_URL + '/v1/directories/' + $scope.folder.slug + '/upload'
+    });
+  }
+
+)
+
+opiumControllers.controller(
   'PhotoCtrl',
   function PhotoCtrl($scope, $routeParams, Photo, Album, hotkeys) {
     let id = $routeParams.photo;
