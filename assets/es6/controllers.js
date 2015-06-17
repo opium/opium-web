@@ -185,7 +185,7 @@ opiumControllers.controller(
     let path = $routeParams.path;
     $scope.uploader = new FileUploader({
       autoUpload: true,
-      method: 'PATCH',
+      method: 'POST',
       headers: {
         Authorization: localStorageService.get('Authorization')
       }
