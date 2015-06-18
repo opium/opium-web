@@ -24,7 +24,17 @@ function routeProvider($routeProvider, $locationProvider) {
       controller: 'AlbumMapCtrl',
       reloadOnSearch: false
     })
+    .when('/_page_map', {
+      templateUrl: 'views/album-map.html',
+      controller: 'AlbumMapCtrl',
+      reloadOnSearch: false
+    })
     .when('/:path\/_page_upload', {
+      templateUrl: 'views/upload.html',
+      controller: 'AlbumUploadCtrl',
+      reloadOnSearch: false
+    })
+    .when('/_page_upload', {
       templateUrl: 'views/upload.html',
       controller: 'AlbumUploadCtrl',
       reloadOnSearch: false

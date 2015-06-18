@@ -68,7 +68,7 @@
 </div>
 
 <p class="text-right">
-    <a href="/{{ folder.slug }}/_page_upload">upload files</a>
+    <a href="{{ folder.slug ? '/' + folder.slug : '' }}/_page_upload">upload files</a>
     |
     Total number of items: {{ folder.children.length }}
 </p>
