@@ -9,7 +9,7 @@
     <h2>Upload files</h2>
 
     <div class="well file-drop-zone" nb-file-over>
-        <input type="file" nv-file-select uploader="uploader"/>
+        <input type="file" nv-file-select uploader="uploader" multiple />
     </div>
 
     <p>Queue length: {{ uploader.queue.length }}</p></p></h>
@@ -40,20 +40,20 @@
                 </td>
 
                 <td class="text-center">
-                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                    <span ng-show="item.isSuccess"><i class="ion-checkmark"></i></span>
+                    <span ng-show="item.isCancel"><i class="ion-flag"></i></span>
+                    <span ng-show="item.isError"><i class="ion-close"></i></span>
                 </td>
 
                 <td nowrap>
                     <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-show="!(item.isReady || item.isUploading || item.isSuccess)">
-                        <span class="glyphicon glyphicon-upload"></span> Upload
+                        <span class="ion-play"></span> Upload
                     </button>
                     <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-show="item.isUploading">
-                        <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        <span class="ion-stop"></span> Cancel
                     </button>
                     <button type="button" class="btn btn-xs" ng-click="item.remove()">
-                        <span class="glyphicon glyphicon-trash"></span> Remove
+                        <span class="ion-minus"></span> Remove
                     </button>
                 </td>
             </tr>
@@ -69,13 +69,13 @@
         </div>
 
         <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-show="uploader.getNotUploadedItems().length && !uploader.isUploading">
-            <span class="glyphicon glyphicon-upload"></span> Upload all
+            <span class="ion-play"></span> Upload all
         </button>
         <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-show="uploader.isUploading">
-            <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+            <span class="ion-stop"></span> Cancel all
         </button>
         <button type="button" class="btn btn-s" ng-click="uploader.clearQueue()" ng-show="uploader.queue.length">
-            <span class="glyphicon glyphicon-trash"></span> Remove all
+            <span class="ion-minus"></span> Remove all
         </button>
     </div>
 </div>
