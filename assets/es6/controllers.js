@@ -27,7 +27,8 @@ function AlbumGeoPoints(leafletBoundsHelpers) {
       zoomControl: false,
       doubleClickZoom: false,
       touchZoom: false,
-      tileLayer: 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
+      //tileLayer: 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
+      tileLayer: 'http://openmapsurfer.uni-hd.de/tiles/roadsg/x={x}&y={y}&z={z}'
     };
   };
 
@@ -75,7 +76,7 @@ function AlbumGeoPoints(leafletBoundsHelpers) {
     ]);
   };
 
-  this.getMarkersFromPhotos = function(children, showMarker) {
+  this.getMarkersFromPhotos = function(children, showMarkerText, bwIcon) {
     let markers = [];
     let i;
     for (let photo of children) {
@@ -85,9 +86,16 @@ function AlbumGeoPoints(leafletBoundsHelpers) {
           lng: photo.position.lng
         };
 
-        if (showMarker) {
+        if (showMarkerText) {
           marker.message = photo.name;
           marker.slug = photo.slug;
+        }
+
+        if (bwIcon) {
+            marker.icon = {
+              iconUrl: '/bwpin.png',
+              iconAnchor: [12, 41]
+            };
         }
 
         markers.push(marker);
@@ -119,7 +127,7 @@ opiumControllers.controller(
     getter.then((data) => {
       $scope.folder = data;
 
-      $scope.markers = albumGeoPoints.getMarkersFromPhotos(data.children, false);
+      $scope.markers = albumGeoPoints.getMarkersFromPhotos(data.children, false, true);
       $scope.maxbounds = albumGeoPoints.getBoundsFromMarkers($scope.markers);
 
       $scope.$on('leafletDirectiveMarker.click', (event, args) => {
