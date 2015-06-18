@@ -41,8 +41,11 @@
             data-set-main-url="{{ folder.path }}"
             data-set-main-params="{{ album.pathname }}"
         >
-        <img ng-src="{{ item.thumbs }}" ng-style="{'width':item.geometry.width + 'px', 'height': item.geometry.height + 'px' }" />
-        </a>
+        <div
+            afkl-lazy-image="{{item.thumbs}}"
+            ng-style="{'width':item.geometry.width + 'px', 'height': item.geometry.height + 'px' }"
+        />
+        </div>
 
         <a
             ng-href="/{{ album.slug }}"
