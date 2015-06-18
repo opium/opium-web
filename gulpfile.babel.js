@@ -12,6 +12,7 @@ browserSync.create();
 gulp.task('serve', ['sass'], () => {
 
   browserSync.init({
+    open: false,
     server: {
       baseDir: './',
       middleware: [

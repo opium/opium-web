@@ -8,7 +8,7 @@ opiumRestClient.run(function(Restangular, $location, localStorageService) {
 
   Restangular.setDefaultHeaders({
     Authorization: auth,
-    'X-Device-Width': window.innerWidth,
+    'X-Device-Width': window.innerWidth - 30, // we need to substitute the future scrollbar size
     'X-Device-Height': window.innerHeight
   });
 
