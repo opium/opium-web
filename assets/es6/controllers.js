@@ -110,7 +110,7 @@ opiumApp.service('albumGeoPoints', ['leafletBoundsHelpers', AlbumGeoPoints]);
 
 opiumControllers.controller(
   'AlbumListCtrl',
-  function AlbumListCtrl($scope, $routeParams, Album, leafletEvents, $location, $anchorScroll, albumGeoPoints) {
+  function AlbumListCtrl($scope, $routeParams, Album, leafletEvents, $location, $anchorScroll, albumGeoPoints, moment) {
     let path = $routeParams.path;
     let getter = Album.one(path).get({gutter: 10});
 
@@ -134,7 +134,33 @@ opiumControllers.controller(
         $scope.selected = args.model.slug;
         $scope.scrollTo(args.model.slug);
       });
+
+      $scope.bounds = $scope.getDateBounds();
     });
+
+    $scope.getDateBounds = function() {
+      // dates managements
+      let sorted = _.sortByOrder(
+        _.filter(
+          $scope.folder.children,
+          function(item) {
+            return item.exif && item.exif.DateTimeOriginal && item.exif.DateTimeOriginal.match(/^[0-9]{4}:[0-9]{2}:[0-9]{2} /)
+          }
+
+        ),
+        'exif.DateTimeOriginal'
+      );
+
+      if (sorted.length > 0) {
+        let firstDate = moment(sorted[0].exif.DateTimeOriginal, 'YYYY:MM:DD HH:mm:ss');
+        let lastDate = moment(sorted[sorted.length - 1].exif.DateTimeOriginal, 'YYYY:MM:DD HH:mm:ss');
+
+        return {
+          firstDate: firstDate,
+          lastDate: lastDate
+        };
+      }
+    };
 
     $scope.scrollTo = function(slug) {
       $location.hash(slug);

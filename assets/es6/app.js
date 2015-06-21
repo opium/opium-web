@@ -7,7 +7,8 @@ const opiumApp = angular.module('opiumApp', [
     'leaflet-directive',
     'LocalStorageModule',
     'angularFileUpload',
-    'afkl.lazyImage'
+    'afkl.lazyImage',
+    'angularMoment',
 ]);
 
 function routeProvider($routeProvider, $locationProvider) {

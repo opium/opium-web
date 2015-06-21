@@ -11,6 +11,10 @@
         {{ folder.name }}
     </h1>
 
+    <h2 ng-if="bounds">
+        from {{ bounds.firstDate|amDateFormat: 'll' }} to {{ bounds.lastDate|amDateFormat: 'll' }}
+    </h2>
+
     <div class="map-container">
         <a ng-href="/{{ folder.slug }}/_page_map">
             <leaflet

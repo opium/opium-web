@@ -104,13 +104,16 @@ img {
     &.cover {
         height: 400px;
 
-        h1 {
+        h1, h2 {
             color: #fff;
         }
     }
 
-    h1 {
+    h1, h2 {
         text-align: center;
+    }
+
+    h1 {
         font-size: 54px;
         margin-top: 70px;
     }
