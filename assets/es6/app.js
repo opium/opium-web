@@ -20,22 +20,22 @@ function routeProvider($routeProvider, $locationProvider) {
       reloadOnSearch: false
     })
     .when('/:path\/_page_map', {
-      templateUrl: 'views/album-map.html',
+      templateUrl: 'views/Album/map.html',
       controller: 'AlbumMapCtrl',
       reloadOnSearch: false
     })
     .when('/_page_map', {
-      templateUrl: 'views/album-map.html',
+      templateUrl: 'views/Album/map.html',
       controller: 'AlbumMapCtrl',
       reloadOnSearch: false
     })
     .when('/:path\/_page_upload', {
-      templateUrl: 'views/upload.html',
+      templateUrl: 'views/Album/upload.html',
       controller: 'AlbumUploadCtrl',
       reloadOnSearch: false
     })
     .when('/_page_upload', {
-      templateUrl: 'views/upload.html',
+      templateUrl: 'views/Album/upload.html',
       controller: 'AlbumUploadCtrl',
       reloadOnSearch: false
     })
@@ -45,12 +45,12 @@ function routeProvider($routeProvider, $locationProvider) {
       reloadOnSearch: false
     })
     .when('/', {
-      templateUrl: 'views/album-list.html',
+      templateUrl: 'views/Album/list.html',
       controller: 'AlbumListCtrl',
       reloadOnSearch: false
     })
     .when('/:path', {
-      templateUrl: 'views/album-list.html',
+      templateUrl: 'views/Album/list.html',
       controller: 'AlbumListCtrl',
       reloadOnSearch: false
     })
