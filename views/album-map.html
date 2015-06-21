@@ -1,4 +1,13 @@
-<div ng-include="'/views/Album/header.html'"></div>
+<div>
+    <a href="/{{ folder.slug }}" ng-if="folder.parent" class="back">
+        <i class="ion-chevron-left"></i>
+        Back to {{ folder.name ? folder.name : "album" }}
+    </a>
+
+    <h1>
+        {{ folder.name }}
+    </h1>
+</div>
 
 <leaflet
     defaults="mapDefaults"
