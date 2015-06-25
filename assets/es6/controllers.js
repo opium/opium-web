@@ -225,12 +225,14 @@ opiumControllers.controller(
       }
     });
 
+    let uploadUrl = API_URL + '/v1/directories/' + ($scope.folder && $scope.folder.slug ? $scope.folder.slug + '/' : '') + 'upload';
+
     Album
     .one(path)
     .get()
     .then((data) => {
       $scope.folder = data;
-      $scope.uploader.url = API_URL + '/v1/directories/' + $scope.folder.slug + '/upload'
+      $scope.uploader.url = uploadUrl
     });
   }
 
