@@ -12,7 +12,7 @@
     </h1>
 
     <h2 ng-if="bounds">
-        from {{ bounds.firstDate|amDateFormat: 'll' }} to {{ bounds.lastDate|amDateFormat: 'll' }}
+        from {{ bounds.firstDate|formatExifDate: 'll' }} to {{ bounds.lastDate|formatExifDate: 'll' }}
     </h2>
 
     <div class="map-container">

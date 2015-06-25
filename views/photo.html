@@ -77,7 +77,7 @@
                     </tr>
                     <tr>
                         <th>Date
-                        <td>{{ photo.exif.DateTime }}
+                        <td>{{ photo.exif.DateTimeOriginal|formatExifDate: 'll' }}
                     </tr>
                     <tr>
                         <th>Size

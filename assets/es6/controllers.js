@@ -152,8 +152,8 @@ opiumControllers.controller(
       );
 
       if (sorted.length > 0) {
-        let firstDate = moment(sorted[0].exif.DateTimeOriginal, 'YYYY:MM:DD HH:mm:ss');
-        let lastDate = moment(sorted[sorted.length - 1].exif.DateTimeOriginal, 'YYYY:MM:DD HH:mm:ss');
+        let firstDate = sorted[0].exif.DateTimeOriginal;
+        let lastDate = sorted[sorted.length - 1].exif.DateTimeOriginal;
 
         return {
           firstDate: firstDate,
@@ -318,11 +318,11 @@ opiumControllers.controller(
           }
         };
       }
-    }
+    };
 
     $scope.hasExif = function() {
       return $scope.photo && (!Array.isArray($scope.photo.exif) || $scope.photo.exif.length > 0);
-    }
+    };
   }
 
 );
