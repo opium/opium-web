@@ -16,7 +16,7 @@
     </h2>
 
     <div class="map-container">
-        <a ng-href="/{{ folder.slug }}/_page_map">
+        <a ng-href="{{ folder.slug ? '/' + folder.slug : '' }}/_page_map">
             <leaflet
                 defaults="mapDefaults"
                 markers="markers"
