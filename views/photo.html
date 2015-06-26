@@ -26,7 +26,7 @@
                 ng-swipe-right="previous()"
                 ng-swipe-left="next()"
             >
-                <img ng-src="{{ photo._links.original.href }}" class="img-responsive ion-load-c" />
+                <img ng-src="{{ photo.thumbnails.image }}" class="img-responsive ion-load-c" />
 
                 <div class="opium-photo-move opium-photo-previous"
                         ng-if="photo.previous"

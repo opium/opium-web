@@ -2,14 +2,12 @@ const opiumControllers = angular.module('opiumControllers', []);
 
 opiumControllers.controller(
   'LoginCtrl',
-  function LoginCtrl($scope, localStorageService, $location, Restangular) {
-    $scope.save = function() {
-      let auth = 'Basic ' + btoa($scope.user.login + ':' + $scope.user.password);
+  function LoginCtrl($scope, localStorageService, $location, OpiumRestClientConfig) {
+    $scope.apiUrl = OpiumRestClientConfig.getApiUrl();
 
-      Restangular.setDefaultHeaders({
-        Authorization: auth
-      });
-      localStorageService.set('Authorization', auth);
+    $scope.save = function() {
+      OpiumRestClientConfig.setApiUrl($scope.apiUrl);
+      OpiumRestClientConfig.setAuth($scope.login, $scope.password);
 
       $location.path('/');
     }
