@@ -85,8 +85,13 @@ function AlbumGeoPoints(leafletBoundsHelpers) {
         };
 
         if (showMarkerText) {
-          marker.message = photo.name;
+          marker.message = '<a href="' + photo.slug + '">' + photo.name + '</a>';
           marker.slug = photo.slug;
+
+          marker.icon = {
+            iconUrl: photo.thumbnails.smallSquare,
+            iconAnchor: [25, 25]
+          };
         }
 
         if (bwIcon) {
@@ -128,11 +133,6 @@ opiumControllers.controller(
       $scope.markers = albumGeoPoints.getMarkersFromPhotos(data.children, false, true);
       $scope.maxbounds = albumGeoPoints.getBoundsFromMarkers($scope.markers);
 
-      $scope.$on('leafletDirectiveMarker.click', (event, args) => {
-        $scope.selected = args.model.slug;
-        $scope.scrollTo(args.model.slug);
-      });
-
       $scope.bounds = $scope.getDateBounds();
     });
 
@@ -158,12 +158,6 @@ opiumControllers.controller(
           lastDate: lastDate
         };
       }
-    };
-
-    $scope.scrollTo = function(slug) {
-      $location.hash(slug);
-      $anchorScroll();
-      return false;
     };
 
     $scope.getHeaderStyle = function() {
@@ -201,11 +195,6 @@ opiumControllers.controller(
 
       $scope.markers = albumGeoPoints.getMarkersFromPhotos(data.children, true);
       $scope.maxbounds = albumGeoPoints.getBoundsFromMarkers($scope.markers);
-
-      $scope.$on('leafletDirectiveMarker.click', (event, args) => {
-        $scope.selected = args.model.slug;
-        $scope.scrollTo(args.model.slug);
-      });
     });
   }
 

@@ -34,12 +34,11 @@
         ng-repeat="(itemId, item) in line"
         ng-init="album = getAlbumById(itemId)"
         id="{{ album.slug }}"
-        ng-class="{'selected': album.slug == selected}"
         >
 
 
         <a ng-if="album.type == 'file'"
-            ng-href="{{ folder.slug ? '/' + folder.slug : '/root' }}/{{ album.slug }}"
+            ng-href="{{ folder.slug ? '/' + folder.slug : '' }}/{{ album.slug }}"
             title="{{ album.name }}"
             data-set-main-url="{{ folder.path }}"
             data-set-main-params="{{ album.pathname }}"

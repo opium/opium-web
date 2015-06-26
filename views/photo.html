@@ -31,7 +31,7 @@
                 <div class="opium-photo-move opium-photo-previous"
                         ng-if="photo.previous"
                 >
-                    <a href="/{{photo.parent.slug}}/{{ photo.previous.slug }}">
+                    <a href="{{photo.parent.slug ? '/' + photo.parent.slug : ''}}/{{ photo.previous.slug }}">
                         <span>
                             <i class="ion-chevron-left"></i>
                         </span>
@@ -41,7 +41,7 @@
                 <div class="opium-photo-move opium-photo-next"
                     ng-if="photo.next"
                 >
-                    <a href="/{{photo.parent.slug}}/{{ photo.next.slug }}">
+                    <a href="{{photo.parent.slug ? '/' + photo.parent.slug : ''}}/{{ photo.next.slug }}">
                         <i class="ion-chevron-right"></i>
                     </a>
                 </div>
