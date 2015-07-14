@@ -227,8 +227,14 @@ opiumControllers.controller(
 
 opiumControllers.controller(
   'PhotoCtrl',
-  function PhotoCtrl($scope, $routeParams, Photo, Album, hotkeys) {
+  function PhotoCtrl($scope, $routeParams, Photo, Album, hotkeys, opiumSlideshow) {
     let id = $routeParams.photo;
+
+    $scope.opiumSlideshow = opiumSlideshow;
+
+    $scope.opiumSlideshow.onNext = function() {
+      $scope.next();
+    };
 
     Photo.one(id).get()
     .then((data) => {

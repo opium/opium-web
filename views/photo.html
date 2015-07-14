@@ -20,6 +20,21 @@
     </div>
 
     <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <a href="#play" ng-click="opiumSlideshow.play()" ng-if="!opiumSlideshow.isPlaying()">
+                <i class="ion-play"></i>
+            </a>
+            <a href="#stop" ng-click="opiumSlideshow.stop()" ng-if="opiumSlideshow.isPlaying()">
+                <i class="ion-stop"></i>
+            </a>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-8">
             <div 
                 class="opium-photo-move-container mb1"

@@ -2,6 +2,7 @@ const opiumApp = angular.module('opiumApp', [
     'ngRoute',
     'opiumControllers',
     'opiumRestClient',
+    'opiumSlideshow',
     'ngTouch',
     'cfp.hotkeys',
     'leaflet-directive',
@@ -45,11 +46,11 @@ function routeProvider($routeProvider, $locationProvider) {
       controller: 'PhotoCtrl',
       reloadOnSearch: false
     })
-    .when('/:photo', {
-      templateUrl: 'views/photo.html',
-      controller: 'PhotoCtrl',
-      reloadOnSearch: false
-    })
+    //.when('/:photo', {
+    //  templateUrl: 'views/photo.html',
+    //  controller: 'PhotoCtrl',
+    //  reloadOnSearch: false
+    //})
     .when('/', {
       templateUrl: 'views/Album/list.html',
       controller: 'AlbumListCtrl',
