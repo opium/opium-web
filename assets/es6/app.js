@@ -10,6 +10,7 @@ const opiumApp = angular.module('opiumApp', [
     'angularFileUpload',
     'afkl.lazyImage',
     'angularMoment',
+    'ngProgress',
 ]);
 
 function routeProvider($routeProvider, $locationProvider) {

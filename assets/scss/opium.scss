@@ -10,8 +10,8 @@ img {
     margin: 0 auto;
 }
 
-.txtcenter {
-    text-align: center;
+.with-navbar-bottom {
+    padding-bottom: 70px;
 }
 
 .flex-container {
@@ -159,3 +159,11 @@ img {
 
 .file-drop-zone { border: dotted 3px lightgrey }
 .nv-file-over { border: dotted 3px red; }
+
+#photo-navbar {
+    position: relative;
+}
+
+#ngProgress-container { 
+    position: absolute;
+}
