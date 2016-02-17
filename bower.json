@@ -30,7 +30,8 @@
     "angular-file-upload": "~1.1.5",
     "angular-moment": "~0.10.1",
     "loaders.css": "~0.1.1",
-    "afkl-lazy-image": "~0.1"
+    "afkl-lazy-image": "~0.1",
+    "ngprogress": "~1.1"
   },
   "resolutions": {
     "angular": "~1.4"
