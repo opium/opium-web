@@ -1,0 +1,4 @@
+.ThumbnailList > .Thumbnail {
+    display: inline-block;
+    width: 200px;
+}
