@@ -4694,9 +4694,9 @@ resolve@^1.1.6, resolve@1.1.7, resolve@1.1.x:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
 
-rest-client-sdk@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/rest-client-sdk/-/rest-client-sdk-0.7.0.tgz#abc94cf8c2cb49e3268d1cc3333c0622311bad0f"
+rest-client-sdk@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/rest-client-sdk/-/rest-client-sdk-0.8.0.tgz#6178bf9969f72e81fe11712177b6bb2a060c5be2"
   dependencies:
     immutable "^3.8.1"
     urijs "^1.18.1"

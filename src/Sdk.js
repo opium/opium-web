@@ -9,6 +9,7 @@ export default function configureSdk() {
   const apiConfig = {
     path: 'demo.opium.sitioweb.fr',
     scheme: 'http',
+    authorizationType: 'Basic',
   };
 
   const clients = {
