@@ -7,6 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.renderOneLine = this.renderOneLine.bind(this);
+
     this.state = {
       directory: null,
     };
@@ -22,21 +24,25 @@ class App extends Component {
     ;
   }
 
+  renderOneLine(line) {
+    const directory = this.state.directory;
+
+    return line.entrySeq().map(([id, thumbnail]) =>
+      <Thumbnail
+        key={id}
+        title={directory.getChildById(id).name}
+        image={thumbnail.thumbs}
+      />
+    );
+  }
+
   render() {
     const directory = this.state.directory;
 
     return (
       <div>
         <div className="ThumbnailList">
-          {directory && directory.imageLines.toSeq().map(line =>
-            line.toKeyedSeq().map((thumbnail, id) =>
-              <Thumbnail
-                key={id}
-                title={directory.getChildById(id).name}
-                image={thumbnail.get('thumbs')}
-              />
-            )
-          )}
+          {directory && directory.imageLines.map(this.renderOneLine)}
         </div>
 
         <footer className="Footer">

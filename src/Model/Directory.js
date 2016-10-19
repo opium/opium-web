@@ -1,4 +1,4 @@
-import { fromJS, Record } from 'immutable';
+import { List, Map, Record } from 'immutable';
 
 class Directory extends Record({
   id: null,
@@ -11,7 +11,12 @@ class Directory extends Record({
 }) {
   constructor(val) {
     const data = val;
-    data.imageLines = fromJS(val.image_lines);
+    if (val.image_lines) {
+      data.imageLines = List(val.image_lines.map(line =>
+        Map(Object.keys(line).map(key => [key, line[key]]))
+      ));
+    }
+
     data.children = val.children.map(child => new Directory(child));
 
     super(data);
