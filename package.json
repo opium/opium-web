@@ -2,6 +2,12 @@
   "name": "opium-react",
   "version": "0.1.0",
   "private": true,
+  "dependencies": {
+    "normalize.css": "^5.0.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "rest-client-sdk": "^0.7.0"
+  },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "eslint": "^3.5.0",
@@ -11,11 +17,6 @@
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
     "react-scripts": "0.6.1"
-  },
-  "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "rest-client-sdk": "^0.7.0"
   },
   "scripts": {
     "start": "react-scripts start",

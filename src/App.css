@@ -1,4 +1,10 @@
-.ThumbnailList > .Thumbnail {
-    display: inline-block;
-    width: 200px;
+.ThumbnailList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.Footer {
+    text-align: right;
 }
