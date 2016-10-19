@@ -7,38 +7,32 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.getThumbnail = this.getThumbnail.bind(this);
-
     this.state = {
-      thumbnailList: [],
-      imageLines: [],
+      directory: null,
     };
   }
 
   componentDidMount() {
     container.sdk.directory.findBy({ gutter: 10 })
-      .then(directories => {
+      .then(directory => {
         this.setState({
-          thumbnailList: directories.get('children'),
-          imageLines: directories.get('image_lines'),
+          directory,
         });
       })
     ;
   }
 
-  getThumbnail(id) {
-    return this.state.thumbnailList.find(item => item.get('id') === parseInt(id, 10));
-  }
-
   render() {
+    const directory = this.state.directory;
+
     return (
       <div>
         <div className="ThumbnailList">
-          {this.state.imageLines.map(line =>
-            line.map((thumbnail, id) =>
+          {directory && directory.imageLines.toSeq().map(line =>
+            line.toKeyedSeq().map((thumbnail, id) =>
               <Thumbnail
                 key={id}
-                title={this.getThumbnail(id).get('name')}
+                title={directory.getChildById(id).name}
                 image={thumbnail.get('thumbs')}
               />
             )
@@ -46,7 +40,7 @@ class App extends Component {
         </div>
 
         <footer className="Footer">
-          Total number of items: 3
+          Total number of items: {directory && directory.children.size}
         </footer>
       </div>
     );

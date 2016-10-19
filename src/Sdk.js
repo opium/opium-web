@@ -1,6 +1,7 @@
 import RestClientSdk, { TokenStorage, ProvidedTokenGenerator } from 'rest-client-sdk';
-import DirectoryRepository from './Model/Repository/DirectoryRepository';
 import localforage from 'localforage';
+import DirectoryRepository from './Model/Repository/DirectoryRepository';
+import { entityFactory } from './Model/Factory';
 
 export default function configureSdk() {
   const tokenGenerator = new ProvidedTokenGenerator('dGVzdDp0ZXN0');
@@ -16,5 +17,5 @@ export default function configureSdk() {
     directory: DirectoryRepository,
   };
 
-  return new RestClientSdk(tokenStorage, apiConfig, clients);
+  return new RestClientSdk(tokenStorage, apiConfig, clients, entityFactory);
 }
