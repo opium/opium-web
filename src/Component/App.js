@@ -1,8 +1,19 @@
+/* global container */
 import React, { Component } from 'react';
 import './App.css';
 import Thumbnail from './Thumbnail';
 
 class App extends Component {
+  componentDidMount() {
+    container.sdk.directory.findBy({ gutter: 10 })
+      .then(directories => {
+        console.log(directories);
+        debugger;
+      })
+      .catch(e => { debugger; })
+    ;
+  }
+
   render() {
     return (
       <div>
