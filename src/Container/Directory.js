@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from '../Component/App';
+import Directory from '../Component/Directory';
 import { find } from '../Action/DirectoryAction';
 
 function mapStateToProps(state) {
@@ -17,4 +17,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(Directory);

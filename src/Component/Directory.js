@@ -1,9 +1,8 @@
-/* global container */
 import React, { Component, PropTypes } from 'react';
-import './App.css';
+import './Directory.css';
 import Thumbnail from './Thumbnail';
 
-class App extends Component {
+class Directory extends Component {
   static propTypes = {
     directory: PropTypes.object,
     findDirectory: PropTypes.func.isRequired,
@@ -48,4 +47,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Directory;

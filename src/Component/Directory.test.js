@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from './App';
-import Directory from '../Model/Directory';
+import Directory from './Directory';
+import DirectoryModel from '../Model/Directory';
 
 it('renders without crashing without directory', () => {
-  const component = renderer.create(<App
+  const component = renderer.create(<Directory
     findDirectory={jest.fn()}
   />);
   let tree = component.toJSON();
@@ -12,10 +12,10 @@ it('renders without crashing without directory', () => {
 });
 
 it('renders an empty directory', () => {
-  const directory = new Directory({
+  const directory = new DirectoryModel({
     name: 'foo',
   });
-  const component = renderer.create(<App
+  const component = renderer.create(<Directory
     directory={directory}
     findDirectory={jest.fn()}
   />);
@@ -24,7 +24,7 @@ it('renders an empty directory', () => {
 });
 
 it('renders a non empty directory', () => {
-  const directory = new Directory({
+  const directory = new DirectoryModel({
     name: 'foo',
     children: [
       {
@@ -49,7 +49,7 @@ it('renders a non empty directory', () => {
       }
     ],
   });
-  const component = renderer.create(<App
+  const component = renderer.create(<Directory
     directory={directory}
     findDirectory={jest.fn()}
   />);

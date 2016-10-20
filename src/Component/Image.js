@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import './App.css';
-import Thumbnail from './Thumbnail';
 
 class Image extends Component {
   static propTypes = {
