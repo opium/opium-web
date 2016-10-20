@@ -7,7 +7,14 @@ import configureSdk from './Sdk';
 window.container = {};
 window.container.sdk = configureSdk();
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+
+window.container.sdk.directory.findBy({ gutter: 10 })
+  .then(directory => {
+    ReactDOM.render(
+      <App directory={directory} />,
+      document.getElementById('root')
+    );
+  })
+;
+
+

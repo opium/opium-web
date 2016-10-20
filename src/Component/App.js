@@ -1,31 +1,21 @@
 /* global container */
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './App.css';
 import Thumbnail from './Thumbnail';
 
 class App extends Component {
+  static propTypes = {
+    directory: PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
     this.renderOneLine = this.renderOneLine.bind(this);
-
-    this.state = {
-      directory: null,
-    };
-  }
-
-  componentDidMount() {
-    container.sdk.directory.findBy({ gutter: 10 })
-      .then(directory => {
-        this.setState({
-          directory,
-        });
-      })
-    ;
   }
 
   renderOneLine(line) {
-    const directory = this.state.directory;
+    const directory = this.props.directory;
 
     return line.entrySeq().map(([id, thumbnail]) =>
       <Thumbnail
@@ -37,7 +27,7 @@ class App extends Component {
   }
 
   render() {
-    const directory = this.state.directory;
+    const directory = this.props.directory;
 
     return (
       <div>
