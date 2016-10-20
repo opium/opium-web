@@ -4,7 +4,9 @@ import App from './App';
 import Directory from '../Model/Directory';
 
 it('renders without crashing without directory', () => {
-  const component = renderer.create(<App />);
+  const component = renderer.create(<App
+    findDirectory={jest.fn()}
+  />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
 });
@@ -13,7 +15,10 @@ it('renders an empty directory', () => {
   const directory = new Directory({
     name: 'foo',
   });
-  const component = renderer.create(<App directory={directory} />);
+  const component = renderer.create(<App
+    directory={directory}
+    findDirectory={jest.fn()}
+  />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
 });
@@ -44,7 +49,10 @@ it('renders a non empty directory', () => {
       }
     ],
   });
-  const component = renderer.create(<App directory={directory} />);
+  const component = renderer.create(<App
+    directory={directory}
+    findDirectory={jest.fn()}
+  />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
 });

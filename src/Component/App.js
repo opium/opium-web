@@ -6,12 +6,17 @@ import Thumbnail from './Thumbnail';
 class App extends Component {
   static propTypes = {
     directory: PropTypes.object,
+    findDirectory: PropTypes.func.isRequired,
   }
 
   constructor(props) {
     super(props);
 
     this.renderOneLine = this.renderOneLine.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.findDirectory();
   }
 
   renderOneLine(line) {
