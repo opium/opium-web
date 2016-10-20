@@ -2,6 +2,7 @@ import React from 'react';
 import { browserHistory, Router, Route } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import Directory from './Container/Directory';
+import Image from './Container/Image';
 
 
 export default function configureRoutes(store) {
@@ -9,5 +10,6 @@ export default function configureRoutes(store) {
 
   return (<Router history={history}>
     <Route path="/" component={Directory} />
+    <Route path="/pacific-ocean/2010-mavericks-competition-edit1-jpg" component={Image} />
   </Router>);
 };
