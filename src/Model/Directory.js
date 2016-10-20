@@ -17,13 +17,19 @@ class Directory extends Record({
       ));
     }
 
-    data.children = val.children.map(child => new Directory(child));
+    data.children = val.children ?
+      List(val.children.map(child => new Directory(child))) :
+      List();
 
     super(data);
   }
 
   getChildById(id) {
     return this.children.find(item => item.id === parseInt(id, 10));
+  }
+
+  getChildrenSize() {
+    return this.children.size;
   }
 }
 

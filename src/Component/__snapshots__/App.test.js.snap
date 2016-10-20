@@ -1,0 +1,59 @@
+exports[`test renders a non empty directory 1`] = `
+<div>
+  <div
+    className="ThumbnailList">
+    <article
+      className="Thumbnail"
+      style={
+        Object {
+          "backgroundImage": "url(http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200)"
+        }
+      }>
+      <span
+        className="Caption">
+        Alps
+      </span>
+    </article>
+    <article
+      className="Thumbnail"
+      style={
+        Object {
+          "backgroundImage": "url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200)"
+        }
+      }>
+      <span
+        className="Caption">
+        Pacific Ocean
+      </span>
+    </article>
+  </div>
+  <footer
+    className="Footer">
+    Total number of items: 
+    2
+  </footer>
+</div>
+`;
+
+exports[`test renders an empty directory 1`] = `
+<div>
+  <div
+    className="ThumbnailList" />
+  <footer
+    className="Footer">
+    Total number of items: 
+    0
+  </footer>
+</div>
+`;
+
+exports[`test renders without crashing without directory 1`] = `
+<div>
+  <div
+    className="ThumbnailList" />
+  <footer
+    className="Footer">
+    Total number of items: 
+  </footer>
+</div>
+`;

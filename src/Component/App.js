@@ -36,7 +36,7 @@ class App extends Component {
         </div>
 
         <footer className="Footer">
-          Total number of items: {directory && directory.children.size}
+          Total number of items: {directory && directory.getChildrenSize()}
         </footer>
       </div>
     );

@@ -9,6 +9,7 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1",
+    "react-test-renderer": "^15.3.2",
     "rest-client-sdk": "^0.8.0"
   },
   "devDependencies": {
