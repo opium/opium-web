@@ -14,7 +14,7 @@ class Thumbnail extends Component {
         style={{ backgroundImage: `url(${this.props.image})` }}
       >
         <span className="Caption">
-        {this.props.title}
+          {this.props.title}
         </span>
       </article>
     );
