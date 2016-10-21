@@ -33,11 +33,13 @@ it('renders a non empty directory', () => {
         id: 1,
         name: "Alps",
         slug: "alps",
+        type: 'directory',
       },
       {
         id: 2,
         name: "Pacific Ocean",
         slug: "pacific-ocean",
+        type: 'directory',
       }
     ],
     image_lines: [
@@ -68,11 +70,13 @@ it('renders a non empty directory with parent', () => {
         id: 1,
         name: "Alps",
         slug: "alps",
+        type: 'directory',
       },
       {
         id: 2,
         name: "Pacific Ocean",
         slug: "pacific-ocean",
+        type: 'directory',
       }
     ],
     image_lines: [

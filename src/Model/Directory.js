@@ -1,4 +1,5 @@
 import { List, Map, Record } from 'immutable';
+import { mapEntityRelationShips } from './Factory';
 
 class Directory extends Record({
   id: null,
@@ -18,13 +19,7 @@ class Directory extends Record({
       ));
     }
 
-    data.children = val.children ?
-      List(val.children.map(child => new Directory(child))) :
-      List();
-
-    data.parent = val.parent && new Directory(val.parent);
-
-    super(data);
+    return mapEntityRelationShips(super(data), data);
   }
 
   getChildById(id) {
@@ -32,7 +27,7 @@ class Directory extends Record({
   }
 
   getChildrenSize() {
-    return this.children.size;
+    return this.children.size || 0;
   }
 }
 
