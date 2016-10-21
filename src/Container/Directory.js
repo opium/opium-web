@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    findDirectory: () => { dispatch(find()); },
+    findDirectory: (slug) => dispatch(find(slug)),
   };
 };
 

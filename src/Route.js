@@ -10,6 +10,7 @@ export default function configureRoutes(store) {
 
   return (<Router history={history}>
     <Route path="/" component={Directory} />
+    <Route path="/:slug" component={Directory} />
     <Route path="/pacific-ocean/2010-mavericks-competition-edit1-jpg" component={Image} />
   </Router>);
 };
