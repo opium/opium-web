@@ -19,7 +19,7 @@ function mapListToEntityList(list) {
 
 export function mapEntityRelationShips(entity, baseJson) {
   return entity.withMutations(mutableEntity => {
-    for (const prop in baseJson) {
+    for (const prop of Object.keys(baseJson)) {
       const val = baseJson[prop];
 
       if (!val || !entity.has(prop)) {
