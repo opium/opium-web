@@ -7,10 +7,8 @@ function mapStateToProps(state) {
   }
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    // findDirectory: () => { dispatch(find()); },
-  };
+const mapDispatchToProps = {
+  // findDirectory: find,
 };
 
 export default connect(
