@@ -8,6 +8,7 @@ class Directory extends Record({
   _links: {},
   _embedded: {},
   imageLines: [],
+  parent: null,
 }) {
   constructor(val) {
     const data = val;
@@ -20,6 +21,8 @@ class Directory extends Record({
     data.children = val.children ?
       List(val.children.map(child => new Directory(child))) :
       List();
+
+    data.parent = val.parent && new Directory(val.parent);
 
     super(data);
   }

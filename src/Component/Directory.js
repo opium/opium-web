@@ -46,14 +46,26 @@ class Directory extends Component {
   render() {
     const directory = this.props.directory;
 
+    if (!directory) {
+      return <div />;
+    }
+
     return (
       <div>
+        {directory.parent &&
+          <header>
+            <Link to={`/${directory.parent.slug}`}>
+              Back to albums
+            </Link>
+          </header>
+        }
+
         <div className="ThumbnailList">
-          {directory && directory.imageLines.map(this.renderOneLine)}
+          {directory.imageLines.map(this.renderOneLine)}
         </div>
 
         <footer className="Footer">
-          Total number of items: {directory && directory.getChildrenSize()}
+          Total number of items: {directory.getChildrenSize()}
         </footer>
       </div>
     );

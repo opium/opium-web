@@ -43,6 +43,58 @@ exports[`test renders a non empty directory 1`] = `
 </div>
 `;
 
+exports[`test renders a non empty directory with parent 1`] = `
+<div>
+  <header>
+    <a
+      onClick={[Function bound handleClick]}
+      style={Object {}}>
+      Back to albums
+    </a>
+  </header>
+  <div
+    className="ThumbnailList">
+    <a
+      onClick={[Function bound handleClick]}
+      style={Object {}}>
+      <article
+        className="Thumbnail"
+        style={
+          Object {
+            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200)"
+          }
+        }>
+        <span
+          className="Caption">
+          Alps
+        </span>
+      </article>
+    </a>
+    <a
+      onClick={[Function bound handleClick]}
+      style={Object {}}>
+      <article
+        className="Thumbnail"
+        style={
+          Object {
+            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200)"
+          }
+        }>
+        <span
+          className="Caption">
+          Pacific Ocean
+        </span>
+      </article>
+    </a>
+  </div>
+  <footer
+    className="Footer">
+    Total number of items: 
+    2
+  </footer>
+</div>
+`;
+
 exports[`test renders an empty directory 1`] = `
 <div>
   <div
@@ -55,13 +107,4 @@ exports[`test renders an empty directory 1`] = `
 </div>
 `;
 
-exports[`test renders without crashing without directory 1`] = `
-<div>
-  <div
-    className="ThumbnailList" />
-  <footer
-    className="Footer">
-    Total number of items: 
-  </footer>
-</div>
-`;
+exports[`test renders without crashing without directory 1`] = `<div />`;
