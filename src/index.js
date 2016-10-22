@@ -4,6 +4,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import thunk from 'redux-thunk';
+import Helmet from 'react-helmet';
 import 'normalize.css';
 import configureSdk from './Sdk';
 import configureRoutes from './Route';
@@ -26,9 +27,14 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  (<Provider store={store}>
-   {configureRoutes(store)}
-  </Provider>),
+  (
+    <div>
+      <Helmet title="Opium" titleTemplate="%s | Opium" />
+      <Provider store={store}>
+        {configureRoutes(store)}
+      </Provider>
+    </div>
+  ),
   document.getElementById('root')
 );
 

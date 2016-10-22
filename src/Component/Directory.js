@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import Helmet from 'react-helmet';
 import './Directory.css';
 import Thumbnail from './Thumbnail';
 
@@ -56,6 +57,8 @@ class Directory extends Component {
 
     return (
       <div>
+        <Helmet title={directory.name} />
+
         {directory.parent &&
           <header>
             <Link to={`/${directory.parent.slug}`}>
