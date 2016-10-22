@@ -1,0 +1,12 @@
+exports[`test renders file without crashing 1`] = `
+<div>
+  <img
+    alt="My title"
+    src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+    style={
+      Object {
+        "maxWidth": "100%"
+      }
+    } />
+</div>
+`;

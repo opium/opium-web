@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
+import FileModel from '../Model/File';
 
 class File extends Component {
   static propTypes = {
-    // directory: PropTypes.object,
+    file: PropTypes.instanceOf(FileModel).isRequired,
     // findDirectory: PropTypes.func.isRequired,
   }
 
@@ -13,7 +14,8 @@ class File extends Component {
         <Helmet title="Foo" />
         <img
           src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-          style={{ 'max-width': '100%' }}
+          alt="My title"
+          style={{ maxWidth: '100%' }}
         />
       </div>
     );

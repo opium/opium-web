@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import Directory from './Directory';
 import DirectoryModel from '../Model/Directory';
 
-it('renders without crashing without directory', () => {
+it('renders directory without crashing', () => {
   const component = renderer.create(<Directory
     findDirectory={jest.fn()}
     slug=""

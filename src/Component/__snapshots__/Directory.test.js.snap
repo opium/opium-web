@@ -107,4 +107,4 @@ exports[`test renders an empty directory 1`] = `
 </div>
 `;
 
-exports[`test renders without crashing without directory 1`] = `<div />`;
+exports[`test renders directory without crashing 1`] = `<div />`;
