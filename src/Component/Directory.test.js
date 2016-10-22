@@ -6,7 +6,7 @@ import DirectoryModel from '../Model/Directory';
 it('renders without crashing without directory', () => {
   const component = renderer.create(<Directory
     findDirectory={jest.fn()}
-    params={{}}
+    slug=""
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -19,7 +19,7 @@ it('renders an empty directory', () => {
   const component = renderer.create(<Directory
     directory={directory}
     findDirectory={jest.fn()}
-    params={{}}
+    slug=""
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -56,7 +56,7 @@ it('renders a non empty directory', () => {
   const component = renderer.create(<Directory
     directory={directory}
     findDirectory={jest.fn()}
-    params={{}}
+    slug=""
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -97,7 +97,7 @@ it('renders a non empty directory with parent', () => {
   const component = renderer.create(<Directory
     directory={directory}
     findDirectory={jest.fn()}
-    params={{}}
+    slug=""
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()

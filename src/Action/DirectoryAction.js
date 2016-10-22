@@ -10,7 +10,6 @@ export function find(slug) {
     const finder = slug ?
       window.container.sdk.directory.find(slug, { gutter: 10 }) :
       window.container.sdk.directory.findBy({ gutter: 10 })
-      console.log(slug);
 
     finder
       .then(directory => {

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-class Image extends Component {
+class File extends Component {
   static propTypes = {
     // directory: PropTypes.object,
     // findDirectory: PropTypes.func.isRequired,
@@ -18,4 +18,4 @@ class Image extends Component {
   }
 }
 
-export default Image;
+export default File;

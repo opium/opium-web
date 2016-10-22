@@ -7,7 +7,7 @@ class Directory extends Component {
   static propTypes = {
     directory: PropTypes.object,
     findDirectory: PropTypes.func.isRequired,
-    params: PropTypes.object.isRequired,
+    slug: PropTypes.string.isRequired,
   }
 
   constructor(props) {
@@ -17,12 +17,12 @@ class Directory extends Component {
   }
 
   componentDidMount() {
-    this.props.findDirectory(this.props.params.slug);
+    this.props.findDirectory(this.props.slug);
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.params.slug !== prevProps.params.slug) {
-      this.props.findDirectory(this.props.params.slug);
+    if (this.props.slug !== prevProps.slug) {
+      this.props.findDirectory(this.props.slug);
     }
   }
 
@@ -44,6 +44,10 @@ class Directory extends Component {
   }
 
   render() {
+    if (this.props.children) {
+      return this.props.children;
+    }
+
     const directory = this.props.directory;
 
     if (!directory) {

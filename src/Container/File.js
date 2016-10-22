@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Image from '../Component/Image';
+import File from '../Component/File';
 
 function mapStateToProps(state) {
   return {
@@ -14,4 +14,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Image);
+)(File);
