@@ -3,13 +3,13 @@ exports[`test renders a non empty directory 1`] = `
   <div
     className="ThumbnailList">
     <a
-      onClick={[Function bound handleClick]}
+      onClick={[Function]}
       style={Object {}}>
       <article
         className="Thumbnail"
         style={
           Object {
-            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200)"
+            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200)",
           }
         }>
         <span
@@ -19,13 +19,13 @@ exports[`test renders a non empty directory 1`] = `
       </article>
     </a>
     <a
-      onClick={[Function bound handleClick]}
+      onClick={[Function]}
       style={Object {}}>
       <article
         className="Thumbnail"
         style={
           Object {
-            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200)"
+            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200)",
           }
         }>
         <span
@@ -47,7 +47,7 @@ exports[`test renders a non empty directory with parent 1`] = `
 <div>
   <header>
     <a
-      onClick={[Function bound handleClick]}
+      onClick={[Function]}
       style={Object {}}>
       Back to albums
     </a>
@@ -55,13 +55,13 @@ exports[`test renders a non empty directory with parent 1`] = `
   <div
     className="ThumbnailList">
     <a
-      onClick={[Function bound handleClick]}
+      onClick={[Function]}
       style={Object {}}>
       <article
         className="Thumbnail"
         style={
           Object {
-            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200)"
+            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200)",
           }
         }>
         <span
@@ -71,13 +71,13 @@ exports[`test renders a non empty directory with parent 1`] = `
       </article>
     </a>
     <a
-      onClick={[Function bound handleClick]}
+      onClick={[Function]}
       style={Object {}}>
       <article
         className="Thumbnail"
         style={
           Object {
-            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200)"
+            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200)",
           }
         }>
         <span
