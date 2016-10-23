@@ -1,7 +1,9 @@
-exports[`test renders file without crashing 1`] = `
+exports[`test renders empty file without crashing 1`] = `<div />`;
+
+exports[`test renders real file without crashing 1`] = `
 <div>
   <img
-    alt="My title"
+    alt="Foo"
     src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
     style={
       Object {

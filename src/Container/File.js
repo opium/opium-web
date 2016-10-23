@@ -1,17 +1,21 @@
 import { connect } from 'react-redux';
-import File from '../Component/File';
+import FileComponent from '../Component/File';
+import File from '../Model/File';
+import { find, removeCurrent } from '../Action/FileAction';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
-    // directory: state.opium.get('currentDirectory'),
+    file: state.opium.get('currentFile') || new File({}),
+    slug: ownProps.params.fileSlug || '',
   }
 };
 
 const mapDispatchToProps = {
-  // findDirectory: find,
+  findFile: find,
+  removeCurrentFile: removeCurrent,
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(File);
+)(FileComponent);
