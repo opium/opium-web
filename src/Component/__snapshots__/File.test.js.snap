@@ -6,18 +6,65 @@ exports[`test renders file with backlink 1`] = `
     <a
       onClick={[Function]}
       style={Object {}}>
+      < 
       Bar
     </a>
     Foo
   </h1>
-  <img
-    alt="Foo"
-    src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-    style={
-      Object {
-        "maxWidth": "100%",
-      }
-    } />
+  <div
+    className="PrevNextContainer">
+    <img
+      alt="Foo"
+      src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+      style={
+        Object {
+          "display": "block",
+          "maxWidth": "100%",
+        }
+      } />
+  </div>
+</div>
+`;
+
+exports[`test renders file with prev / next links 1`] = `
+<div>
+  <h1>
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      < 
+      Directory
+    </a>
+    Foo
+  </h1>
+  <div
+    className="PrevNextContainer">
+    <img
+      alt="Foo"
+      src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+      style={
+        Object {
+          "display": "block",
+          "maxWidth": "100%",
+        }
+      } />
+    <div
+      className="Prev">
+      <a
+        onClick={[Function]}
+        style={Object {}}>
+        <
+      </a>
+    </div>
+    <div
+      className="Next">
+      <a
+        onClick={[Function]}
+        style={Object {}}>
+        >
+      </a>
+    </div>
+  </div>
 </div>
 `;
 
@@ -26,13 +73,17 @@ exports[`test renders real file without crashing 1`] = `
   <h1>
     Foo
   </h1>
-  <img
-    alt="Foo"
-    src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-    style={
-      Object {
-        "maxWidth": "100%",
-      }
-    } />
+  <div
+    className="PrevNextContainer">
+    <img
+      alt="Foo"
+      src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+      style={
+        Object {
+          "display": "block",
+          "maxWidth": "100%",
+        }
+      } />
+  </div>
 </div>
 `;

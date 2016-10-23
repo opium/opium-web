@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import FileModel from '../Model/File';
+import './File.css';
 
 const BackLink = ({file}) => {
   if (!file.parent) {
@@ -10,10 +11,39 @@ const BackLink = ({file}) => {
 
   return (
     <Link to={`/${file.parent.slug}`}>
-      {file.parent.name}
+      &lt; {file.parent.name}
     </Link>
   );
 };
+
+const PrevLink = ({file}) => {
+  if (!file.previous) {
+    return null;
+  }
+
+  return (
+    <div className="Prev">
+      <Link to={`/${file.parent.slug}/${file.previous.slug}`}>
+        &lt;
+      </Link>
+    </div>
+  );
+};
+
+const NextLink = ({file}) => {
+  if (!file.next) {
+    return null;
+  }
+
+  return (
+    <div className="Next">
+      <Link to={`/${file.parent.slug}/${file.next.slug}`}>
+        &gt;
+      </Link>
+    </div>
+  );
+};
+
 
 class File extends Component {
   static propTypes = {
@@ -24,6 +54,12 @@ class File extends Component {
 
   componentDidMount() {
     this.props.findFile(this.props.slug);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.slug !== prevProps.slug) {
+      this.props.findFile(this.props.slug);
+    }
   }
 
   componentWillUnmount() {
@@ -45,11 +81,17 @@ class File extends Component {
         </h1>
 
         <Helmet title="Foo" />
-        <img
-          src={file.thumbnails.get('image')}
-          alt={file.name}
-          style={{ maxWidth: '100%' }}
-        />
+
+        <div className="PrevNextContainer">
+          <img
+            src={file.thumbnails.get('image')}
+            alt={file.name}
+            style={{ display: 'block', maxWidth: '100%' }}
+          />
+
+          <PrevLink file={file} />
+          <NextLink file={file} />
+        </div>
       </div>
     );
   }

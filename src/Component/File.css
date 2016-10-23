@@ -1,0 +1,34 @@
+.PrevNextContainer {
+    position: relative;
+}
+
+.Prev, .Next {
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+.Prev a, .Next a {
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    text-decoration: none;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 10em;
+}
+
+.Prev:hover > a, .Next:hover > a {
+    display: flex;
+}
+
+.Prev {
+    left: 0;
+    width: 25%;
+}
+
+.Next {
+    right: 0;
+    width: 45%;
+}
