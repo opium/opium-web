@@ -1,7 +1,31 @@
 exports[`test renders empty file without crashing 1`] = `<div />`;
 
+exports[`test renders file with backlink 1`] = `
+<div>
+  <h1>
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      Bar
+    </a>
+    Foo
+  </h1>
+  <img
+    alt="Foo"
+    src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+    style={
+      Object {
+        "maxWidth": "100%",
+      }
+    } />
+</div>
+`;
+
 exports[`test renders real file without crashing 1`] = `
 <div>
+  <h1>
+    Foo
+  </h1>
   <img
     alt="Foo"
     src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"

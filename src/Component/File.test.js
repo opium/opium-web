@@ -30,6 +30,27 @@ it('renders real file without crashing', () => {
   expect(tree).toMatchSnapshot()
 });
 
+it('renders file with backlink', () => {
+  const file = new FileModel({
+    name: 'Foo',
+    slug: 'foo',
+    thumbnails: {
+      image: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg',
+    },
+    parent: {
+      name: 'Bar',
+      slug: 'bar',
+    },
+  });
+  const component = renderer.create(<File
+    file={file}
+    findFile={() => {}}
+    removeCurrentFile={() => {}}
+  />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot()
+});
+
 
 
 

@@ -1,6 +1,19 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import FileModel from '../Model/File';
+
+const BackLink = ({file}) => {
+  if (!file.parent) {
+    return null;
+  }
+
+  return (
+    <Link to={`/${file.parent.slug}`}>
+      {file.parent.name}
+    </Link>
+  );
+};
 
 class File extends Component {
   static propTypes = {
@@ -26,6 +39,11 @@ class File extends Component {
 
     return (
       <div>
+        <h1>
+          <BackLink file={file} />
+          {file.name}
+        </h1>
+
         <Helmet title="Foo" />
         <img
           src={file.thumbnails.get('image')}

@@ -3,6 +3,45 @@ export default {
   "id": 5,
   "name": "2909_vallon_moy_res.jpg",
   "pathname": "Alps/2909_vallon_moy_res.jpg",
+  "parent": {
+    "type": "directory",
+    "id": 2,
+    "name": "Alps",
+    "pathname": "Alps",
+    "slug": "alps",
+    "children": [
+
+    ],
+    "dtype": "directory",
+    "_links": {
+      "self": {
+        "href": "http://demo.opium.sitioweb.fr/v1/directories"
+      }
+    },
+    "_embedded": {
+      "directory_thumbnail": null
+    }
+  },
+  "next": {
+    "type": "file",
+    "id": 6,
+    "name": "Alpes-anniviers1.jpg",
+    "pathname": "Alps/Alpes-anniviers1.jpg",
+    "slug": "alpes-anniviers1-jpg",
+    "_links": {
+      "self": {
+        "href": "http://demo.opium.sitioweb.fr/v1/files/alpes-anniviers1-jpg"
+      },
+      "original": {
+        "href": "http://demo.opium.sitioweb.fr/alpes-anniviers1-jpg"
+      }
+    },
+    "thumbnails": {
+      "banner": "http://demo.opium.sitioweb.fr/alpes-anniviers1-jpg/thumbs/1170-200",
+      "smallSquare": "http://demo.opium.sitioweb.fr/alpes-anniviers1-jpg/thumbs/50-50",
+      "image": "http://demo.opium.sitioweb.fr/alpes-anniviers1-jpg/thumbs/1170-auto"
+    }
+  },
   "slug": "2909-vallon-moy-res-jpg",
   "exif": {
     "ColorSpace": "1",
@@ -36,4 +75,4 @@ export default {
     "smallSquare": "http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/50-50",
     "image": "http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-auto"
   }
-};
+}

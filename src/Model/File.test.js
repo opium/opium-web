@@ -1,6 +1,7 @@
 import { Map } from 'immutable';
 import rawFile from 'rawFile';
 import File from './File';
+import Directory from './Directory';
 
 it('generate a valid file', () => {
   const file = new File(rawFile);
@@ -12,4 +13,7 @@ it('generate a valid file', () => {
   expect(file.slug).toEqual('2909-vallon-moy-res-jpg');
   expect(file.thumbnails).toBeInstanceOf(Map);
   expect(file.thumbnails.get('image')).toEqual('http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-auto');
+
+  expect(file.parent).toBeInstanceOf(Directory);
+  expect(file.parent.slug).toEqual('alps');
 });
