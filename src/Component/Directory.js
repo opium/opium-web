@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import './Directory.css';
 import Thumbnail from './Thumbnail';
+import File from '../Model/File';
 
 class Directory extends Component {
   static propTypes = {
@@ -32,8 +33,12 @@ class Directory extends Component {
 
     return line.entrySeq().map(([id, thumbnail]) => {
       const child = directory.getChildById(id);
+      const childSlug = child instanceof File ?
+        `/${directory.slug}/${child.slug}` :
+        `/${child.slug}`;
+
       return (
-        <Link to={`/${child.slug}`}>
+        <Link to={childSlug}>
           <Thumbnail
             key={id}
             title={child.name}
