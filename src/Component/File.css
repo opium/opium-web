@@ -1,5 +1,6 @@
 .PrevNextContainer {
     position: relative;
+    display: inline-block;
 }
 
 .Prev, .Next {

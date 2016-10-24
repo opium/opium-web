@@ -6,6 +6,7 @@ import { find, removeCurrent } from '../Action/FileAction';
 function mapStateToProps(state, ownProps) {
   return {
     file: state.opium.get('currentFile') || new File({}),
+    isFetchingFile: !!state.opium.get('isFetchingFile'),
     slug: ownProps.params.fileSlug || '',
   }
 };

@@ -4,13 +4,13 @@ import Helmet from 'react-helmet';
 import FileModel from '../Model/File';
 import './File.css';
 
-const BackLink = ({file}) => {
+const BackLink = ({file, ...props}) => {
   if (!file.parent) {
     return null;
   }
 
   return (
-    <Link to={`/${file.parent.slug}`}>
+    <Link to={`/${file.parent.slug}`} {...props}>
       &lt; {file.parent.name}
     </Link>
   );
@@ -48,6 +48,7 @@ const NextLink = ({file}) => {
 class File extends Component {
   static propTypes = {
     file: PropTypes.instanceOf(FileModel).isRequired,
+    isFetchingFile: PropTypes.bool.isRequired,
     findFile: PropTypes.func.isRequired,
     removeCurrentFile: PropTypes.func.isRequired,
   }
@@ -69,14 +70,14 @@ class File extends Component {
   render() {
     const file = this.props.file;
 
-    if (!file.thumbnails.get('image')) {
+    if (!file.thumbnails.get('image') || this.props.isFetchingFile) {
       return <div />;
     }
 
     return (
       <div>
         <h1>
-          <BackLink file={file} />
+          <BackLink file={file} className="Back" />
           {file.name}
         </h1>
 

@@ -22,7 +22,8 @@ const DirectoryHeader = ({directory}) => {
       style={styles}
     >
       {directory.parent &&
-        <Link to={`/${directory.parent.slug}`}>
+        <Link to={`/${directory.parent.slug}`} className="Back">
+          &lt;
           Back to albums
         </Link>
       }

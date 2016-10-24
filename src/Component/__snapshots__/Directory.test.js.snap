@@ -8,9 +8,10 @@ exports[`test renders a directory with header 1`] = `
       }
     }>
     <a
+      className="Back"
       onClick={[Function]}
       style={Object {}}>
-      Back to albums
+      < Back to albums
     </a>
     <h1
       className="DirectoryHeaderTitle">
@@ -111,9 +112,10 @@ exports[`test renders a non empty directory with parent 1`] = `
     className=""
     style={Object {}}>
     <a
+      className="Back"
       onClick={[Function]}
       style={Object {}}>
-      Back to albums
+      < Back to albums
     </a>
   </header>
   <div

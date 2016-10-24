@@ -17,5 +17,20 @@
 }
 
 .DirectoryHeaderTitle {
+    margin-top: 70px;
     color: #fff;
+    text-align: center;
+    font-size: 54px;
+}
+
+.Back {
+    display: inline-block;
+    margin: 1em;
+    font-size: 1.2em;
+    color: #899eaf;
+    text-decoration: none;
+}
+
+.Back:hover {
+    text-decoration: underline;
 }

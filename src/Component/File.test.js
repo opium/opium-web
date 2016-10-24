@@ -8,6 +8,19 @@ it('renders empty file without crashing', () => {
     file={new FileModel({})}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    isFetchingFile={false}
+  />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot()
+});
+
+it('renders a loader if file is not loaded', () => {
+  const file = new FileModel({});
+  const component = renderer.create(<File
+    file={file}
+    findFile={() => {}}
+    removeCurrentFile={() => {}}
+    isFetchingFile={true}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -25,6 +38,7 @@ it('renders real file without crashing', () => {
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    isFetchingFile={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -46,6 +60,7 @@ it('renders file with backlink', () => {
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    isFetchingFile={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -75,6 +90,7 @@ it('renders file with prev / next links', () => {
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    isFetchingFile={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()

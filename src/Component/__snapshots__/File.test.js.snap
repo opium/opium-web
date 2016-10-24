@@ -1,9 +1,12 @@
+exports[`test renders a loader if file is not loaded 1`] = `<div />`;
+
 exports[`test renders empty file without crashing 1`] = `<div />`;
 
 exports[`test renders file with backlink 1`] = `
 <div>
   <h1>
     <a
+      className="Back"
       onClick={[Function]}
       style={Object {}}>
       < 
@@ -30,6 +33,7 @@ exports[`test renders file with prev / next links 1`] = `
 <div>
   <h1>
     <a
+      className="Back"
       onClick={[Function]}
       style={Object {}}>
       < 
