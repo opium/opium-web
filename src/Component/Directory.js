@@ -6,14 +6,16 @@ import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 
-const DirectoryHeader = ({directory}) => {
+const DirectoryHeader = ({directory, viewportWidth}) => {
   if (!directory.parent && !directory.directoryThumbnail) {
     return null;
   }
 
   const styles = {};
   if (directory.directoryThumbnail) {
-    styles.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8)), url(${directory.directoryThumbnail.thumbnails.get('banner')})`;
+    styles.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.8)),
+      url(${directory.directoryThumbnail.generateCrop(viewportWidth, 400)})`;
   }
 
   return (
@@ -42,6 +44,7 @@ class Directory extends Component {
     directory: PropTypes.object,
     findDirectory: PropTypes.func.isRequired,
     slug: PropTypes.string.isRequired,
+    viewportWidth: PropTypes.number.isRequired,
   }
 
   constructor(props) {
@@ -96,7 +99,10 @@ class Directory extends Component {
       <div>
         <Helmet title={directory.name} />
 
-        <DirectoryHeader directory={directory} />
+        <DirectoryHeader
+          directory={directory}
+          viewportWidth={this.props.viewportWidth}
+        />
 
         <div className="ThumbnailList">
           {directory.imageLines.map(this.renderOneLine)}

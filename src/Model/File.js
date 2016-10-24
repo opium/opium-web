@@ -10,6 +10,7 @@ class File extends Record({
   parent: null,
   next: null,
   previous: null,
+  cropTemplate: null,
 }) {
   constructor(val) {
     const data = val;
@@ -18,7 +19,19 @@ class File extends Record({
     data.previous = val.previous && new File(val.previous);
     data.next = val.next && new File(val.next);
 
+    data.cropTemplate = val._links &&
+      val._links.cropTemplate &&
+      val._links.cropTemplate.href;
+
     return mapEntityRelationShips(super(data), data);
+  }
+
+  generateCrop(width, height) {
+    return this.cropTemplate &&
+      this.cropTemplate
+        .replace('%7BcropWidth%7D', width)
+        .replace('%7BcropHeight%7D', height)
+    ;
   }
 }
 

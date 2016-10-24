@@ -34,7 +34,7 @@ export default {
       },
       "original": {
         "href": "http://demo.opium.sitioweb.fr/alpes-anniviers1-jpg"
-      }
+      },
     },
     "thumbnails": {
       "banner": "http://demo.opium.sitioweb.fr/alpes-anniviers1-jpg/thumbs/1170-200",
@@ -68,7 +68,10 @@ export default {
     },
     "original": {
       "href": "http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg"
-    }
+    },
+    "cropTemplate": {
+      "href": "http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/%7BcropWidth%7D-%7BcropHeight%7D",
+    },
   },
   "thumbnails": {
     "banner": "http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-200",

@@ -6,6 +6,7 @@ function mapStateToProps(state, ownProps) {
   return {
     directory: state.opium.get('currentDirectory'),
     slug: ownProps.params.directorySlug || '',
+    viewportWidth: document.body.clientWidth,
   }
 };
 

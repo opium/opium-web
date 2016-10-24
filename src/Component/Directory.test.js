@@ -7,6 +7,7 @@ it('renders directory without crashing', () => {
   const component = renderer.create(<Directory
     findDirectory={jest.fn()}
     slug=""
+    viewportWidth={1920}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -20,6 +21,7 @@ it('renders an empty directory', () => {
     directory={directory}
     findDirectory={jest.fn()}
     slug=""
+    viewportWidth={1920}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -57,6 +59,7 @@ it('renders a non empty directory', () => {
     directory={directory}
     findDirectory={jest.fn()}
     slug=""
+    viewportWidth={1920}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -98,6 +101,7 @@ it('renders a non empty directory with parent', () => {
     directory={directory}
     findDirectory={jest.fn()}
     slug=""
+    viewportWidth={1920}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -137,8 +141,10 @@ it('renders a directory with header', () => {
     _embedded: {
       directory_thumbnail: {
         type: 'file',
-        thumbnails: {
-          banner: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/1000-300',
+        _links: {
+          cropTemplate: {
+            href: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/%7BcropWidth%7D-%7BcropHeight%7D',
+          }
         },
       }
     }
@@ -147,6 +153,7 @@ it('renders a directory with header', () => {
     directory={directory}
     findDirectory={jest.fn()}
     slug=""
+    viewportWidth={1920}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
