@@ -1,5 +1,5 @@
 import { List, Map, Record } from 'immutable';
-import { mapEntityRelationShips } from './Factory';
+import { entityFactory, mapEntityRelationShips } from './Factory';
 
 class Directory extends Record({
   id: null,
@@ -10,6 +10,7 @@ class Directory extends Record({
   _embedded: {},
   imageLines: [],
   parent: null,
+  directoryThumbnail: null,
 }) {
   constructor(val) {
     const data = val;
@@ -18,6 +19,10 @@ class Directory extends Record({
         Map(Object.keys(line).map(key => [key, line[key]]))
       ));
     }
+
+     data.directoryThumbnail = val._embedded &&
+       val._embedded.directory_thumbnail &&
+       entityFactory(val._embedded.directory_thumbnail);
 
     return mapEntityRelationShips(super(data), data);
   }

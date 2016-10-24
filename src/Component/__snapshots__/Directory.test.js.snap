@@ -1,3 +1,65 @@
+exports[`test renders a directory with header 1`] = `
+<div>
+  <header
+    className="DirectoryHeaderWithBanner"
+    style={
+      Object {
+        "backgroundImage": "linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8)), url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/1000-300)",
+      }
+    }>
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      Back to albums
+    </a>
+    <h1
+      className="DirectoryHeaderTitle">
+      foo
+    </h1>
+  </header>
+  <div
+    className="ThumbnailList">
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      <article
+        className="Thumbnail"
+        style={
+          Object {
+            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200)",
+          }
+        }>
+        <span
+          className="Caption">
+          Alps
+        </span>
+      </article>
+    </a>
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      <article
+        className="Thumbnail"
+        style={
+          Object {
+            "backgroundImage": "url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200)",
+          }
+        }>
+        <span
+          className="Caption">
+          Pacific Ocean
+        </span>
+      </article>
+    </a>
+  </div>
+  <footer
+    className="Footer">
+    Total number of items: 
+    2
+  </footer>
+</div>
+`;
+
 exports[`test renders a non empty directory 1`] = `
 <div>
   <div
@@ -45,7 +107,9 @@ exports[`test renders a non empty directory 1`] = `
 
 exports[`test renders a non empty directory with parent 1`] = `
 <div>
-  <header>
+  <header
+    className=""
+    style={Object {}}>
     <a
       onClick={[Function]}
       style={Object {}}>

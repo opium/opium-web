@@ -1,9 +1,10 @@
 import { List, Map } from 'immutable';
 import { entityFactory } from './Factory';
 import Directory from './Directory';
-import File from './Directory';
+import File from './File';
 import rawDirectory from 'rawDirectory';
 import rawDirectoryWithParent from 'rawDirectoryWithParent';
+import rawDirectoryWithFileAsChild from 'rawDirectoryWithFileAsChild';
 
 
 it('test passing anything to entityFactory', () => {
@@ -22,11 +23,13 @@ it('generate a valid entity', () => {
   expect(directory.children).toBeInstanceOf(List);
   expect(directory.parent).toBeFalsy();
 
+  // children
   const alps = directory.children.first();
   expect(alps).toBeInstanceOf(Directory);
   expect(alps.id).toEqual(2);
   expect(alps.name).toEqual('Alps');
 
+  // image lines
   const imageLines = directory.imageLines;
   expect(imageLines).toBeInstanceOf(List);
   expect(imageLines.size).toEqual(1);
@@ -35,6 +38,9 @@ it('generate a valid entity', () => {
 
   expect(directory.getChildById(2).name).toEqual('Alps');
   expect(directory.getChildrenSize()).toEqual(3);
+
+  // directory thumbnail
+  expect(directory.directoryThumbnail).toBeFalsy();
 });
 
 it('generate a valid entity with parent', () => {
@@ -45,10 +51,13 @@ it('generate a valid entity with parent', () => {
 });
 
 it('generate a valid entity with file as children', () => {
-  const directory = new Directory(rawDirectoryWithParent);
+  const directory = new Directory(rawDirectoryWithFileAsChild);
 
   expect(directory.children).toBeInstanceOf(List);
 
   const file = directory.children.first();
   expect(file).toBeInstanceOf(File);
+
+  expect(directory.directoryThumbnail).toBeInstanceOf(File);
+  expect(directory.directoryThumbnail.name).toEqual('2909_vallon_moy_res.jpg');
 });

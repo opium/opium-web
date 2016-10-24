@@ -8,3 +8,14 @@
 .Footer {
     text-align: right;
 }
+
+.DirectoryHeaderWithBanner {
+    height: 400px;
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 80px;
+}
+
+.DirectoryHeaderTitle {
+    color: #fff;
+}

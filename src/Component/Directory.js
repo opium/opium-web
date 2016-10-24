@@ -1,21 +1,36 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
+import cn from 'classnames';
 import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 
 const DirectoryHeader = ({directory}) => {
-  if (!directory.parent) {
+  if (!directory.parent && !directory.directoryThumbnail) {
     return null;
   }
 
+  const styles = {};
+  if (directory.directoryThumbnail) {
+    styles.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8)), url(${directory.directoryThumbnail.thumbnails.get('banner')})`;
+  }
+
   return (
-    <header>
+    <header
+      className={cn(directory.directoryThumbnail && 'DirectoryHeaderWithBanner')}
+      style={styles}
+    >
       {directory.parent &&
         <Link to={`/${directory.parent.slug}`}>
           Back to albums
         </Link>
+      }
+
+      {directory.directoryThumbnail &&
+        <h1 className="DirectoryHeaderTitle">
+          {directory.name}
+        </h1>
       }
     </header>
   );
