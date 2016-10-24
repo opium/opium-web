@@ -25,6 +25,9 @@ describe('file creation', () => {
 
     expect(cropUrl).toEqual(expectedUrl);
 
+    // exif
+    expect(file.exif).toBeInstanceOf(Map);
+
     // directory
     expect(file.parent).toBeInstanceOf(Directory);
     expect(file.parent.slug).toEqual('alps');

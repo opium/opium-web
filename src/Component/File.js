@@ -44,6 +44,34 @@ const NextLink = ({file}) => {
   );
 };
 
+const Exif = ({file}) =>
+  <table className="Table">
+    <tbody>
+      <tr>
+        <th>Camera</th>
+        <td>
+          {file.exif.get('Make')}
+          {' '}
+          {file.exif.get('Model')}
+        </td>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <td>
+          {file.exif.get('DateTime')}
+        </td>
+      </tr>
+      <tr>
+        <th>Size</th>
+        <td>
+          {file.exif.get('ExifImageWidth')}
+          x
+          {file.exif.get('ExifImageLength')}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+;
 
 class File extends Component {
   static propTypes = {
@@ -103,6 +131,8 @@ class File extends Component {
             />
           </div>
         </div>
+
+        <Exif file={file} />
       </div>
     );
   }

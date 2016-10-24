@@ -35,6 +35,33 @@ exports[`test renders file with backlink 1`] = `
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
     </div>
   </div>
+  <table
+    className="Table">
+    <tbody>
+      <tr>
+        <th>
+          Camera
+        </th>
+        <td>
+           
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Date
+        </th>
+        <td />
+      </tr>
+      <tr>
+        <th>
+          Size
+        </th>
+        <td>
+          x
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
 
@@ -89,6 +116,33 @@ exports[`test renders file with prev / next links 1`] = `
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
     </div>
   </div>
+  <table
+    className="Table">
+    <tbody>
+      <tr>
+        <th>
+          Camera
+        </th>
+        <td>
+           
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Date
+        </th>
+        <td />
+      </tr>
+      <tr>
+        <th>
+          Size
+        </th>
+        <td>
+          x
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
 
@@ -117,5 +171,32 @@ exports[`test renders real file without crashing 1`] = `
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
     </div>
   </div>
+  <table
+    className="Table">
+    <tbody>
+      <tr>
+        <th>
+          Camera
+        </th>
+        <td>
+           
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Date
+        </th>
+        <td />
+      </tr>
+      <tr>
+        <th>
+          Size
+        </th>
+        <td>
+          x
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
