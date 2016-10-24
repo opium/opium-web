@@ -5,6 +5,22 @@ import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 
+const DirectoryHeader = ({directory}) => {
+  if (!directory.parent) {
+    return null;
+  }
+
+  return (
+    <header>
+      {directory.parent &&
+        <Link to={`/${directory.parent.slug}`}>
+          Back to albums
+        </Link>
+      }
+    </header>
+  );
+};
+
 class Directory extends Component {
   static propTypes = {
     directory: PropTypes.object,
@@ -64,13 +80,7 @@ class Directory extends Component {
       <div>
         <Helmet title={directory.name} />
 
-        {directory.parent &&
-          <header>
-            <Link to={`/${directory.parent.slug}`}>
-              Back to albums
-            </Link>
-          </header>
-        }
+        <DirectoryHeader directory={directory} />
 
         <div className="ThumbnailList">
           {directory.imageLines.map(this.renderOneLine)}
