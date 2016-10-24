@@ -6,6 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import thunk from 'redux-thunk';
 import Helmet from 'react-helmet';
 import 'normalize.css';
+import './Opium.css';
 import configureSdk from './Sdk';
 import configureRoutes from './Route';
 import reducer from './Reducer';

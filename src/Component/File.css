@@ -1,35 +1,77 @@
-.PrevNextContainer {
+.MainContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.ImageContainer {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .Prev, .Next {
     position: absolute;
     top: 0;
     height: 100%;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-.Prev a, .Next a {
-    height: 100%;
-    background: rgba(0,0,0,.5);
     color: #fff;
     text-decoration: none;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    font-size: 10em;
 }
 
-.Prev:hover > a, .Next:hover > a {
-    display: flex;
+.Prev:hover > .Overlay, .Next:hover > .Overlay {
+    display: block;
 }
 
 .Prev {
     left: 0;
-    width: 25%;
+    width: 30%;
+    align-items: flex-start;
+    padding-left: 30px;
 }
 
 .Next {
     right: 0;
     width: 45%;
+    align-items: flex-end;
+    padding-right: 30px;
+}
+
+.Overlay {
+    background: rgba(0,0,0,.5);
+    display: none;
+    font-size: 60px;
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+
+.FileHeader {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.FileTitle {
+    flex: 2;
+    text-align: center;
+}
+
+.BackToAlbum {
+    padding: 1em;
+    font-size: 1.2em;
+    color: #899eaf;
+    text-decoration: none;
+}
+
+.Back:hover {
+    text-decoration: underline;
+}
+
+.Image {
+    display: inline;
+    max-width: 100%;
+    max-height: 100%;
 }

@@ -8,6 +8,7 @@ function mapStateToProps(state, ownProps) {
     file: state.opium.get('currentFile') || new File({}),
     isFetchingFile: !!state.opium.get('isFetchingFile'),
     slug: ownProps.params.fileSlug || '',
+    viewportHeight: document.documentElement.clientHeight,
   }
 };
 

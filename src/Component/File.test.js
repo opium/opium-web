@@ -9,6 +9,7 @@ it('renders empty file without crashing', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     isFetchingFile={false}
+    viewportHeight={700}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -21,6 +22,7 @@ it('renders a loader if file is not loaded', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     isFetchingFile={true}
+    viewportHeight={700}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -39,6 +41,7 @@ it('renders real file without crashing', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     isFetchingFile={false}
+    viewportHeight={700}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -61,6 +64,7 @@ it('renders file with backlink', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     isFetchingFile={false}
+    viewportHeight={700}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -91,6 +95,7 @@ it('renders file with prev / next links', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     isFetchingFile={false}
+    viewportHeight={700}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()

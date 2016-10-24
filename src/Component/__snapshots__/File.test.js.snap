@@ -4,69 +4,89 @@ exports[`test renders empty file without crashing 1`] = `<div />`;
 
 exports[`test renders file with backlink 1`] = `
 <div>
-  <h1>
-    <a
-      className="Back"
-      onClick={[Function]}
-      style={Object {}}>
-      < 
-      Bar
-    </a>
-    Foo
-  </h1>
+  <header
+    className="FileHeader">
+    <div>
+      <a
+        className="BackToAlbum"
+        onClick={[Function]}
+        style={Object {}}>
+        < 
+        Bar
+      </a>
+    </div>
+    <h1
+      className="FileTitle">
+      Foo
+    </h1>
+  </header>
   <div
-    className="PrevNextContainer">
-    <img
-      alt="Foo"
-      src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+    className="MainContainer">
+    <div
+      className="ImageContainer"
       style={
         Object {
-          "display": "block",
-          "maxWidth": "100%",
+          "height": "620px",
         }
-      } />
+      }>
+      <img
+        alt="Foo"
+        className="Image"
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
+    </div>
   </div>
 </div>
 `;
 
 exports[`test renders file with prev / next links 1`] = `
 <div>
-  <h1>
-    <a
-      className="Back"
-      onClick={[Function]}
-      style={Object {}}>
-      < 
-      Directory
-    </a>
-    Foo
-  </h1>
-  <div
-    className="PrevNextContainer">
-    <img
-      alt="Foo"
-      src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-      style={
-        Object {
-          "display": "block",
-          "maxWidth": "100%",
-        }
-      } />
-    <div
-      className="Prev">
+  <header
+    className="FileHeader">
+    <div>
       <a
+        className="BackToAlbum"
         onClick={[Function]}
         style={Object {}}>
-        <
+        < 
+        Directory
       </a>
     </div>
+    <h1
+      className="FileTitle">
+      Foo
+    </h1>
+  </header>
+  <div
+    className="MainContainer">
     <div
-      className="Next">
+      className="ImageContainer"
+      style={
+        Object {
+          "height": "620px",
+        }
+      }>
       <a
+        className="Prev"
         onClick={[Function]}
         style={Object {}}>
-        >
+        <div
+          className="Overlay">
+          <
+        </div>
       </a>
+      <a
+        className="Next"
+        onClick={[Function]}
+        style={Object {}}>
+        <div
+          className="Overlay">
+          >
+        </div>
+      </a>
+      <img
+        alt="Foo"
+        className="Image"
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
     </div>
   </div>
 </div>
@@ -74,20 +94,28 @@ exports[`test renders file with prev / next links 1`] = `
 
 exports[`test renders real file without crashing 1`] = `
 <div>
-  <h1>
-    Foo
-  </h1>
+  <header
+    className="FileHeader">
+    <div />
+    <h1
+      className="FileTitle">
+      Foo
+    </h1>
+  </header>
   <div
-    className="PrevNextContainer">
-    <img
-      alt="Foo"
-      src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+    className="MainContainer">
+    <div
+      className="ImageContainer"
       style={
         Object {
-          "display": "block",
-          "maxWidth": "100%",
+          "height": "620px",
         }
-      } />
+      }>
+      <img
+        alt="Foo"
+        className="Image"
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
+    </div>
   </div>
 </div>
 `;

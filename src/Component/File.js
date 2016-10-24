@@ -22,11 +22,11 @@ const PrevLink = ({file}) => {
   }
 
   return (
-    <div className="Prev">
-      <Link to={`/${file.parent.slug}/${file.previous.slug}`}>
+    <Link className="Prev" to={`/${file.parent.slug}/${file.previous.slug}`}>
+      <div className="Overlay">
         &lt;
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 
@@ -36,11 +36,11 @@ const NextLink = ({file}) => {
   }
 
   return (
-    <div className="Next">
-      <Link to={`/${file.parent.slug}/${file.next.slug}`}>
+    <Link className="Next" to={`/${file.parent.slug}/${file.next.slug}`}>
+      <div className="Overlay">
         &gt;
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 
@@ -51,6 +51,7 @@ class File extends Component {
     isFetchingFile: PropTypes.bool.isRequired,
     findFile: PropTypes.func.isRequired,
     removeCurrentFile: PropTypes.func.isRequired,
+    viewportHeight: PropTypes.number.isRequired,
   }
 
   componentDidMount() {
@@ -76,22 +77,31 @@ class File extends Component {
 
     return (
       <div>
-        <h1>
-          <BackLink file={file} className="Back" />
-          {file.name}
-        </h1>
+        <Helmet title={file.name} />
 
-        <Helmet title="Foo" />
+        <header className="FileHeader">
+          <div>
+            <BackLink file={file} className="BackToAlbum" />
+          </div>
+          <h1 className="FileTitle">
+            {file.name}
+          </h1>
+        </header>
 
-        <div className="PrevNextContainer">
-          <img
-            src={file.thumbnails.get('image')}
-            alt={file.name}
-            style={{ display: 'block', maxWidth: '100%' }}
-          />
+        <div className="MainContainer">
+          <div
+            className="ImageContainer"
+            style={{ height: `${this.props.viewportHeight - 80}px` }}
+          >
+            <PrevLink file={file} />
+            <NextLink file={file} />
 
-          <PrevLink file={file} />
-          <NextLink file={file} />
+            <img
+              src={file.thumbnails.get('image')}
+              alt={file.name}
+              className="Image"
+            />
+          </div>
         </div>
       </div>
     );
