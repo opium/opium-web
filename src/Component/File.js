@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
-import FileModel from '../Model/File';
-import './File.css';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import ChevronRight from 'react-icons/lib/ti/chevron-right';
+import FileModel from '../Model/File';
+import './File.css';
 
 const BackLink = ({file, ...props}) => {
   if (!file.parent) {

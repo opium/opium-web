@@ -6,38 +6,90 @@ import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
+import Loader from './Loader';
 
-const DirectoryHeader = ({directory, viewportWidth}) => {
-  if (!directory.parent && !directory.directoryThumbnail) {
-    return null;
+class DirectoryHeader extends Component {
+  static propTypes = {
+    directory: PropTypes.object.isRequired,
+    viewportWidth: PropTypes.number.isRequired,
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      backgroundImage: null,
+    };
   }
 
-  const styles = {};
-  if (directory.directoryThumbnail) {
-    styles.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0) 50%,
-      rgba(0, 0, 0, 0.8)),
-      url(${directory.directoryThumbnail.generateCrop(viewportWidth, 400)})`;
+  componentDidUpdate(prevProps) {
+    if (prevProps.directory !== this.props.directory) {
+      this.setState({
+        backgroundImage: null,
+      });
+    }
   }
 
-  return (
-    <header
-      className={cn(directory.directoryThumbnail && 'DirectoryHeaderWithBanner')}
-      style={styles}
-    >
-      {directory.parent &&
-        <Link to={`/${directory.parent.slug}`} className="Back">
-          <ChevronLeft />
-          Back to albums
-        </Link>
-      }
+  render() {
+    const { directory, viewportWidth } = this.props;
 
-      {directory.directoryThumbnail &&
-        <h1 className="DirectoryHeaderTitle">
-          {directory.name}
-        </h1>
+    if (!directory.parent && !directory.directoryThumbnail) {
+      return null;
+    }
+
+    const styles = {};
+    if (directory.directoryThumbnail) {
+      if (!this.state.backgroundImage) {
+        const tmpImage = new Image();
+        tmpImage.onload = (image) => {
+          this.setState({
+            backgroundImage: image.currentTarget.src,
+          });
+        };
+        tmpImage.src = directory.directoryThumbnail.generateCrop(viewportWidth, 400);
+      } else {
+        styles.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 0.8)),
+          url(${this.state.backgroundImage})`;
       }
-    </header>
-  );
+    }
+
+    return (
+      <header
+        className={cn(
+          directory.directoryThumbnail && 'DirectoryHeaderWithBanner',
+
+        )}
+      >
+        {directory.directoryThumbnail && !this.state.backgroundImage &&
+          <Loader color="#594F3F" className="DirectoryHeaderWithBannerImage" />
+        }
+
+        {directory.directoryThumbnail &&
+          <div
+            className={cn(
+              'DirectoryHeaderWithBannerImage',
+              this.state.backgroundImage && 'Opaque'
+            )}
+            style={styles}
+          />
+        }
+
+        {directory.parent &&
+          <Link to={`/${directory.parent.slug}`} className="Back">
+            <ChevronLeft />
+            Back to albums
+          </Link>
+        }
+
+        {directory.directoryThumbnail &&
+          <h1 className="DirectoryHeaderTitle">
+            {directory.name}
+          </h1>
+        }
+      </header>
+    );
+  }
 };
 
 class Directory extends Component {

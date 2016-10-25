@@ -3,6 +3,12 @@
 }
 
 body {
-    color: #333;
+    color: rgba( 89, 79, 63,1);
     background-color: #fff;
 }
+
+.color-primary-0 { color: rgba( 89, 79, 63,1) }  /* Main Primary color */
+.color-primary-1 { color: rgba(160,147,127,1) }
+.color-primary-2 { color: rgba(129,116, 96,1) }
+.color-primary-3 { color: rgba( 81, 65, 41,1) }
+.color-primary-4 { color: rgba( 79, 58, 27,1) }

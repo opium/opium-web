@@ -60,9 +60,13 @@
 }
 
 .BackToAlbum {
-    padding: 1em;
+    margin-left: .5em;
+    margin-right: .5em;
+    padding: .8em;
+    border-radius: 3px;
     font-size: 1.2em;
-    color: #899eaf;
+    background: #4F3A1B;
+    color: #A0937F;
     text-decoration: none;
 }
 

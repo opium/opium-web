@@ -1,14 +1,16 @@
 exports[`test renders a directory with header 1`] = `
 <div>
   <header
-    className="DirectoryHeaderWithBanner"
-    style={
-      Object {
-        "backgroundImage": "linear-gradient(rgba(0, 0, 0, 0) 50%,
-            rgba(0, 0, 0, 0.8)),
-            url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/1920-400)",
-      }
-    }>
+    className="DirectoryHeaderWithBanner">
+    <div
+      className="DirectoryHeaderWithBannerImage Opaque"
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(rgba(0, 0, 0, 0) 50%,
+                  rgba(0, 0, 0, 0.8)),
+                  url(http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/1920-400)",
+        }
+      } />
     <a
       className="Back"
       onClick={[Function]}
@@ -128,8 +130,7 @@ exports[`test renders a non empty directory 1`] = `
 exports[`test renders a non empty directory with parent 1`] = `
 <div>
   <header
-    className=""
-    style={Object {}}>
+    className="">
     <a
       className="Back"
       onClick={[Function]}
