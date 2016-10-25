@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import cn from 'classnames';
+import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
@@ -25,7 +26,7 @@ const DirectoryHeader = ({directory, viewportWidth}) => {
     >
       {directory.parent &&
         <Link to={`/${directory.parent.slug}`} className="Back">
-          &lt;
+          <ChevronLeft />
           Back to albums
         </Link>
       }

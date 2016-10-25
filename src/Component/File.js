@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import FileModel from '../Model/File';
 import './File.css';
+import ChevronLeft from 'react-icons/lib/ti/chevron-left';
+import ChevronRight from 'react-icons/lib/ti/chevron-right';
 
 const BackLink = ({file, ...props}) => {
   if (!file.parent) {
@@ -11,7 +13,7 @@ const BackLink = ({file, ...props}) => {
 
   return (
     <Link to={`/${file.parent.slug}`} {...props}>
-      &lt; {file.parent.name}
+      <ChevronLeft /> {file.parent.name}
     </Link>
   );
 };
@@ -24,7 +26,7 @@ const PrevLink = ({file}) => {
   return (
     <Link className="Prev" to={`/${file.parent.slug}/${file.previous.slug}`}>
       <div className="Overlay">
-        &lt;
+        <ChevronLeft />
       </div>
     </Link>
   );
@@ -38,7 +40,7 @@ const NextLink = ({file}) => {
   return (
     <Link className="Next" to={`/${file.parent.slug}/${file.next.slug}`}>
       <div className="Overlay">
-        &gt;
+        <ChevronRight />
       </div>
     </Link>
   );

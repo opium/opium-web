@@ -23,7 +23,7 @@
 }
 
 .Prev:hover > .Overlay, .Next:hover > .Overlay {
-    display: block;
+    display: flex;
 }
 
 .Prev {
@@ -44,7 +44,7 @@
     background: rgba(0,0,0,.5);
     display: none;
     font-size: 60px;
-    padding: 15px 30px;
+    padding: 20px;
     border-radius: 5px;
 }
 
@@ -66,7 +66,7 @@
     text-decoration: none;
 }
 
-.Back:hover {
+.BackToAlbum:hover {
     text-decoration: underline;
 }
 
