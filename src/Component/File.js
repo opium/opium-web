@@ -95,13 +95,18 @@ class File extends Component {
   componentDidMount() {
     this.props.findFile(this.props.slug);
 
-    window.addEventListener('keyup', this.handleKeyup);
+    window.addEventListener('keydown', this.handleKeyup);
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.slug !== prevProps.slug) {
       this.props.findFile(this.props.slug);
     }
+  }
+
+  componentWillUnmount() {
+    this.props.removeCurrentFile();
+    window.removeEventListener('keydown', this.handleKeyup);
   }
 
   handleKeyup(e) {
@@ -121,10 +126,6 @@ class File extends Component {
       default:
         break;
     }
-  }
-
-  componentWillUnmount() {
-    this.props.removeCurrentFile();
   }
 
   render() {
