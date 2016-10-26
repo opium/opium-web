@@ -6,7 +6,8 @@ exports[`test renders file with backlink 1`] = `
 <div>
   <header
     className="FileHeader">
-    <div>
+    <div
+      className="BackContainer">
       <a
         className="BackToAlbum"
         onClick={[Function]}
@@ -46,28 +47,30 @@ exports[`test renders file with backlink 1`] = `
           "height": "620px",
         }
       }>
-      <div
-        className="loader">
+      <div>
         <div
-          className="ball-scale-ripple-multiple">
+          className="loader">
           <div
-            style={
-              Object {
-                "borderColor": "#594F3F",
-              }
-            } />
-          <div
-            style={
-              Object {
-                "borderColor": "#594F3F",
-              }
-            } />
-          <div
-            style={
-              Object {
-                "borderColor": "#594F3F",
-              }
-            } />
+            className="ball-scale-ripple-multiple">
+            <div
+              style={
+                Object {
+                  "borderColor": "#594F3F",
+                }
+              } />
+            <div
+              style={
+                Object {
+                  "borderColor": "#594F3F",
+                }
+              } />
+            <div
+              style={
+                Object {
+                  "borderColor": "#594F3F",
+                }
+              } />
+          </div>
         </div>
       </div>
     </div>
@@ -106,7 +109,8 @@ exports[`test renders file with prev / next links 1`] = `
 <div>
   <header
     className="FileHeader">
-    <div>
+    <div
+      className="BackContainer">
       <a
         className="BackToAlbum"
         onClick={[Function]}
@@ -196,28 +200,30 @@ exports[`test renders file with prev / next links 1`] = `
           </svg>
         </div>
       </a>
-      <div
-        className="loader">
+      <div>
         <div
-          className="ball-scale-ripple-multiple">
+          className="loader">
           <div
-            style={
-              Object {
-                "borderColor": "#594F3F",
-              }
-            } />
-          <div
-            style={
-              Object {
-                "borderColor": "#594F3F",
-              }
-            } />
-          <div
-            style={
-              Object {
-                "borderColor": "#594F3F",
-              }
-            } />
+            className="ball-scale-ripple-multiple">
+            <div
+              style={
+                Object {
+                  "borderColor": "#594F3F",
+                }
+              } />
+            <div
+              style={
+                Object {
+                  "borderColor": "#594F3F",
+                }
+              } />
+            <div
+              style={
+                Object {
+                  "borderColor": "#594F3F",
+                }
+              } />
+          </div>
         </div>
       </div>
     </div>
@@ -256,7 +262,8 @@ exports[`test renders real file without crashing 1`] = `
 <div>
   <header
     className="FileHeader">
-    <div />
+    <div
+      className="BackContainer" />
     <h1
       className="FileTitle">
       Foo
@@ -271,28 +278,30 @@ exports[`test renders real file without crashing 1`] = `
           "height": "620px",
         }
       }>
-      <div
-        className="loader">
+      <div>
         <div
-          className="ball-scale-ripple-multiple">
+          className="loader">
           <div
-            style={
-              Object {
-                "borderColor": "#594F3F",
-              }
-            } />
-          <div
-            style={
-              Object {
-                "borderColor": "#594F3F",
-              }
-            } />
-          <div
-            style={
-              Object {
-                "borderColor": "#594F3F",
-              }
-            } />
+            className="ball-scale-ripple-multiple">
+            <div
+              style={
+                Object {
+                  "borderColor": "#594F3F",
+                }
+              } />
+            <div
+              style={
+                Object {
+                  "borderColor": "#594F3F",
+                }
+              } />
+            <div
+              style={
+                Object {
+                  "borderColor": "#594F3F",
+                }
+              } />
+          </div>
         </div>
       </div>
     </div>

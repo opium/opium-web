@@ -2,33 +2,35 @@ exports[`test renders a directory with header 1`] = `
 <div>
   <header
     className="DirectoryHeaderWithBanner">
-    <div
-      className="loader DirectoryHeaderWithBannerImage">
+    <div>
       <div
-        className="ball-scale-ripple-multiple">
+        className="loader DirectoryHeaderWithBannerImage">
         <div
-          style={
-            Object {
-              "borderColor": "#594F3F",
-            }
-          } />
-        <div
-          style={
-            Object {
-              "borderColor": "#594F3F",
-            }
-          } />
-        <div
-          style={
-            Object {
-              "borderColor": "#594F3F",
-            }
-          } />
+          className="ball-scale-ripple-multiple">
+          <div
+            style={
+              Object {
+                "borderColor": "#594F3F",
+              }
+            } />
+          <div
+            style={
+              Object {
+                "borderColor": "#594F3F",
+              }
+            } />
+          <div
+            style={
+              Object {
+                "borderColor": "#594F3F",
+              }
+            } />
+        </div>
       </div>
+      <div
+        className="DirectoryHeaderWithBannerImage"
+        style={Object {}} />
     </div>
-    <div
-      className="DirectoryHeaderWithBannerImage"
-      style={Object {}} />
     <a
       className="Back"
       onClick={[Function]}

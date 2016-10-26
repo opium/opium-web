@@ -59,6 +59,10 @@
     text-align: center;
 }
 
+.BackContainer {
+    flex-shrink: 0;
+}
+
 .BackToAlbum {
     margin-left: .5em;
     margin-right: .5em;

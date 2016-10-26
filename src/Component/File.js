@@ -4,8 +4,7 @@ import Helmet from 'react-helmet';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import ChevronRight from 'react-icons/lib/ti/chevron-right';
 import FileModel from '../Model/File';
-import { loadImage } from '../ImageLoader';
-import Loader from './Loader';
+import ImageWithLoader from './ImageWithLoader';
 import './File.css';
 
 const BackLink = ({file, ...props}) => {
@@ -91,10 +90,6 @@ class File extends Component {
     super(props);
 
     this.handleKeyup = this.handleKeyup.bind(this);
-
-    this.state = {
-      imageLoaded: false,
-    };
   }
 
   componentDidMount() {
@@ -105,12 +100,7 @@ class File extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.slug !== prevProps.slug) {
-      this.setState({ imageLoaded: false });
       this.props.findFile(this.props.slug);
-    }
-
-    if (this.props.file !== prevProps.file) {
-      this.loadFileImage();
     }
   }
 
@@ -133,17 +123,6 @@ class File extends Component {
     }
   }
 
-  loadFileImage() {
-    const file = this.props.file;
-    const src = file.thumbnails.get('image');
-
-    if (!src) {
-      return;
-    }
-
-    loadImage(src).then(() => this.setState({ imageLoaded: true }));
-  }
-
   componentWillUnmount() {
     this.props.removeCurrentFile();
   }
@@ -160,7 +139,7 @@ class File extends Component {
         <Helmet title={file.name} />
 
         <header className="FileHeader">
-          <div>
+          <div className="BackContainer">
             <BackLink file={file} className="BackToAlbum" />
           </div>
           <h1 className="FileTitle">
@@ -176,14 +155,15 @@ class File extends Component {
             <PrevLink file={file} />
             <NextLink file={file} />
 
-            {this.state.imageLoaded ?
-                <img
-                  src={file.thumbnails.get('image')}
-                  alt={file.name}
-                  className="Image"
-                /> :
-              <Loader color="#594F3F" />
-            }
+            <ImageWithLoader
+              src={file.thumbnails.get('image')}
+            >
+              <img
+                src={file.thumbnails.get('image')}
+                alt={file.name}
+                className="Image"
+              />
+            </ImageWithLoader>
           </div>
         </div>
 

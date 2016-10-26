@@ -6,8 +6,7 @@ import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
-import Loader from './Loader';
-import { loadImage } from '../ImageLoader';
+import ImageWithLoader from './ImageWithLoader';
 
 class DirectoryHeader extends Component {
   static propTypes = {
@@ -19,14 +18,14 @@ class DirectoryHeader extends Component {
     super(props);
 
     this.state = {
-      backgroundImage: null,
+      backgroundLoaded: null,
     };
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.directory !== this.props.directory) {
       this.setState({
-        backgroundImage: null,
+        backgroundLoaded: null,
       });
     }
   }
@@ -38,20 +37,14 @@ class DirectoryHeader extends Component {
       return null;
     }
 
+
     const styles = {};
     if (directory.directoryThumbnail) {
-      if (!this.state.backgroundImage) {
-        loadImage(directory.directoryThumbnail.generateCrop(viewportWidth, 400))
-          .then((src) => {
-            this.setState({
-              backgroundImage: src,
-            });
-          })
-        ;
-      } else {
+      if (this.state.backgroundLoaded) {
+        const backgroundImage = directory.directoryThumbnail.generateCrop(viewportWidth, 400);
         styles.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0) 50%,
           rgba(0, 0, 0, 0.8)),
-          url(${this.state.backgroundImage})`;
+          url(${backgroundImage})`;
       }
     }
 
@@ -62,19 +55,23 @@ class DirectoryHeader extends Component {
 
         )}
       >
-        {directory.directoryThumbnail && !this.state.backgroundImage &&
-          <Loader color="#594F3F" className="DirectoryHeaderWithBannerImage" />
+        {directory.directoryThumbnail &&
+          <ImageWithLoader
+            src={directory.directoryThumbnail.generateCrop(viewportWidth, 400)}
+            onLoad={() => this.setState({ backgroundLoaded: true })}
+            loaderProps={{ className: 'DirectoryHeaderWithBannerImage' }}
+            displayChildren
+          >
+            <div
+              className={cn(
+                'DirectoryHeaderWithBannerImage',
+                this.state.backgroundLoaded && 'Opaque'
+              )}
+              style={styles}
+            />
+          </ImageWithLoader>
         }
 
-        {directory.directoryThumbnail &&
-          <div
-            className={cn(
-              'DirectoryHeaderWithBannerImage',
-              this.state.backgroundImage && 'Opaque'
-            )}
-            style={styles}
-          />
-        }
 
         {directory.parent &&
           <Link to={`/${directory.parent.slug}`} className="Back">
