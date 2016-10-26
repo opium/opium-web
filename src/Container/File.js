@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import FileComponent from '../Component/File';
 import File from '../Model/File';
 import { find, removeCurrent } from '../Action/FileAction';
@@ -15,6 +16,7 @@ function mapStateToProps(state, ownProps) {
 const mapDispatchToProps = {
   findFile: find,
   removeCurrentFile: removeCurrent,
+  pushLocation: push,
 };
 
 export default connect(

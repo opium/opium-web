@@ -4,6 +4,8 @@ import Helmet from 'react-helmet';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import ChevronRight from 'react-icons/lib/ti/chevron-right';
 import FileModel from '../Model/File';
+import { loadImage } from '../ImageLoader';
+import Loader from './Loader';
 import './File.css';
 
 const BackLink = ({file, ...props}) => {
@@ -82,16 +84,64 @@ class File extends Component {
     findFile: PropTypes.func.isRequired,
     removeCurrentFile: PropTypes.func.isRequired,
     viewportHeight: PropTypes.number.isRequired,
+    pushLocation: PropTypes.func.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.handleKeyup = this.handleKeyup.bind(this);
+
+    this.state = {
+      imageLoaded: false,
+    };
   }
 
   componentDidMount() {
     this.props.findFile(this.props.slug);
+
+    window.addEventListener('keyup', this.handleKeyup);
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.slug !== prevProps.slug) {
+      this.setState({ imageLoaded: false });
       this.props.findFile(this.props.slug);
     }
+
+    if (this.props.file !== prevProps.file) {
+      this.loadFileImage();
+    }
+  }
+
+  handleKeyup(e) {
+    const file = this.props.file;
+
+    switch (e.keyCode) {
+      case 37:
+        if (file.previous) {
+          this.props.pushLocation(`/${file.parent.slug}/${file.previous.slug}`);
+        }
+        break;
+      case 39:
+        if (file.next) {
+          this.props.pushLocation(`/${file.parent.slug}/${file.next.slug}`);
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
+  loadFileImage() {
+    const file = this.props.file;
+    const src = file.thumbnails.get('image');
+
+    if (!src) {
+      return;
+    }
+
+    loadImage(src).then(() => this.setState({ imageLoaded: true }));
   }
 
   componentWillUnmount() {
@@ -126,11 +176,14 @@ class File extends Component {
             <PrevLink file={file} />
             <NextLink file={file} />
 
-            <img
-              src={file.thumbnails.get('image')}
-              alt={file.name}
-              className="Image"
-            />
+            {this.state.imageLoaded ?
+                <img
+                  src={file.thumbnails.get('image')}
+                  alt={file.name}
+                  className="Image"
+                /> :
+              <Loader color="#594F3F" />
+            }
           </div>
         </div>
 

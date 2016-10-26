@@ -7,6 +7,7 @@ import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 import Loader from './Loader';
+import { loadImage } from '../ImageLoader';
 
 class DirectoryHeader extends Component {
   static propTypes = {
@@ -40,13 +41,13 @@ class DirectoryHeader extends Component {
     const styles = {};
     if (directory.directoryThumbnail) {
       if (!this.state.backgroundImage) {
-        const tmpImage = new Image();
-        tmpImage.onload = (image) => {
-          this.setState({
-            backgroundImage: image.currentTarget.src,
-          });
-        };
-        tmpImage.src = directory.directoryThumbnail.generateCrop(viewportWidth, 400);
+        loadImage(directory.directoryThumbnail.generateCrop(viewportWidth, 400))
+          .then((src) => {
+            this.setState({
+              backgroundImage: src,
+            });
+          })
+        ;
       } else {
         styles.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0) 50%,
           rgba(0, 0, 0, 0.8)),

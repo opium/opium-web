@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { browserHistory } from 'react-router';
+import { routerMiddleware } from 'react-router-redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import thunk from 'redux-thunk';
 import Helmet from 'react-helmet';
@@ -19,11 +21,15 @@ const composeEnhancers = composeWithDevTools({
 });
 
 
+const middlewares = [
+  thunk,
+  routerMiddleware(browserHistory)
+];
 
 const store = createStore(
   reducer,
   composeEnhancers(
-    applyMiddleware(thunk)
+    applyMiddleware(...middlewares)
   )
 );
 
