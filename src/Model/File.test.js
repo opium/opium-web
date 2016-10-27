@@ -1,6 +1,5 @@
 import { Map } from 'immutable';
 import rawFile from 'rawFile';
-import rawFile2 from 'rawFile';
 import rawEndFile from 'rawEndFile';
 import File from './File';
 import Directory from './Directory';
@@ -27,6 +26,11 @@ describe('file creation', () => {
 
     // exif
     expect(file.exif).toBeInstanceOf(Map);
+
+    // positior
+    expect(file.position).toBeInstanceOf(Map);
+    expect(file.position.get('lat')).toEqual(45);
+    expect(file.position.get('lng')).toEqual(4);
 
     // directory
     expect(file.parent).toBeInstanceOf(Directory);

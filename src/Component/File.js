@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
+import { Map, Marker, setIconDefaultImagePath, TileLayer } from 'react-leaflet';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import ChevronRight from 'react-icons/lib/ti/chevron-right';
 import FileModel from '../Model/File';
 import ImageWithLoader from './ImageWithLoader';
+import 'leaflet/dist/leaflet.css';
 import './File.css';
 
 const BackLink = ({file, ...props}) => {
@@ -75,6 +77,22 @@ const Exif = ({file}) =>
     </tbody>
   </table>
 ;
+
+const FileMap = ({ file }) => {
+  if (!file.position) {
+    return null;
+  }
+
+  const position = [file.position.get('lat'), file.position.get('lng')];
+
+  return <Map style={{ width: '100%', height: '200px' }} center={position} zoom={10}>
+    <TileLayer
+      url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    />
+    <Marker position={position} />
+  </Map>
+};
 
 class File extends Component {
   static propTypes = {
@@ -151,13 +169,15 @@ class File extends Component {
         <div className="MainContainer">
           <div
             className="ImageContainer"
-            style={{ height: `${this.props.viewportHeight - 80}px` }}
           >
             <PrevLink file={file} />
             <NextLink file={file} />
 
             <ImageWithLoader
               src={file.thumbnails.get('image')}
+              loaderProps={{
+                style: { height: `${this.props.viewportHeight - 80}px` }
+              }}
             >
               <img
                 src={file.thumbnails.get('image')}
@@ -168,10 +188,15 @@ class File extends Component {
           </div>
         </div>
 
+        <FileMap file={file} />
+
         <Exif file={file} />
       </div>
     );
   }
 }
+
+// waiting fo https://github.com/PaulLeCam/react-leaflet/pull/238 to be merged
+setIconDefaultImagePath('//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/images/');
 
 export default File;

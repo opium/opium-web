@@ -43,6 +43,10 @@ export default {
     }
   },
   "slug": "2909-vallon-moy-res-jpg",
+  "position": {
+    "lat": 45,
+    "lng": 4
+  },
   "exif": {
     "ColorSpace": "1",
     "Compression": "6",

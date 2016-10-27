@@ -11,6 +11,7 @@ class File extends Record({
   next: null,
   previous: null,
   cropTemplate: null,
+  position: null,
   exif: Map(),
 }) {
   constructor(val) {
