@@ -1,6 +1,7 @@
 {
   "name": "opium-react",
   "version": "0.1.0",
+  "license": "GPL-v3",
   "private": true,
   "dependencies": {
     "classnames": "^2.2.5",
