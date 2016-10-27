@@ -1,13 +1,13 @@
 exports[`test renders a directory with children without 1`] = `
 <div>
   <header
-    className="DirectoryHeaderWithBanner">
+    className="DirectoryHeader--WithBanner">
     <div>
       <div>
         <div
-          className="loader DirectoryHeaderWithBannerImage">
+          className="Loader DirectoryHeader__Image">
           <div
-            className="ball-scale-ripple-multiple">
+            className="Loader__BallScaleRippleMultiple">
             <div
               style={
                 Object {
@@ -30,11 +30,11 @@ exports[`test renders a directory with children without 1`] = `
         </div>
       </div>
       <div
-        className="DirectoryHeaderWithBannerImage"
+        className="DirectoryHeader__Image"
         style={Object {}} />
     </div>
     <a
-      className="Back"
+      className="DirectoryHeader__Back"
       onClick={[Function]}
       style={Object {}}>
       <svg
@@ -57,12 +57,12 @@ exports[`test renders a directory with children without 1`] = `
       Back to albums
     </a>
     <h1
-      className="DirectoryHeaderTitle">
+      className="DirectoryHeader__Title">
       foo
     </h1>
   </header>
   <div
-    className="ThumbnailList">
+    className="Directory__ThumbnailList">
     <a
       onClick={[Function]}
       style={Object {}}>
@@ -74,7 +74,7 @@ exports[`test renders a directory with children without 1`] = `
           }
         }>
         <span
-          className="Caption">
+          className="Thumbnail_Caption">
           Alps
         </span>
       </article>
@@ -86,7 +86,7 @@ exports[`test renders a directory with children without 1`] = `
         className="Thumbnail"
         style={Object {}}>
         <svg
-          className="FolderPlaceholder"
+          className="Thumbnail_FolderPlaceholder"
           fill="currentColor"
           height={200}
           preserveAspectRatio="xMidYMid meet"
@@ -104,14 +104,14 @@ exports[`test renders a directory with children without 1`] = `
           </g>
         </svg>
         <span
-          className="Caption">
+          className="Thumbnail_Caption">
           Pacific Ocean
         </span>
       </article>
     </a>
   </div>
   <footer
-    className="Footer">
+    className="DirectoryFooter">
     Total number of items: 
     2
   </footer>
@@ -121,13 +121,13 @@ exports[`test renders a directory with children without 1`] = `
 exports[`test renders a directory with header 1`] = `
 <div>
   <header
-    className="DirectoryHeaderWithBanner">
+    className="DirectoryHeader--WithBanner">
     <div>
       <div>
         <div
-          className="loader DirectoryHeaderWithBannerImage">
+          className="Loader DirectoryHeader__Image">
           <div
-            className="ball-scale-ripple-multiple">
+            className="Loader__BallScaleRippleMultiple">
             <div
               style={
                 Object {
@@ -150,11 +150,11 @@ exports[`test renders a directory with header 1`] = `
         </div>
       </div>
       <div
-        className="DirectoryHeaderWithBannerImage"
+        className="DirectoryHeader__Image"
         style={Object {}} />
     </div>
     <a
-      className="Back"
+      className="DirectoryHeader__Back"
       onClick={[Function]}
       style={Object {}}>
       <svg
@@ -177,12 +177,12 @@ exports[`test renders a directory with header 1`] = `
       Back to albums
     </a>
     <h1
-      className="DirectoryHeaderTitle">
+      className="DirectoryHeader__Title">
       foo
     </h1>
   </header>
   <div
-    className="ThumbnailList">
+    className="Directory__ThumbnailList">
     <a
       onClick={[Function]}
       style={Object {}}>
@@ -194,7 +194,7 @@ exports[`test renders a directory with header 1`] = `
           }
         }>
         <span
-          className="Caption">
+          className="Thumbnail_Caption">
           Alps
         </span>
       </article>
@@ -210,14 +210,14 @@ exports[`test renders a directory with header 1`] = `
           }
         }>
         <span
-          className="Caption">
+          className="Thumbnail_Caption">
           Pacific Ocean
         </span>
       </article>
     </a>
   </div>
   <footer
-    className="Footer">
+    className="DirectoryFooter">
     Total number of items: 
     2
   </footer>
@@ -227,7 +227,7 @@ exports[`test renders a directory with header 1`] = `
 exports[`test renders a non empty directory 1`] = `
 <div>
   <div
-    className="ThumbnailList">
+    className="Directory__ThumbnailList">
     <a
       onClick={[Function]}
       style={Object {}}>
@@ -239,7 +239,7 @@ exports[`test renders a non empty directory 1`] = `
           }
         }>
         <span
-          className="Caption">
+          className="Thumbnail_Caption">
           Alps
         </span>
       </article>
@@ -255,14 +255,14 @@ exports[`test renders a non empty directory 1`] = `
           }
         }>
         <span
-          className="Caption">
+          className="Thumbnail_Caption">
           Pacific Ocean
         </span>
       </article>
     </a>
   </div>
   <footer
-    className="Footer">
+    className="DirectoryFooter">
     Total number of items: 
     2
   </footer>
@@ -274,7 +274,7 @@ exports[`test renders a non empty directory with parent 1`] = `
   <header
     className="">
     <a
-      className="Back"
+      className="DirectoryHeader__Back"
       onClick={[Function]}
       style={Object {}}>
       <svg
@@ -298,7 +298,7 @@ exports[`test renders a non empty directory with parent 1`] = `
     </a>
   </header>
   <div
-    className="ThumbnailList">
+    className="Directory__ThumbnailList">
     <a
       onClick={[Function]}
       style={Object {}}>
@@ -310,7 +310,7 @@ exports[`test renders a non empty directory with parent 1`] = `
           }
         }>
         <span
-          className="Caption">
+          className="Thumbnail_Caption">
           Alps
         </span>
       </article>
@@ -326,14 +326,14 @@ exports[`test renders a non empty directory with parent 1`] = `
           }
         }>
         <span
-          className="Caption">
+          className="Thumbnail_Caption">
           Pacific Ocean
         </span>
       </article>
     </a>
   </div>
   <footer
-    className="Footer">
+    className="DirectoryFooter">
     Total number of items: 
     2
   </footer>
@@ -343,9 +343,9 @@ exports[`test renders a non empty directory with parent 1`] = `
 exports[`test renders an empty directory 1`] = `
 <div>
   <div
-    className="ThumbnailList" />
+    className="Directory__ThumbnailList" />
   <footer
-    className="Footer">
+    className="DirectoryFooter">
     Total number of items: 
     0
   </footer>

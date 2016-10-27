@@ -7,7 +7,7 @@ exports[`test renders without crashing 1`] = `
     }
   }>
   <span
-    className="Caption">
+    className="Thumbnail_Caption">
     Alps
   </span>
 </article>

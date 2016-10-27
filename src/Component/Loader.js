@@ -17,11 +17,11 @@ class Loader extends Component {
   render() {
     const { className, color, ...props } = this.props;
 
-    const classes = cn('loader', className);
+    const classes = cn('Loader', className);
 
     return (
       <div className={classes} {...props}>
-        <div className="ball-scale-ripple-multiple">
+        <div className="Loader__BallScaleRippleMultiple">
           <InsideDiv color={color} />
           <InsideDiv color={color} />
           <InsideDiv color={color} />

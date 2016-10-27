@@ -27,8 +27,8 @@ const PrevLink = ({file}) => {
   }
 
   return (
-    <Link className="Prev" to={`/${file.parent.slug}/${file.previous.slug}`}>
-      <div className="Overlay">
+    <Link className="FileOverlay__Link FileOverlay__Link--Prev" to={`/${file.parent.slug}/${file.previous.slug}`}>
+      <div className="FileOverlay__ChevronContainer">
         <ChevronLeft />
       </div>
     </Link>
@@ -41,8 +41,8 @@ const NextLink = ({file}) => {
   }
 
   return (
-    <Link className="Next" to={`/${file.parent.slug}/${file.next.slug}`}>
-      <div className="Overlay">
+    <Link className="FileOverlay__Link FileOverlay__Link--Next" to={`/${file.parent.slug}/${file.next.slug}`}>
+      <div className="FileOverlay__ChevronContainer">
         <ChevronRight />
       </div>
     </Link>
@@ -158,18 +158,16 @@ class File extends Component {
         <Helmet title={file.name} />
 
         <header className="FileHeader">
-          <div className="BackContainer">
-            <BackLink file={file} className="BackToAlbum" />
+          <div className="FileHeader__BackContainer">
+            <BackLink file={file} className="FileHeader__BackToAlbum" />
           </div>
-          <h1 className="FileTitle">
+          <h1 className="FileHeader__Title">
             {file.name}
           </h1>
         </header>
 
-        <div className="MainContainer">
-          <div
-            className="ImageContainer"
-          >
+        <div className="File__MainContainer">
+          <div className="File__ImageContainer">
             <PrevLink file={file} />
             <NextLink file={file} />
 
@@ -182,7 +180,7 @@ class File extends Component {
               <img
                 src={file.thumbnails.get('image')}
                 alt={file.name}
-                className="Image"
+                className="File__Image"
               />
             </ImageWithLoader>
           </div>

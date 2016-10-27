@@ -51,7 +51,7 @@ class DirectoryHeader extends Component {
     return (
       <header
         className={cn(
-          directory.directoryThumbnail && 'DirectoryHeaderWithBanner',
+          directory.directoryThumbnail && 'DirectoryHeader--WithBanner',
 
         )}
       >
@@ -60,12 +60,12 @@ class DirectoryHeader extends Component {
             <ImageWithLoader
               src={directory.directoryThumbnail.generateCrop(viewportWidth, 400)}
               onLoad={() => this.setState({ backgroundLoaded: true })}
-              loaderProps={{ className: 'DirectoryHeaderWithBannerImage' }}
+              loaderProps={{ className: 'DirectoryHeader__Image' }}
             />
             <div
               className={cn(
-                'DirectoryHeaderWithBannerImage',
-                this.state.backgroundLoaded && 'Opaque'
+                'DirectoryHeader__Image',
+                this.state.backgroundLoaded && 'DirectoryHeader__Image--Opaque'
               )}
               style={styles}
             />
@@ -73,14 +73,14 @@ class DirectoryHeader extends Component {
         }
 
         {directory.parent &&
-          <Link to={`/${directory.parent.slug}`} className="Back">
+          <Link to={`/${directory.parent.slug}`} className="DirectoryHeader__Back">
             <ChevronLeft />
             Back to albums
           </Link>
         }
 
         {directory.directoryThumbnail &&
-          <h1 className="DirectoryHeaderTitle">
+          <h1 className="DirectoryHeader__Title">
             {directory.name}
           </h1>
         }
@@ -154,11 +154,11 @@ class Directory extends Component {
           viewportWidth={this.props.viewportWidth}
         />
 
-        <div className="ThumbnailList">
+        <div className="Directory__ThumbnailList">
           {directory.imageLines.map(this.renderOneLine)}
         </div>
 
-        <footer className="Footer">
+        <footer className="DirectoryFooter">
           Total number of items: {directory.getChildrenSize()}
         </footer>
       </div>

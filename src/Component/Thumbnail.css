@@ -7,7 +7,7 @@
     background-position: center center;
 }
 
-.Caption {
+.Thumbnail_Caption {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -18,14 +18,10 @@
     text-align: center;
 }
 
-.Image {
-    display: block;
-}
-
-.FolderPlaceholder {
+.Thumbnail_FolderPlaceholder {
     color: rgb( 89, 79, 63);
 }
 
-.FolderPlaceholder:hover, .FolderPlaceholder:active {
+.Thumbnail_FolderPlaceholder:hover, .Thumbnail_FolderPlaceholder:active {
     color: rgb( 79, 58, 27)
 }

@@ -1,9 +1,40 @@
-.MainContainer {
+.FileHeader {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.FileHeader__Title {
+    flex: 1;
+    text-align: center;
+}
+
+.FileHeader__BackContainer {
+    flex-shrink: 0;
+}
+
+.FileHeader__BackToAlbum {
+    margin-left: .5em;
+    margin-right: .5em;
+    padding: .8em;
+    border-radius: 3px;
+    font-size: 1.2em;
+    background: #4F3A1B;
+    color: #fff;
+    text-decoration: none;
+}
+
+.FileHeader__BackToAlbum:hover {
+    text-decoration: underline;
+}
+
+
+.File__MainContainer {
     display: flex;
     justify-content: center;
 }
 
-.ImageContainer {
+.File__ImageContainer {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -11,7 +42,11 @@
     margin-bottom: 3em;
 }
 
-.Prev, .Next {
+.Prev:hover > .Overlay, .Next:hover > .Overlay {
+    display: flex;
+}
+
+.FileOverlay__Link {
     position: absolute;
     top: 0;
     height: 100%;
@@ -23,25 +58,25 @@
     text-decoration: none;
 }
 
-.Prev:hover > .Overlay, .Next:hover > .Overlay {
+.FileOverlay__Link:hover > .FileOverlay__ChevronContainer {
     display: flex;
 }
 
-.Prev {
+.FileOverlay__Link--Prev {
     left: 0;
     width: 30%;
     align-items: flex-start;
     padding-left: 30px;
 }
 
-.Next {
+.FileOverlay__Link--Next {
     right: 0;
     width: 45%;
     align-items: flex-end;
     padding-right: 30px;
 }
 
-.Overlay {
+.FileOverlay__ChevronContainer {
     background: rgba(0,0,0,.5);
     display: none;
     font-size: 60px;
@@ -49,37 +84,7 @@
     border-radius: 5px;
 }
 
-.FileHeader {
-    height: 80px;
-    display: flex;
-    align-items: center;
-}
-
-.FileTitle {
-    flex: 2;
-    text-align: center;
-}
-
-.BackContainer {
-    flex-shrink: 0;
-}
-
-.BackToAlbum {
-    margin-left: .5em;
-    margin-right: .5em;
-    padding: .8em;
-    border-radius: 3px;
-    font-size: 1.2em;
-    background: #4F3A1B;
-    color: #fff;
-    text-decoration: none;
-}
-
-.BackToAlbum:hover {
-    text-decoration: underline;
-}
-
-.Image {
+.File__Image {
     display: inline;
     max-width: 100%;
     max-height: 100%;

@@ -20,9 +20,9 @@ class Thumbnail extends Component {
         className="Thumbnail"
         style={styles}
       >
-        {!this.props.image && <Folder className="FolderPlaceholder" size={200} />}
+        {!this.props.image && <Folder className="Thumbnail_FolderPlaceholder" size={200} />}
 
-        <span className="Caption">
+        <span className="Thumbnail_Caption">
           {this.props.title}
         </span>
       </article>

@@ -7,9 +7,9 @@ exports[`test renders file with a map 1`] = `
   <header
     className="FileHeader">
     <div
-      className="BackContainer">
+      className="FileHeader__BackContainer">
       <a
-        className="BackToAlbum"
+        className="FileHeader__BackToAlbum"
         onClick={[Function]}
         style={Object {}}>
         <svg
@@ -34,24 +34,24 @@ exports[`test renders file with a map 1`] = `
       </a>
     </div>
     <h1
-      className="FileTitle">
+      className="FileHeader__Title">
       Foo
     </h1>
   </header>
   <div
-    className="MainContainer">
+    className="File__MainContainer">
     <div
-      className="ImageContainer">
+      className="File__ImageContainer">
       <div>
         <div
-          className="loader"
+          className="Loader"
           style={
             Object {
               "height": "620px",
             }
           }>
           <div
-            className="ball-scale-ripple-multiple">
+            className="Loader__BallScaleRippleMultiple">
             <div
               style={
                 Object {
@@ -110,9 +110,9 @@ exports[`test renders file with backlink 1`] = `
   <header
     className="FileHeader">
     <div
-      className="BackContainer">
+      className="FileHeader__BackContainer">
       <a
-        className="BackToAlbum"
+        className="FileHeader__BackToAlbum"
         onClick={[Function]}
         style={Object {}}>
         <svg
@@ -137,24 +137,24 @@ exports[`test renders file with backlink 1`] = `
       </a>
     </div>
     <h1
-      className="FileTitle">
+      className="FileHeader__Title">
       Foo
     </h1>
   </header>
   <div
-    className="MainContainer">
+    className="File__MainContainer">
     <div
-      className="ImageContainer">
+      className="File__ImageContainer">
       <div>
         <div
-          className="loader"
+          className="Loader"
           style={
             Object {
               "height": "620px",
             }
           }>
           <div
-            className="ball-scale-ripple-multiple">
+            className="Loader__BallScaleRippleMultiple">
             <div
               style={
                 Object {
@@ -213,9 +213,9 @@ exports[`test renders file with prev / next links 1`] = `
   <header
     className="FileHeader">
     <div
-      className="BackContainer">
+      className="FileHeader__BackContainer">
       <a
-        className="BackToAlbum"
+        className="FileHeader__BackToAlbum"
         onClick={[Function]}
         style={Object {}}>
         <svg
@@ -240,20 +240,20 @@ exports[`test renders file with prev / next links 1`] = `
       </a>
     </div>
     <h1
-      className="FileTitle">
+      className="FileHeader__Title">
       Foo
     </h1>
   </header>
   <div
-    className="MainContainer">
+    className="File__MainContainer">
     <div
-      className="ImageContainer">
+      className="File__ImageContainer">
       <a
-        className="Prev"
+        className="FileOverlay__Link FileOverlay__Link--Prev"
         onClick={[Function]}
         style={Object {}}>
         <div
-          className="Overlay">
+          className="FileOverlay__ChevronContainer">
           <svg
             fill="currentColor"
             height="1em"
@@ -274,11 +274,11 @@ exports[`test renders file with prev / next links 1`] = `
         </div>
       </a>
       <a
-        className="Next"
+        className="FileOverlay__Link FileOverlay__Link--Next"
         onClick={[Function]}
         style={Object {}}>
         <div
-          className="Overlay">
+          className="FileOverlay__ChevronContainer">
           <svg
             fill="currentColor"
             height="1em"
@@ -300,14 +300,14 @@ exports[`test renders file with prev / next links 1`] = `
       </a>
       <div>
         <div
-          className="loader"
+          className="Loader"
           style={
             Object {
               "height": "620px",
             }
           }>
           <div
-            className="ball-scale-ripple-multiple">
+            className="Loader__BallScaleRippleMultiple">
             <div
               style={
                 Object {
@@ -366,26 +366,26 @@ exports[`test renders real file without crashing 1`] = `
   <header
     className="FileHeader">
     <div
-      className="BackContainer" />
+      className="FileHeader__BackContainer" />
     <h1
-      className="FileTitle">
+      className="FileHeader__Title">
       Foo
     </h1>
   </header>
   <div
-    className="MainContainer">
+    className="File__MainContainer">
     <div
-      className="ImageContainer">
+      className="File__ImageContainer">
       <div>
         <div
-          className="loader"
+          className="Loader"
           style={
             Object {
               "height": "620px",
             }
           }>
           <div
-            className="ball-scale-ripple-multiple">
+            className="Loader__BallScaleRippleMultiple">
             <div
               style={
                 Object {
