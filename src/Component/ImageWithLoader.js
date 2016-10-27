@@ -7,7 +7,6 @@ class ImageWithLoader extends Component {
     src: PropTypes.string.isRequired,
     onLoad: PropTypes.func,
     loaderProps: PropTypes.object,
-    displayChildren: PropTypes.bool,
   };
 
   constructor(props) {
@@ -42,15 +41,15 @@ class ImageWithLoader extends Component {
     const { loaderProps } = this.props;
 
     if (this.state.isLoaded) {
+      if (!this.props.children) {
+        return null;
+      }
+
       return this.props.children;
     }
 
     return <div>
-      {!this.state.isLoaded &&
-         <Loader color="#594F3F" {...loaderProps} />
-      }
-
-      {(this.props.displayChildren) && this.props.children}
+       <Loader color="#594F3F" {...loaderProps} />
     </div>
   }
 }

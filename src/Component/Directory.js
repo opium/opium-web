@@ -56,12 +56,12 @@ class DirectoryHeader extends Component {
         )}
       >
         {directory.directoryThumbnail &&
-          <ImageWithLoader
-            src={directory.directoryThumbnail.generateCrop(viewportWidth, 400)}
-            onLoad={() => this.setState({ backgroundLoaded: true })}
-            loaderProps={{ className: 'DirectoryHeaderWithBannerImage' }}
-            displayChildren
-          >
+          <div>
+            <ImageWithLoader
+              src={directory.directoryThumbnail.generateCrop(viewportWidth, 400)}
+              onLoad={() => this.setState({ backgroundLoaded: true })}
+              loaderProps={{ className: 'DirectoryHeaderWithBannerImage' }}
+            />
             <div
               className={cn(
                 'DirectoryHeaderWithBannerImage',
@@ -69,9 +69,8 @@ class DirectoryHeader extends Component {
               )}
               style={styles}
             />
-          </ImageWithLoader>
+          </div>
         }
-
 
         {directory.parent &&
           <Link to={`/${directory.parent.slug}`} className="Back">
