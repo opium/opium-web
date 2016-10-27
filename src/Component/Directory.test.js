@@ -158,3 +158,55 @@ it('renders a directory with header', () => {
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
 });
+
+it('renders a directory with children without', () => {
+  const directory = new DirectoryModel({
+    name: 'foo',
+    children: [
+      {
+        id: 1,
+        name: "Alps",
+        slug: "alps",
+        type: 'directory',
+      },
+      {
+        id: 2,
+        name: "Pacific Ocean",
+        slug: "pacific-ocean",
+        type: 'directory',
+      }
+    ],
+    image_lines: [
+      {
+        "1": {
+          thumbs: 'http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200',
+        },
+        "2": {
+          geometry: { width: 200, height: 200 }
+        }
+      }
+    ],
+    parent: {
+      name: 'bar',
+      slug: 'bar',
+    },
+    _embedded: {
+      directory_thumbnail: {
+        type: 'file',
+        _links: {
+          cropTemplate: {
+            href: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/%7BcropWidth%7D-%7BcropHeight%7D',
+          }
+        },
+      }
+    }
+  });
+  const component = renderer.create(<Directory
+    directory={directory}
+    findDirectory={jest.fn()}
+    slug=""
+    viewportWidth={1920}
+  />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot()
+});

@@ -14,10 +14,18 @@
     right: 0;
     padding: 5px;
     background: rgba(89, 79, 63, .6);
-    color: rgba(160, 147, 127, 1);
+    color: #fff;
     text-align: center;
 }
 
 .Image {
     display: block;
+}
+
+.FolderPlaceholder {
+    color: rgb( 89, 79, 63);
+}
+
+.FolderPlaceholder:hover, .FolderPlaceholder:active {
+    color: rgb( 79, 58, 27)
 }
