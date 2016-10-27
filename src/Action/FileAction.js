@@ -8,7 +8,7 @@ export function find(slug) {
   return dispatch => {
     dispatch({ type: OPIUM_REQUEST_FILE });
 
-    window.container.sdk.file.find(slug)
+    return window.container.sdk.file.find(slug)
       .then(file => {
         dispatch({
           type: OPIUM_RECEIVE_FILE,
