@@ -3,6 +3,8 @@ import renderer from 'react-test-renderer';
 import File from './File';
 import FileModel from '../Model/File';
 
+jest.mock('react-leaflet');
+
 it('renders empty file without crashing', () => {
   const component = renderer.create(<File
     file={new FileModel({})}
