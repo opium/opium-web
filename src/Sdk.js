@@ -1,18 +1,12 @@
-import RestClientSdk, { TokenStorage, ProvidedTokenGenerator } from 'rest-client-sdk';
+import RestClientSdk, { TokenStorage } from 'rest-client-sdk';
 import localforage from 'localforage';
 import DirectoryRepository from './Model/Repository/DirectoryRepository';
 import FileRepository from './Model/Repository/FileRepository';
 import { entityFactory } from './Model/Factory';
+import { tokenGenerator, apiConfig } from './Config';
 
 export default function configureSdk() {
-  const tokenGenerator = new ProvidedTokenGenerator('dGVzdDp0ZXN0');
   const tokenStorage = new TokenStorage(tokenGenerator, localforage);
-
-  const apiConfig = {
-    path: 'demo.opium.sitioweb.fr',
-    scheme: 'http',
-    authorizationType: 'Basic',
-  };
 
   const clients = {
     directory: DirectoryRepository,
