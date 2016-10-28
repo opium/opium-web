@@ -1,0 +1,40 @@
+.Login__Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    max-height: 300px;
+}
+
+.Login__InputContainer {
+    width: 100%;
+    max-width: 450px;
+}
+
+.Login__Input {
+    width: 100%;
+    max-width: 450px;
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+.Login__Input--Submit {
+    background: rgb(89, 79, 63);
+    color: #fff;
+    border: 0;
+    padding: 10px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.Login__Input--Submit:hover, .Login__Input--Submit:active {
+    background: rgb(79, 58, 27);
+}

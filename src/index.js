@@ -12,6 +12,7 @@ import './Opium.css';
 import configureSdk from './Sdk';
 import configureRoutes from './Route';
 import reducer from './Reducer';
+import apiErrorMiddleware from './Action/Middleware/ApiErrorMiddleware';
 
 window.container = {};
 window.container.sdk = configureSdk();
@@ -22,6 +23,7 @@ const composeEnhancers = composeWithDevTools({
 
 
 const middlewares = [
+  apiErrorMiddleware,
   thunk,
   routerMiddleware(browserHistory)
 ];

@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
+#root, [data-reactroot] {
+    height: 100%;
+}
+
 body {
     color: rgba( 89, 79, 63,1);
     background-color: #fff;
@@ -13,8 +21,8 @@ body {
 .color-primary-3 { color: rgba( 81, 65, 41,1) }
 .color-primary-4 { color: rgba( 79, 58, 27,1) }
 
-.bg-color-primary-0 { background-color: rgba( 89, 79, 63,1) }  /* Main Primary color */
-.bg-color-primary-1 { background-color: rgba(160,147,127,1) }
-.bg-color-primary-2 { background-color: rgba(129,116, 96,1) }
-.bg-color-primary-3 { background-color: rgba( 81, 65, 41,1) }
-.bg-color-primary-4 { background-color: rgba( 79, 58, 27,1) }
+.bg-color-primary-0 { background-color: rgba(89, 79, 63, 1) }  /* Main Primary color */
+.bg-color-primary-1 { background-color: rgba(160,147,127, 1) }
+.bg-color-primary-2 { background-color: rgba(129,116, 96, 1) }
+.bg-color-primary-3 { background-color: rgba(81, 65, 41, 1) }
+.bg-color-primary-4 { background-color: rgba(79, 58, 27, 1) }
