@@ -1,0 +1,42 @@
+exports[`test renders login 1`] = `
+<div
+  className="Login__Container">
+  <form
+    className="Login"
+    onSubmit={[Function]}>
+    <div
+      className="Login__InputContainer">
+      <label>
+        <div>
+          Login
+        </div>
+        <input
+          className="Login__Input"
+          onChange={[Function]}
+          placeholder="login"
+          type="text"
+          value="" />
+      </label>
+    </div>
+    <div
+      className="Login__InputContainer">
+      <label>
+        <div>
+          Password
+        </div>
+        <input
+          className="Login__Input"
+          onChange={[Function]}
+          placeholder="password"
+          type="text"
+          value="" />
+      </label>
+    </div>
+    <button
+      className="Login__Input Login__Input--Submit"
+      type="submit">
+      Sign in
+    </button>
+  </form>
+</div>
+`;

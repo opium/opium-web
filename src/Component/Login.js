@@ -1,6 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import './Login.css';
 
 class Login extends Component {
+  static propTypes = {
+    doLogin: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
 
@@ -33,24 +38,41 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="login"
-          onChange={this.handleChangeLogin}
-          value={this.state.login}
-        />
-        <input
-          type="text"
-          placeholder="password"
-          onChange={this.handleChangePassword}
-          value={this.state.password}
-        />
+      <div className="Login__Container">
+        <form onSubmit={this.handleSubmit} className="Login">
+          <div className="Login__InputContainer">
+            <label>
+              <div>Login</div>
+              <input
+                type="text"
+                placeholder="login"
+                onChange={this.handleChangeLogin}
+                value={this.state.login}
+                className="Login__Input"
+              />
+            </label>
+          </div>
+          <div className="Login__InputContainer">
+            <label>
+              <div>Password</div>
+              <input
+                type="text"
+                placeholder="password"
+                onChange={this.handleChangePassword}
+                value={this.state.password}
+                className="Login__Input"
+              />
+            </label>
+          </div>
 
-        <button type="submit">
-          Submit
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="Login__Input Login__Input--Submit"
+          >
+            Sign in
+          </button>
+        </form>
+      </div>
     );
   }
 }
