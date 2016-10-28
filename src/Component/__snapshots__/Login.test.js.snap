@@ -4,6 +4,17 @@ exports[`test renders login 1`] = `
   <form
     className="Login"
     onSubmit={[Function]}>
+    <div>
+      Demo credentials are:
+      <ul>
+        <li>
+          login: \"test\"
+        </li>
+        <li>
+          password: \"test\"
+        </li>
+      </ul>
+    </div>
     <div
       className="Login__InputContainer">
       <label>

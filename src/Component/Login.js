@@ -40,6 +40,14 @@ class Login extends Component {
     return (
       <div className="Login__Container">
         <form onSubmit={this.handleSubmit} className="Login">
+          <div>
+            Demo credentials are:
+              <ul>
+                <li>login: "test"</li>
+                <li>password: "test"</li>
+              </ul>
+          </div>
+
           <div className="Login__InputContainer">
             <label>
               <div>Login</div>
