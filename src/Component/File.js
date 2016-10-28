@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
-import { Map, Marker, setIconDefaultImagePath, TileLayer } from 'react-leaflet';
+import { Map, Marker, TileLayer } from 'react-leaflet';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import ChevronRight from 'react-icons/lib/ti/chevron-right';
 import FileModel from '../Model/File';
@@ -193,8 +193,5 @@ class File extends Component {
     );
   }
 }
-
-// waiting fo https://github.com/PaulLeCam/react-leaflet/pull/238 to be merged
-setIconDefaultImagePath('//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/images/');
 
 export default File;

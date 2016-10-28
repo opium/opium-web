@@ -4487,9 +4487,9 @@ react-icons:
   dependencies:
     react-icon-base "2.0.3"
 
-react-leaflet:
-  version "0.12.3"
-  resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-0.12.3.tgz#db37372e2f9bca7c45cc6d8c2e720bee7788845b"
+react-leaflet@^1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-1.0.0-rc.2.tgz#2cf384a596da972f4640ee2de4bdda25638418d8"
   dependencies:
     lodash "^4.0.0"
     warning "^3.0.0"
