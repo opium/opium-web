@@ -5,7 +5,7 @@ import { Map, Marker, setIconDefaultImagePath, TileLayer } from 'react-leaflet';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import ChevronRight from 'react-icons/lib/ti/chevron-right';
 import FileModel from '../Model/File';
-import ImageWithLoader from './ImageWithLoader';
+import Loader from './Loader';
 import 'leaflet/dist/leaflet.css';
 import './File.css';
 
@@ -98,6 +98,7 @@ class File extends Component {
   static propTypes = {
     file: PropTypes.instanceOf(FileModel).isRequired,
     isFetchingFile: PropTypes.bool.isRequired,
+    isLoadedImage: PropTypes.bool.isRequired,
     findFile: PropTypes.func.isRequired,
     removeCurrentFile: PropTypes.func.isRequired,
     viewportHeight: PropTypes.number.isRequired,
@@ -114,11 +115,22 @@ class File extends Component {
     this.props.findFile(this.props.slug);
 
     window.addEventListener('keydown', this.handleKeyup);
+
+    this.loadImage();
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.slug !== prevProps.slug) {
       this.props.findFile(this.props.slug);
+    }
+
+    this.loadImage();
+  }
+
+  loadImage() {
+    const src = this.props.file.thumbnails.get('image');
+    if (src) {
+      this.props.loadImage(src);
     }
   }
 
@@ -171,18 +183,14 @@ class File extends Component {
             <PrevLink file={file} />
             <NextLink file={file} />
 
-            <ImageWithLoader
-              src={file.thumbnails.get('image')}
-              loaderProps={{
-                style: { height: `${this.props.viewportHeight - 80}px` }
-              }}
-            >
+            {this.props.isLoadedImage ?
               <img
                 src={file.thumbnails.get('image')}
                 alt={file.name}
                 className="File__Image"
-              />
-            </ImageWithLoader>
+              /> :
+             <Loader color="#594F3F" style={{ height: `${this.props.viewportHeight - 80}px` }} />
+            }
           </div>
         </div>
 

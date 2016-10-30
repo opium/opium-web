@@ -1,37 +1,41 @@
-exports[`test renders a directory with children without 1`] = `
+exports[`test renders a directory with children and loaded background 1`] = `
 <div>
   <header
     className="DirectoryHeader--WithBanner">
     <div>
-      <div>
+      <div
+        className="Loader DirectoryHeader__Image">
         <div
-          className="Loader DirectoryHeader__Image">
+          className="Loader__BallScaleRippleMultiple">
           <div
-            className="Loader__BallScaleRippleMultiple">
-            <div
-              style={
-                Object {
-                  "borderColor": "#594F3F",
-                }
-              } />
-            <div
-              style={
-                Object {
-                  "borderColor": "#594F3F",
-                }
-              } />
-            <div
-              style={
-                Object {
-                  "borderColor": "#594F3F",
-                }
-              } />
-          </div>
+            style={
+              Object {
+                "borderColor": "#594F3F",
+              }
+            } />
+          <div
+            style={
+              Object {
+                "borderColor": "#594F3F",
+              }
+            } />
+          <div
+            style={
+              Object {
+                "borderColor": "#594F3F",
+              }
+            } />
         </div>
       </div>
       <div
-        className="DirectoryHeader__Image"
-        style={Object {}} />
+        className="DirectoryHeader__Image DirectoryHeader__Image--Opaque"
+        style={
+          Object {
+            "backgroundImage": "linear-gradient(rgba(0, 0, 0, 0) 50%,
+                  rgba(0, 0, 0, 0.8)),
+                  url(http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400)",
+          }
+        } />
     </div>
     <a
       className="DirectoryHeader__Back"
@@ -123,30 +127,28 @@ exports[`test renders a directory with header 1`] = `
   <header
     className="DirectoryHeader--WithBanner">
     <div>
-      <div>
+      <div
+        className="Loader DirectoryHeader__Image">
         <div
-          className="Loader DirectoryHeader__Image">
+          className="Loader__BallScaleRippleMultiple">
           <div
-            className="Loader__BallScaleRippleMultiple">
-            <div
-              style={
-                Object {
-                  "borderColor": "#594F3F",
-                }
-              } />
-            <div
-              style={
-                Object {
-                  "borderColor": "#594F3F",
-                }
-              } />
-            <div
-              style={
-                Object {
-                  "borderColor": "#594F3F",
-                }
-              } />
-          </div>
+            style={
+              Object {
+                "borderColor": "#594F3F",
+              }
+            } />
+          <div
+            style={
+              Object {
+                "borderColor": "#594F3F",
+              }
+            } />
+          <div
+            style={
+              Object {
+                "borderColor": "#594F3F",
+              }
+            } />
         </div>
       </div>
       <div

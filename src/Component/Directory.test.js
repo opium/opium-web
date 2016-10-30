@@ -7,7 +7,8 @@ it('renders directory without crashing', () => {
   const component = renderer.create(<Directory
     findDirectory={jest.fn()}
     slug=""
-    viewportWidth={1920}
+    loadImage={jest.fn()}
+    hasBackground={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -21,7 +22,8 @@ it('renders an empty directory', () => {
     directory={directory}
     findDirectory={jest.fn()}
     slug=""
-    viewportWidth={1920}
+    loadImage={jest.fn()}
+    hasBackground={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -59,7 +61,8 @@ it('renders a non empty directory', () => {
     directory={directory}
     findDirectory={jest.fn()}
     slug=""
-    viewportWidth={1920}
+    loadImage={jest.fn()}
+    hasBackground={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -101,7 +104,8 @@ it('renders a non empty directory with parent', () => {
     directory={directory}
     findDirectory={jest.fn()}
     slug=""
-    viewportWidth={1920}
+    loadImage={jest.fn()}
+    hasBackground={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -153,13 +157,16 @@ it('renders a directory with header', () => {
     directory={directory}
     findDirectory={jest.fn()}
     slug=""
-    viewportWidth={1920}
+    loadImage={jest.fn()}
+    hasBackground={true}
+    backgroundLoaded={false}
+    backgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
 });
 
-it('renders a directory with children without', () => {
+it('renders a directory with children and loaded background', () => {
   const directory = new DirectoryModel({
     name: 'foo',
     children: [
@@ -205,7 +212,10 @@ it('renders a directory with children without', () => {
     directory={directory}
     findDirectory={jest.fn()}
     slug=""
-    viewportWidth={1920}
+    loadImage={jest.fn()}
+    hasBackground={true}
+    backgroundLoaded={true}
+    backgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()

@@ -13,6 +13,8 @@ it('renders empty file without crashing', () => {
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -27,6 +29,8 @@ it('renders a loader if file is not loaded', () => {
     pushLocation={() => {}}
     isFetchingFile={true}
     viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -47,6 +51,8 @@ it('renders real file without crashing', () => {
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage={true}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -71,6 +77,8 @@ it('renders file with backlink', () => {
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage={true}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -103,6 +111,8 @@ it('renders file with prev / next links', () => {
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage={true}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -131,6 +141,8 @@ it('renders file with a map', () => {
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage={true}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
