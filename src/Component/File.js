@@ -179,7 +179,9 @@ class File extends Component {
         </header>
 
         <div className="File__MainContainer">
-          <div className="File__ImageContainer">
+          <div className="File__ImageContainer"
+            style={{ height: `${this.props.viewportHeight - 100}px` }}
+          >
             <PrevLink file={file} />
             <NextLink file={file} />
 
@@ -189,7 +191,7 @@ class File extends Component {
                 alt={file.name}
                 className="File__Image"
               /> :
-             <Loader color="#594F3F" style={{ height: `${this.props.viewportHeight - 80}px` }} />
+             <Loader color="#594F3F" />
             }
           </div>
         </div>
