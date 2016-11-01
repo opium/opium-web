@@ -1,5 +1,6 @@
 import { AccessDeniedError, ForbiddenError } from 'rest-client-sdk';
 import { push } from 'react-router-redux';
+import { ROUTE_LOGIN } from '../../Route';
 // import { LOGIN_ERROR } from '../actions/user';
 
 
@@ -21,7 +22,7 @@ const apiError = store => next => action => {
         // So we have an exception "Failed to fetch"
         // In this case, we'll manually refresh the access token and retry the action
         if (err instanceof AccessDeniedError || err instanceof ForbiddenError || isFetchError) {
-          return next(push('/login'));
+          return next(push(ROUTE_LOGIN));
         } else {
           throw err;
         }

@@ -4,7 +4,11 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import Directory from './Container/Directory';
 import File from './Container/File';
 import Login from './Container/LoginContainer';
+import Upload from './Container/UploadContainer';
 
+export const ROUTE_LOGIN = 'opium/login';
+export const ROUTE_PALETTE = 'opium/palette';
+export const ROUTE_UPLOAD = 'opium/upload';
 
 const Palette = () =>
   <div style={{ display: 'flex', height: '400px' }}>
@@ -21,9 +25,11 @@ export default function configureRoutes(store) {
 
   return (<Router history={history}>
     <Route path="/" component={Directory} />
-    <Route path="palette" component={Palette} />
 
-    <Route path="login" component={Login} />
+    <Route path={ROUTE_PALETTE} component={Palette} />
+    <Route path={ROUTE_LOGIN} component={Login} />
+    <Route path={`${ROUTE_UPLOAD}`} component={Upload} />
+    <Route path={`${ROUTE_UPLOAD}/:directorySlug`} component={Upload} />
 
     <Route path=":directorySlug" component={Directory}>
       <Route path=":fileSlug" component={File} />

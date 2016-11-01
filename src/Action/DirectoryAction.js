@@ -1,3 +1,4 @@
+import { push } from 'react-router-redux';
 import {
   OPIUM_RECEIVE_DIRECTORY,
   OPIUM_REQUEST_DIRECTORY,
@@ -20,4 +21,14 @@ export function find(slug) {
       })
     ;
   }
+}
+
+export function uploadFile(directorySlug, file) {
+  return dispatch => {
+    window.container.sdk.directory.uploadFile(directorySlug, file)
+        .then(uploadedFile => {
+          dispatch(push(`/${directorySlug}`));
+        })
+    ;
+  };
 }
