@@ -8,7 +8,9 @@ class ImageUpload extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
 
     this.state = {
       file: '',
@@ -38,22 +40,29 @@ class ImageUpload extends Component {
   }
 
   render() {
-    let {imagePreviewUrl} = this.state;
-    let $imagePreview = null;
+    const { imagePreviewUrl } = this.state;
+    let imagePreview = null;
     if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} />);
+      imagePreview = (<img src={imagePreviewUrl} alt="preview" />);
     } else {
-      $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+      imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
     }
 
     return (
       <div className="previewComponent">
-        <form onSubmit={(e)=>this.handleSubmit(e)}>
-          <input className="fileInput" type="file" onChange={(e)=>this.handleImageChange(e)} />
-          <button className="submitButton" type="submit" onClick={(e)=>this.handleSubmit(e)}>Upload Image</button>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            className="fileInput"
+            type="file"
+            onChange={this.handleImageChange}
+          />
+          <button className="submitButton" type="submit">
+            Upload Image
+          </button>
         </form>
+
         <div className="imgPreview">
-          {$imagePreview}
+          {imagePreview}
         </div>
       </div>
     )
