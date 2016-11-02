@@ -59,7 +59,7 @@
     text-decoration: none;
 }
 
-.DirectoryHeader__Back:hover {
+.DirectoryHeader__Back:hover, .DirectoryHeader__UploadLink:hover {
     text-decoration: underline;
 }
 

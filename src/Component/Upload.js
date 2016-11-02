@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import './Upload.css';
 
 class ImageUpload extends Component {
   static propTypes = {
@@ -31,37 +32,46 @@ class ImageUpload extends Component {
 
     reader.onloadend = () => {
       this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
+        file,
+        imagePreviewUrl: reader.result,
       });
     }
 
-    reader.readAsDataURL(file)
+    reader.readAsDataURL(file);
   }
 
   render() {
     const { imagePreviewUrl } = this.state;
+
     let imagePreview = null;
     if (imagePreviewUrl) {
-      imagePreview = (<img src={imagePreviewUrl} alt="preview" />);
+      imagePreview = (<img className="Upload__PreviewImage" src={imagePreviewUrl} alt="preview" />);
     } else {
-      imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+      imagePreview = 'Please select an Image for Preview';
     }
 
     return (
-      <div className="previewComponent">
-        <form onSubmit={this.handleSubmit}>
+      <div className="Upload__Container">
+        <form
+          onSubmit={this.handleSubmit}
+          className="Upload__Form"
+        >
           <input
-            className="fileInput"
             type="file"
             onChange={this.handleImageChange}
           />
-          <button className="submitButton" type="submit">
-            Upload Image
-          </button>
+          <div>
+            <a href={`/${this.props.slug}`}>
+              Back
+            </a>
+
+            <button type="submit" className="Upload__Link">
+              Upload Image
+            </button>
+          </div>
         </form>
 
-        <div className="imgPreview">
+        <div className="Upload__Preview">
           {imagePreview}
         </div>
       </div>
