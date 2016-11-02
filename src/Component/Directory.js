@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
+import { Map, Marker, setIconDefaultImagePath, TileLayer } from 'react-leaflet';
 import cn from 'classnames';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import Upload from 'react-icons/lib/ti/upload';
@@ -8,7 +9,7 @@ import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 import Loader from './Loader';
-import { ROUTE_UPLOAD } from '../RouteName';
+import { ROUTE_UPLOAD, ROUTE_DIRECTORY_MAP } from '../RouteName';
 
 class DirectoryHeader extends Component {
   static propTypes = {
@@ -89,6 +90,13 @@ class DirectoryHeader extends Component {
             {directory.name}
           </h1>
         }
+
+        <Link className="DirectoryHeader__MapContainer" to={`${ROUTE_DIRECTORY_MAP}${directory.slug}`}>
+          <Map className="DirectoryHeader__Map" center={[45.74, 4.85]} zoom={8}>
+            <Marker position={[45.7, 4.8]} />
+            <Marker position={[45.77, 4.9]} />
+          </Map>
+        </Link>
       </header>
     );
   }
