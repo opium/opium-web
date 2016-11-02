@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import './Upload.css';
 
 class ImageUpload extends Component {
@@ -61,9 +62,9 @@ class ImageUpload extends Component {
             onChange={this.handleImageChange}
           />
           <div>
-            <a href={`/${this.props.slug}`}>
+            <Link to={`/${this.props.slug}`}>
               Back
-            </a>
+            </Link>
 
             <button type="submit" className="Upload__Link">
               Upload Image

@@ -79,12 +79,10 @@ class DirectoryHeader extends Component {
           </Link>
         }
 
-        {directory.slug &&
-          <Link to={`${ROUTE_UPLOAD}${directory.slug}`} className="DirectoryHeader__UploadLink">
-            <Upload />
-            Upload file
-          </Link>
-        }
+        <Link to={`${ROUTE_UPLOAD}${directory.slug}`} className="DirectoryHeader__UploadLink">
+          <Upload />
+          Upload file
+        </Link>
 
         {backgroundImage &&
           <h1 className="DirectoryHeader__Title">
