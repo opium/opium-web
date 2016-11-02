@@ -12,6 +12,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    overflow: hidden;
     padding: 5px;
     background: rgba(89, 79, 63, .6);
     color: #fff;
