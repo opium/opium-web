@@ -2,6 +2,8 @@
     height: 80px;
     display: flex;
     align-items: center;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .FileHeader__Title {
