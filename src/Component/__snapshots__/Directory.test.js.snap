@@ -1,7 +1,7 @@
 exports[`test renders a directory with children and loaded background 1`] = `
 <div>
   <header
-    className="DirectoryHeader--WithBanner">
+    className="DirectoryHeader DirectoryHeader--WithBanner">
     <div>
       <div
         className="Loader DirectoryHeader__Image">
@@ -125,7 +125,7 @@ exports[`test renders a directory with children and loaded background 1`] = `
 exports[`test renders a directory with header 1`] = `
 <div>
   <header
-    className="DirectoryHeader--WithBanner">
+    className="DirectoryHeader DirectoryHeader--WithBanner">
     <div>
       <div
         className="Loader DirectoryHeader__Image">
@@ -228,6 +228,8 @@ exports[`test renders a directory with header 1`] = `
 
 exports[`test renders a non empty directory 1`] = `
 <div>
+  <header
+    className="DirectoryHeader" />
   <div
     className="Directory__ThumbnailList">
     <a
@@ -274,7 +276,7 @@ exports[`test renders a non empty directory 1`] = `
 exports[`test renders a non empty directory with parent 1`] = `
 <div>
   <header
-    className="">
+    className="DirectoryHeader">
     <a
       className="DirectoryHeader__Back"
       onClick={[Function]}
@@ -344,6 +346,8 @@ exports[`test renders a non empty directory with parent 1`] = `
 
 exports[`test renders an empty directory 1`] = `
 <div>
+  <header
+    className="DirectoryHeader" />
   <div
     className="Directory__ThumbnailList" />
   <footer

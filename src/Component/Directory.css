@@ -9,8 +9,12 @@
     text-align: right;
 }
 
-.DirectoryHeader--WithBanner {
+.DirectoryHeader {
     position: relative;
+    min-height: 80px;
+}
+
+.DirectoryHeader--WithBanner {
     height: 400px;
     margin-bottom: 80px;
 }
@@ -44,7 +48,7 @@
     font-size: 54px;
 }
 
-.DirectoryHeader__Back {
+.DirectoryHeader__Back, .DirectoryHeader__UploadLink {
     display: inline-block;
     margin: .5em;
     padding: .8em;
@@ -57,4 +61,10 @@
 
 .DirectoryHeader__Back:hover {
     text-decoration: underline;
+}
+
+.DirectoryHeader__UploadLink {
+    position: absolute;
+    top: 0;
+    right: 0;
 }

@@ -1,6 +1,6 @@
 import { AccessDeniedError, ForbiddenError } from 'rest-client-sdk';
 import { push } from 'react-router-redux';
-import { ROUTE_LOGIN } from '../../Route';
+import { ROUTE_LOGIN } from '../../RouteName';
 // import { LOGIN_ERROR } from '../actions/user';
 
 

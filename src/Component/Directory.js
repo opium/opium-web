@@ -3,10 +3,12 @@ import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import cn from 'classnames';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
+import Upload from 'react-icons/lib/ti/upload';
 import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 import Loader from './Loader';
+import { ROUTE_UPLOAD } from '../RouteName';
 
 class DirectoryHeader extends Component {
   static propTypes = {
@@ -42,11 +44,6 @@ class DirectoryHeader extends Component {
   render() {
     const { directory, backgroundLoaded, backgroundImage } = this.props;
 
-    if (!directory.parent && !backgroundImage) {
-      return null;
-    }
-
-
     const styles = {};
     if (backgroundLoaded && backgroundImage) {
       styles.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0) 50%,
@@ -57,6 +54,7 @@ class DirectoryHeader extends Component {
     return (
       <header
         className={cn(
+          'DirectoryHeader',
           backgroundImage && 'DirectoryHeader--WithBanner',
 
         )}
@@ -78,6 +76,13 @@ class DirectoryHeader extends Component {
           <Link to={`/${directory.parent.slug}`} className="DirectoryHeader__Back">
             <ChevronLeft />
             Back to albums
+          </Link>
+        }
+
+        {directory.slug &&
+          <Link to={`${ROUTE_UPLOAD}${directory.slug}`} className="DirectoryHeader__UploadLink">
+            <Upload />
+            Upload file
           </Link>
         }
 
