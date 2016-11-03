@@ -61,7 +61,7 @@ class DirectoryHeader extends Component {
       >
         {backgroundImage &&
           <div>
-            <Loader color="#594F3F" className="DirectoryHeader__Image" />
+            <Loader color="#1eb694" className="DirectoryHeader__Image" />
             <div
               className={cn(
                 'DirectoryHeader__Image',

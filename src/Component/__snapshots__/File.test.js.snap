@@ -41,7 +41,12 @@ exports[`test renders file with a map 1`] = `
   <div
     className="File__MainContainer">
     <div
-      className="File__ImageContainer">
+      className="File__ImageContainer"
+      style={
+        Object {
+          "height": "600px",
+        }
+      }>
       <img
         alt="Foo"
         className="File__Image"
@@ -117,7 +122,12 @@ exports[`test renders file with backlink 1`] = `
   <div
     className="File__MainContainer">
     <div
-      className="File__ImageContainer">
+      className="File__ImageContainer"
+      style={
+        Object {
+          "height": "600px",
+        }
+      }>
       <img
         alt="Foo"
         className="File__Image"
@@ -193,7 +203,12 @@ exports[`test renders file with prev / next links 1`] = `
   <div
     className="File__MainContainer">
     <div
-      className="File__ImageContainer">
+      className="File__ImageContainer"
+      style={
+        Object {
+          "height": "600px",
+        }
+      }>
       <a
         className="FileOverlay__Link FileOverlay__Link--Prev"
         onClick={[Function]}
@@ -294,7 +309,12 @@ exports[`test renders real file without crashing 1`] = `
   <div
     className="File__MainContainer">
     <div
-      className="File__ImageContainer">
+      className="File__ImageContainer"
+      style={
+        Object {
+          "height": "600px",
+        }
+      }>
       <img
         alt="Foo"
         className="File__Image"
