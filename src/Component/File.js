@@ -191,7 +191,7 @@ class File extends Component {
                 alt={file.name}
                 className="File__Image"
               /> :
-             <Loader color="#594F3F" />
+             <Loader color="#1eb694" />
             }
           </div>
         </div>

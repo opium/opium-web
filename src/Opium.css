@@ -15,6 +15,9 @@ body {
     background-color: #fff;
 }
 
+.color-alternative-1 { color: #1eb694 }
+.bg-color-alternative-1 { color: #1eb694 }
+
 .color-primary-0 { color: rgba( 89, 79, 63,1) }  /* Main Primary color */
 .color-primary-1 { color: rgba(160,147,127,1) }
 .color-primary-2 { color: rgba(129,116, 96,1) }
