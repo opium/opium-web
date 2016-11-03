@@ -34,6 +34,7 @@
 .File__MainContainer {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .File__ImageContainer {
