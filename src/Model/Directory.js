@@ -34,6 +34,45 @@ class Directory extends Record({
   getChildrenSize() {
     return this.children.size || 0;
   }
+
+  getPositionBounds() {
+    let bounds = Map();
+    for (const child of this.children) {
+      if (!child.position) {
+        continue;
+      }
+
+      const latitude = child.position.get('lat');
+      const longitude = child.position.get('lng');
+
+      if (!bounds.get('top') || bounds.get('top') < latitude) {
+        bounds = bounds.set('top', latitude);
+      }
+      if (!bounds.get('bottom') || bounds.get('bottom') > latitude) {
+        bounds = bounds.set('bottom', latitude);
+      }
+      if (!bounds.get('right') || bounds.get('right') < longitude) {
+        bounds = bounds.set('right', longitude);
+      }
+      if (!bounds.get('left') || bounds.get('left') > longitude) {
+        bounds = bounds.set('left', longitude);
+      }
+    }
+
+    if (!bounds.get('top')) {
+      return null;
+    }
+
+    const latDelta = (bounds.get('top') - bounds.get('bottom')) / 4;
+    const lngDelta = (bounds.get('right') - bounds.get('left')) / 4;
+
+    return bounds.merge({
+      top: bounds.get('top') + latDelta,
+      bottom: bounds.get('bottom') - latDelta,
+      left: bounds.get('left') - lngDelta,
+      right: bounds.get('right') + lngDelta,
+    });
+  }
 }
 
 export default Directory;

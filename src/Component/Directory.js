@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
+import { Map, Marker, TileLayer } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 import cn from 'classnames';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import Upload from 'react-icons/lib/ti/upload';
@@ -8,7 +10,27 @@ import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 import Loader from './Loader';
-import { ROUTE_UPLOAD } from '../RouteName';
+import { ROUTE_UPLOAD, ROUTE_DIRECTORY_MAP } from '../RouteName';
+
+
+const DirectoryMap = ({ bounds, markers }) =>
+  <Map
+    className="DirectoryHeader__Map"
+    bounds={[[bounds.get('top'), bounds.get('left')], [bounds.get('bottom'), bounds.get('right')]]}
+    dragging={false}
+    touchZoom={false}
+    scrollWheelZoom={false}
+    doubleClickZoom={false}
+    boxZoom={false}
+  >
+    <TileLayer
+      url='http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
+    />
+    {markers.map((marker, i) =>
+      <Marker key={i} position={marker} />
+    )}
+  </Map>
+;
 
 class DirectoryHeader extends Component {
   static propTypes = {
@@ -51,6 +73,12 @@ class DirectoryHeader extends Component {
         url(${backgroundImage})`;
     }
 
+    const bounds = directory.getPositionBounds();
+
+    const markers = directory.children
+      .filter(child => !!child.position)
+      .map(child => [child.position.get('lat'), child.position.get('lng')]);
+
     return (
       <header
         className={cn(
@@ -88,6 +116,12 @@ class DirectoryHeader extends Component {
           <h1 className="DirectoryHeader__Title">
             {directory.name}
           </h1>
+        }
+
+        {bounds &&
+          <Link className="DirectoryHeader__MapContainer" to={`${ROUTE_DIRECTORY_MAP}${directory.slug}`}>
+            <DirectoryMap bounds={bounds} markers={markers} />
+          </Link>
         }
       </header>
     );

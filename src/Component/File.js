@@ -88,7 +88,6 @@ const FileMap = ({ file }) => {
   return <Map style={{ width: '100%', height: '200px' }} center={position} zoom={10}>
     <TileLayer
       url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     />
     <Marker position={position} />
   </Map>

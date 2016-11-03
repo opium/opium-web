@@ -34,6 +34,7 @@
 .File__MainContainer {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .File__ImageContainer {
@@ -60,11 +61,6 @@
     text-decoration: none;
 }
 
-.FileOverlay__Link:hover > .FileOverlay__ChevronContainer {
-    display: flex;
-    max-width: 100%;
-}
-
 .FileOverlay__Link--Prev {
     left: 0;
     width: 30%;
@@ -85,6 +81,11 @@
     font-size: 60px;
     padding: 20px;
     border-radius: 5px;
+}
+
+.FileOverlay__Link:hover > .FileOverlay__ChevronContainer {
+    display: flex;
+    max-width: 100%;
 }
 
 .File__Image {

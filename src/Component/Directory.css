@@ -41,7 +41,7 @@
     position: absolute;
     left: 0;
     width: 100%;
-    bottom: .7em;
+    bottom: 1em;
     margin: 0;
     color: #A0937F;
     text-align: center;
@@ -67,4 +67,22 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.DirectoryHeader__MapContainer {
+    position: absolute;
+    bottom: -55px;
+    left: 50%;
+    margin-left: -55px;
+}
+
+.DirectoryHeader__Map {
+    border-radius: 50%;
+    z-index: 1;
+    width: 110px;
+    height: 110px;
+}
+
+.DirectoryHeader__Map .leaflet-control-container {
+    display: none;
 }

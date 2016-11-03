@@ -2,6 +2,7 @@ import React from 'react';
 import { browserHistory, Router, Route } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import Directory from './Container/Directory';
+import DirectoryMap from './Container/DirectoryMapContainer';
 import File from './Container/File';
 import Login from './Container/LoginContainer';
 import Upload from './Container/UploadContainer';
@@ -9,6 +10,7 @@ import {
   ROUTE_PALETTE,
   ROUTE_LOGIN,
   ROUTE_UPLOAD,
+  ROUTE_DIRECTORY_MAP,
 } from './RouteName';
 
 const Palette = () =>
@@ -31,6 +33,7 @@ export default function configureRoutes(store) {
     <Route path={ROUTE_LOGIN} component={Login} />
     <Route path={`${ROUTE_UPLOAD}`} component={Upload} />
     <Route path={`${ROUTE_UPLOAD}:directorySlug`} component={Upload} />
+    <Route path={`${ROUTE_DIRECTORY_MAP}:directorySlug`} component={DirectoryMap} />
 
     <Route path=":directorySlug" component={Directory}>
       <Route path=":fileSlug" component={File} />
