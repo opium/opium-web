@@ -85,12 +85,19 @@ const FileMap = ({ file }) => {
 
   const position = [file.position.get('lat'), file.position.get('lng')];
 
-  return <Map style={{ width: '100%', height: '200px' }} center={position} zoom={10}>
-    <TileLayer
-      url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-    />
-    <Marker position={position} />
-  </Map>
+  return (
+    <Map
+      style={{ width: '100%', height: '200px' }}
+      center={position}
+      zoom={10}
+      scrollWheelZoom={false}
+    >
+      <TileLayer
+        url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+      />
+      <Marker position={position} />
+    </Map>
+  );
 };
 
 class File extends Component {
