@@ -62,6 +62,7 @@
 
 .FileOverlay__Link:hover > .FileOverlay__ChevronContainer {
     display: flex;
+    max-width: 100%;
 }
 
 .FileOverlay__Link--Prev {

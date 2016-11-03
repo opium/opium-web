@@ -179,12 +179,10 @@ class File extends Component {
         </header>
 
         <div className="File__MainContainer">
-          <div className="File__ImageContainer"
+          <div
+            className="File__ImageContainer"
             style={{ height: `${this.props.viewportHeight - 100}px` }}
           >
-            <PrevLink file={file} />
-            <NextLink file={file} />
-
             {this.props.isLoadedImage ?
               <img
                 src={file.thumbnails.get('image')}
@@ -194,6 +192,9 @@ class File extends Component {
              <Loader color="#594F3F" />
             }
           </div>
+
+          <PrevLink file={file} />,
+          <NextLink file={file} />
         </div>
 
         <FileMap file={file} />
