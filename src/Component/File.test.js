@@ -1,3 +1,5 @@
+jest.mock('react-leaflet');
+
 import React from 'react';
 import renderer from 'react-test-renderer';
 import File from './File';

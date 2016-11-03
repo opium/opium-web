@@ -10,19 +10,19 @@ exports[`test renders a directory with children and loaded background 1`] = `
           <div
             style={
               Object {
-                "borderColor": "#594F3F",
+                "borderColor": "#1eb694",
               }
             } />
           <div
             style={
               Object {
-                "borderColor": "#594F3F",
+                "borderColor": "#1eb694",
               }
             } />
           <div
             style={
               Object {
-                "borderColor": "#594F3F",
+                "borderColor": "#1eb694",
               }
             } />
         </div>
@@ -157,19 +157,19 @@ exports[`test renders a directory with header 1`] = `
           <div
             style={
               Object {
-                "borderColor": "#594F3F",
+                "borderColor": "#1eb694",
               }
             } />
           <div
             style={
               Object {
-                "borderColor": "#594F3F",
+                "borderColor": "#1eb694",
               }
             } />
           <div
             style={
               Object {
-                "borderColor": "#594F3F",
+                "borderColor": "#1eb694",
               }
             } />
         </div>

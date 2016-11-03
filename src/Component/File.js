@@ -192,7 +192,7 @@ class File extends Component {
             }
           </div>
 
-          <PrevLink file={file} />,
+          <PrevLink file={file} />
           <NextLink file={file} />
         </div>
 
