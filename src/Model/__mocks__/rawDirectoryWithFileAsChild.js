@@ -30,6 +30,10 @@ export default {
       "name": "2909_vallon_moy_res.jpg",
       "pathname": "Alps/2909_vallon_moy_res.jpg",
       "slug": "2909-vallon-moy-res-jpg",
+      "position": {
+        "lat": -2,
+        "lng": 0,
+      },
       "exif": {
         "ColorSpace": "1",
         "Compression": "6",
@@ -69,6 +73,10 @@ export default {
       "name": "Alpes-anniviers1.jpg",
       "pathname": "Alps/Alpes-anniviers1.jpg",
       "slug": "alpes-anniviers1-jpg",
+      "position": {
+        "lat": 2,
+        "lng": 0,
+      },
       "exif": {
         "ColorSpace": "1",
         "ComponentsConfiguration": "1, 2, 3, 0",
@@ -143,6 +151,10 @@ export default {
       "name": "Bézaudun-les-Alpes_-08.JPG",
       "pathname": "Alps/Bézaudun-les-Alpes_-08.JPG",
       "slug": "bezaudun-les-alpes-08-jpg",
+      "position": {
+        "lat": 0,
+        "lng": 1,
+      },
       "exif": {
         "BrightnessValue": "24524/2560",
         "ColorSpace": "1",
@@ -214,6 +226,10 @@ export default {
       "name": "Bézaudun-les-Alpes_-09.JPG",
       "pathname": "Alps/Bézaudun-les-Alpes_-09.JPG",
       "slug": "bezaudun-les-alpes-09-jpg",
+      "position": {
+        "lat": 0,
+        "lng": -1,
+      },
       "exif": {
         "BrightnessValue": "2414/2560",
         "ColorSpace": "1",

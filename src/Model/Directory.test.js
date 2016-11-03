@@ -60,4 +60,23 @@ it('generate a valid entity with file as children', () => {
 
   expect(directory.directoryThumbnail).toBeInstanceOf(File);
   expect(directory.directoryThumbnail.name).toEqual('2909_vallon_moy_res.jpg');
+
+  // check lat / lng of childrens
+  expect(directory.children.getIn([0, 'position', 'lat'])).toEqual(-2);
+  expect(directory.children.getIn([0, 'position', 'lng'])).toEqual(0);
+  expect(directory.children.getIn([1, 'position', 'lat'])).toEqual(2);
+  expect(directory.children.getIn([1, 'position', 'lng'])).toEqual(0);
+  expect(directory.children.getIn([2, 'position', 'lat'])).toEqual(0);
+  expect(directory.children.getIn([2, 'position', 'lng'])).toEqual(1);
+  expect(directory.children.getIn([3, 'position', 'lat'])).toEqual(0);
+  expect(directory.children.getIn([3, 'position', 'lng'])).toEqual(-1);
+
+  expect(directory.getPositionBounds()).toEqual(Map({
+    top: 3,
+    bottom: -3,
+    right: 1.5,
+    left: -1.5,
+  }));
 });
+
+
