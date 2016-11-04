@@ -3903,6 +3903,10 @@ oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
+object-assign@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
+
 object-assign@^4.0.1, object-assign@^4.1.0, object-assign@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.0.tgz#7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0"
@@ -4499,6 +4503,22 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
+react-autosuggest:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-7.0.1.tgz#e751d2c2e516a344f6cdc150672e85f134f5f2f1"
+  dependencies:
+    react-autowhatever "^7.0.0"
+    react-redux "^4.4.5"
+    redux "^3.6.0"
+    shallow-equal "^1.0.0"
+
+react-autowhatever@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-autowhatever/-/react-autowhatever-7.0.0.tgz#7ea19f8024183acf1568fc8e4b76c0d0cc250d00"
+  dependencies:
+    react-themeable "^1.1.0"
+    section-iterator "^2.0.0"
+
 react-dev-utils@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-0.3.0.tgz#4a0527062a757579cb316fa254681aecca09d038"
@@ -4625,6 +4645,12 @@ react-side-effect@1.0.2:
 react-test-renderer@^15.3.2:
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.3.2.tgz#d8f083d37d2d41e97bbdc26a1dd9282f0baf7857"
+
+react-themeable@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-themeable/-/react-themeable-1.1.0.tgz#7d4466dd9b2b5fa75058727825e9f152ba379a0e"
+  dependencies:
+    object-assign "^3.0.0"
 
 react@^15.3.2:
   version "15.3.2"
@@ -4906,9 +4932,9 @@ resolve@^1.1.6, resolve@1.1.7, resolve@1.1.x:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
 
-rest-client-sdk@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/rest-client-sdk/-/rest-client-sdk-0.8.1.tgz#d73bedd30d5592b6777c2debdbdeb9eaaaf890e4"
+rest-client-sdk@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/rest-client-sdk/-/rest-client-sdk-0.8.2.tgz#da768846f1a2417177541419a98d74e6ec7e7004"
   dependencies:
     immutable "^3.8.1"
     urijs "^1.18.1"
@@ -4960,6 +4986,10 @@ sane@~1.4.1:
 sax@^1.1.4, sax@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
+
+section-iterator@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/section-iterator/-/section-iterator-2.0.0.tgz#bf444d7afeeb94ad43c39ad2fb26151627ccba2a"
 
 semver@^5.1.0, semver@^5.3.0, semver@~5.3.0, "semver@2 || 3 || 4 || 5":
   version "5.3.0"
@@ -5026,6 +5056,10 @@ setprototypeof@1.0.1:
 sha.js@2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/sha.js/-/sha.js-2.2.6.tgz#17ddeddc5f722fb66501658895461977867315ba"
+
+shallow-equal@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/shallow-equal/-/shallow-equal-1.0.0.tgz#508d1838b3de590ab8757b011b25e430900945f7"
 
 shallowequal@0.2.2:
   version "0.2.2"

@@ -5,6 +5,7 @@ import { Map, Marker, setIconDefaultImagePath, TileLayer } from 'react-leaflet';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import ChevronRight from 'react-icons/lib/ti/chevron-right';
 import FileModel from '../Model/File';
+import AddressAutoggest from './AddressAutosuggest';
 import Loader from './Loader';
 import 'leaflet/dist/leaflet.css';
 import './File.css';
@@ -78,25 +79,35 @@ const Exif = ({file}) =>
   </table>
 ;
 
-const FileMap = ({ file }) => {
+const FileMap = ({ file, updateFilePosition }) => {
+  const onSuggestionSelected = (event, { suggestion }) => {
+    updateFilePosition(file, suggestion.lat, suggestion.lon);
+  };
+
+  const addressAutosuggest = <AddressAutoggest onSuggestionSelected={onSuggestionSelected} />;
+
   if (!file.position) {
-    return null;
+    return addressAutosuggest;
   }
 
   const position = [file.position.get('lat'), file.position.get('lng')];
 
   return (
-    <Map
-      style={{ width: '100%', height: '200px' }}
-      center={position}
-      zoom={10}
-      scrollWheelZoom={false}
-    >
-      <TileLayer
-        url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-      />
-      <Marker position={position} />
-    </Map>
+    <div>
+      <Map
+        style={{ width: '100%', height: '200px' }}
+        center={position}
+        zoom={10}
+        scrollWheelZoom={false}
+      >
+        <TileLayer
+          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+        />
+        <Marker position={position} />
+      </Map>
+
+      {addressAutosuggest}
+    </div>
   );
 };
 
@@ -109,6 +120,7 @@ class File extends Component {
     removeCurrentFile: PropTypes.func.isRequired,
     viewportHeight: PropTypes.number.isRequired,
     pushLocation: PropTypes.func.isRequired,
+    updateFilePosition: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -203,7 +215,10 @@ class File extends Component {
           <NextLink file={file} />
         </div>
 
-        <FileMap file={file} />
+        <FileMap
+          file={file}
+          updateFilePosition={this.props.updateFilePosition}
+        />
 
         <Exif file={file} />
       </div>

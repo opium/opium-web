@@ -24,3 +24,22 @@ export function removeCurrent() {
     type: OPIUM_REMOVE_CURRENT_FILE,
   };
 }
+
+export function updateFilePosition(file, lat, lng) {
+  return dispatch => {
+    dispatch({ type: OPIUM_REQUEST_FILE });
+
+    const newFile = file.merge({
+      position: { lat, lng }
+    });
+
+    return window.container.sdk.file.update(newFile)
+      .then(file => {
+        dispatch({
+          type: OPIUM_RECEIVE_FILE,
+          file,
+        });
+      })
+    ;
+  }
+}

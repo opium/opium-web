@@ -3,6 +3,7 @@ import { mapEntityRelationShips } from './Factory';
 import Directory from './Directory';
 
 class File extends Record({
+  '@id': null,
   id: null,
   name: null,
   slug: null,
@@ -16,6 +17,7 @@ class File extends Record({
 }) {
   constructor(val) {
     const data = val;
+    data['@id'] = `/v1/files/${val.id}`;
     data.thumbnails = Map(val.thumbnails);
     data.parent = val.parent && new Directory(val.parent);
     data.previous = val.previous && new File(val.previous);

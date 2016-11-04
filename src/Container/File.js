@@ -3,7 +3,7 @@ import { push } from 'react-router-redux';
 import { Set } from 'immutable';
 import FileComponent from '../Component/File';
 import File from '../Model/File';
-import { find, removeCurrent } from '../Action/FileAction';
+import { find, removeCurrent, updateFilePosition } from '../Action/FileAction';
 import { loadImage } from '../Action/ImageAction';
 
 function mapStateToProps(state, ownProps) {
@@ -24,6 +24,7 @@ const mapDispatchToProps = {
   removeCurrentFile: removeCurrent,
   pushLocation: push,
   loadImage,
+  updateFilePosition,
 };
 
 export default connect(

@@ -53,6 +53,30 @@ exports[`test renders file with a map 1`] = `
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
     </div>
   </div>
+  <div>
+    <div
+      className="react-autosuggest__container">
+      <input
+        aria-activedescendant={null}
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-haspopup={false}
+        aria-owns="react-autowhatever-1"
+        autoComplete="off"
+        className="react-autosuggest__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Search for an address"
+        role="combobox"
+        type="text"
+        value="" />
+      <div
+        className="react-autosuggest__suggestions-container"
+        id="react-autowhatever-1" />
+    </div>
+  </div>
   <table
     className="Table">
     <tbody>
@@ -133,6 +157,28 @@ exports[`test renders file with backlink 1`] = `
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
     </div>
+  </div>
+  <div
+    className="react-autosuggest__container">
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-1"
+      autoComplete="off"
+      className="react-autosuggest__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search for an address"
+      role="combobox"
+      type="text"
+      value="" />
+    <div
+      className="react-autosuggest__suggestions-container"
+      id="react-autowhatever-1" />
   </div>
   <table
     className="Table">
@@ -265,6 +311,28 @@ exports[`test renders file with prev / next links 1`] = `
       </div>
     </a>
   </div>
+  <div
+    className="react-autosuggest__container">
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-1"
+      autoComplete="off"
+      className="react-autosuggest__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search for an address"
+      role="combobox"
+      type="text"
+      value="" />
+    <div
+      className="react-autosuggest__suggestions-container"
+      id="react-autowhatever-1" />
+  </div>
   <table
     className="Table">
     <tbody>
@@ -320,6 +388,28 @@ exports[`test renders real file without crashing 1`] = `
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
     </div>
+  </div>
+  <div
+    className="react-autosuggest__container">
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-1"
+      autoComplete="off"
+      className="react-autosuggest__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search for an address"
+      role="combobox"
+      type="text"
+      value="" />
+    <div
+      className="react-autosuggest__suggestions-container"
+      id="react-autowhatever-1" />
   </div>
   <table
     className="Table">

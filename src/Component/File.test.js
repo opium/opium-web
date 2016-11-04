@@ -12,6 +12,7 @@ it('renders empty file without crashing', () => {
     file={new FileModel({})}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
@@ -28,6 +29,7 @@ it('renders a loader if file is not loaded', () => {
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={true}
     viewportHeight={700}
@@ -50,6 +52,7 @@ it('renders real file without crashing', () => {
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
@@ -76,6 +79,7 @@ it('renders file with backlink', () => {
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
@@ -110,6 +114,7 @@ it('renders file with prev / next links', () => {
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
@@ -140,6 +145,7 @@ it('renders file with a map', () => {
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
