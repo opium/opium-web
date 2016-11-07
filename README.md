@@ -3,6 +3,9 @@ Opium web client [![Build Status](https://travis-ci.org/opium/opium-web.svg?bran
 
 Web interface for Opium
 
+## Demo
+A live demo is available [here](https://opium.github.io)
+
 ## Installation
   * Clone the project
   * `npm install`  (or `yarn install`)
@@ -10,3 +13,6 @@ Web interface for Opium
   * [Configure your webserver](https://github.com/opium/opium-server)
   * npm start
   * open [http://localhost:3000](http://localhost:3000)
+
+## Constraints
+  * Photo folder should not be named `opium` as it is used by the application internally
