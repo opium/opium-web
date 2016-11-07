@@ -42,7 +42,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build&&gh-pages -d build"
+    "deploy": "npm run build&&gh-pages -d build --repo git@github.com:opium/opium.github.io.git --branch master"
   },
   "eslintConfig": {
     "extends": "react-app"
