@@ -24,12 +24,12 @@
     "rest-client-sdk": "^0.8.2"
   },
   "devDependencies": {
-    "babel-eslint": "^6.1.2",
+    "babel-eslint": "^7.1.0",
     "eslint": "^3.5.0",
-    "eslint-config-react-app": "^0.2.1",
+    "eslint-config-react-app": "^0.3.0",
     "eslint-plugin-flowtype": "^2.18.1",
-    "eslint-plugin-import": "^1.12.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.1",
     "eslint-plugin-react": "^6.3.0",
     "react-scripts": "0.7.0",
     "redux-devtools": "^3.3.1",
