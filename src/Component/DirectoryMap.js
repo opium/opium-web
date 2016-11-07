@@ -9,7 +9,7 @@ const DirectoryMapInner = ({ bounds, markers, ...rest }) =>
     {...rest}
   >
     <TileLayer
-      url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+      url='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     />
     {markers.map((marker, i) =>
       <Marker key={i} position={marker} />

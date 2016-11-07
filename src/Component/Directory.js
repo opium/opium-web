@@ -24,7 +24,7 @@ const DirectoryMap = ({ bounds, markers }) =>
     boxZoom={false}
   >
     <TileLayer
-      url='http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
+      url='//tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
     />
     {markers.map((marker, i) =>
       <Marker key={i} position={marker} />
