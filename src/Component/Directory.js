@@ -35,6 +35,7 @@ const DirectoryMap = ({ bounds, markers }) =>
 class DirectoryHeader extends Component {
   static propTypes = {
     directory: PropTypes.object.isRequired,
+    displayAdminLink: PropTypes.bool.isRequired,
     hasBackground: PropTypes.bool.isRequired,
     backgroundImage: (props, propName) => {
       if (props.hasBackground && typeof props[propName] !== 'string') {
@@ -107,10 +108,12 @@ class DirectoryHeader extends Component {
           </Link>
         }
 
-        <Link to={`${ROUTE_UPLOAD}${directory.slug}`} className="DirectoryHeader__UploadLink">
-          <Upload />
-          Upload file
-        </Link>
+        {this.props.displayAdminLink &&
+          <Link to={`${ROUTE_UPLOAD}${directory.slug}`} className="DirectoryHeader__UploadLink">
+            <Upload />
+            Upload file
+          </Link>
+        }
 
         {backgroundImage &&
           <h1 className="DirectoryHeader__Title">
@@ -133,6 +136,7 @@ class Directory extends Component {
     directory: PropTypes.object,
     findDirectory: PropTypes.func.isRequired,
     slug: PropTypes.string.isRequired,
+    displayAdminLink: PropTypes.bool.isRequired,
   }
 
   constructor(props) {

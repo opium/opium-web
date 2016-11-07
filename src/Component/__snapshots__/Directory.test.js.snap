@@ -475,4 +475,18 @@ exports[`test renders an empty directory 1`] = `
 </div>
 `;
 
+exports[`test renders an empty directory without admin link 1`] = `
+<div>
+  <header
+    className="DirectoryHeader" />
+  <div
+    className="Directory__ThumbnailList" />
+  <footer
+    className="DirectoryFooter">
+    Total number of items: 
+    0
+  </footer>
+</div>
+`;
+
 exports[`test renders directory without crashing 1`] = `<div />`;

@@ -6,35 +6,49 @@ export const OPIUM_REQUEST_FILE = '@@opium/REQUEST_FILE';
 export const OPIUM_RECEIVE_FILE = '@@opium/RECEIVE_FILE';
 export const OPIUM_REMOVE_CURRENT_FILE = '@@opium/REMOVE_CURRENT_FILE';
 
+export const OPIUM_REQUEST_ME = '@@opium/REQUEST_ME';
+export const OPIUM_RECEIVE_ME = '@@opium/RECEIVE_ME';
+
 export default function opiumReducer(state = Map(), action) {
   switch (action.type) {
     case OPIUM_REQUEST_DIRECTORY:
       return state.merge({
-        'isFetchingDirectory': true,
+        isFetchingDirectory: true,
       });
 
     case OPIUM_RECEIVE_DIRECTORY:
       return state.merge({
-        'currentDirectory': action.directory,
-        'isFetchingDirectory': false,
+        currentDirectory: action.directory,
+        isFetchingDirectory: false,
       });
 
     case OPIUM_REQUEST_FILE:
       return state.merge({
-        'isFetchingFile': true,
+        isFetchingFile: true,
       });
 
     case OPIUM_RECEIVE_FILE:
       return state.merge({
-        'currentFile': action.file,
-        'isFetchingFile': false,
+        currentFile: action.file,
+        isFetchingFile: false,
       });
 
     case OPIUM_REMOVE_CURRENT_FILE:
       return state.merge({
-        'currentFile': null,
-        'isFetchingFile': false,
+        currentFile: null,
+        isFetchingFile: false,
       });
+
+    case OPIUM_REQUEST_ME:
+        return state.merge({
+          isFetchingMe: true,
+        });
+
+    case OPIUM_RECEIVE_ME:
+        return state.merge({
+          me: action.me,
+          isFetchingMe: false,
+        });
 
     default:
       return state;

@@ -17,6 +17,7 @@ function mapStateToProps(state, ownProps) {
     hasBackground,
     backgroundLoaded: directory && loadedImages.has(directoryImage),
     backgroundImage: directoryImage,
+    displayAdminLink: state.opium.get('me') ? state.opium.get('me').isAdmin() : false,
   }
 };
 

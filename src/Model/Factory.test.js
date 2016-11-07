@@ -2,6 +2,7 @@ import { List, Map, Record } from 'immutable';
 import { entityFactory, mapEntityRelationShips } from './Factory';
 import Directory from './Directory';
 import File from './File';
+import User from './User';
 
 describe('entityFactory', () => {
   it('test passing anything to entityFactory', () => {
@@ -14,13 +15,18 @@ describe('entityFactory', () => {
   it('generate a valid directory', () => {
     const directory = entityFactory({ a: 'A', type: 'directory' });
 
-    expect(directory instanceof Directory).toBeTruthy();
+    expect(directory).toBeInstanceOf(Directory);
   });
 
   it('generate a valid file', () => {
-    const directory = entityFactory({ a: 'A', type: 'file' });
+    const file = entityFactory({ a: 'A', type: 'file' });
 
-    expect(directory instanceof File).toBeTruthy();
+    expect(file).toBeInstanceOf(File);
+  });
+
+  it('generate a valid user', () => {
+    const user = entityFactory({type: 'user', username: 'test', roles: ['ROLE_USER']});
+    expect(user).toBeInstanceOf(User);
   });
 });
 

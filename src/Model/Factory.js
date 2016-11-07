@@ -1,6 +1,7 @@
 import { fromJS, List } from 'immutable';
 import Directory from './Directory';
 import File from './File';
+import User from './User';
 
 export function entityFactory(input) {
   switch (input.type) {
@@ -8,6 +9,8 @@ export function entityFactory(input) {
       return new Directory(input);
     case 'file':
       return new File(input);
+    case 'user':
+      return new User(input);
     default:
       return fromJS(input);
   }

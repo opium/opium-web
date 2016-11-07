@@ -43,8 +43,20 @@ class Login extends Component {
           <div>
             Demo credentials are:
               <ul>
-                <li>login: "test"</li>
-                <li>password: "test"</li>
+                <li>
+                  <div>Basic user</div>
+                  <ul>
+                    <li>login: "test"</li>
+                    <li> password: "test"</li>
+                  </ul>
+                </li>
+                <li>
+                  <div>Admin user</div>
+                  <ul>
+                    <li>login: "admin"</li>
+                    <li> password: "admin"</li>
+                  </ul>
+                </li>
               </ul>
           </div>
 

@@ -363,6 +363,88 @@ exports[`test renders file with prev / next links 1`] = `
 </div>
 `;
 
+exports[`test renders file without override position link 1`] = `
+<div>
+  <header
+    className="FileHeader">
+    <div
+      className="FileHeader__BackContainer">
+      <a
+        className="FileHeader__BackToAlbum"
+        onClick={[Function]}
+        style={Object {}}>
+        <svg
+          fill="currentColor"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          style={
+            Object {
+              "color": undefined,
+              "verticalAlign": "middle",
+            }
+          }
+          viewBox="0 0 40 40"
+          width="1em">
+          <g>
+            <path
+              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
+          </g>
+        </svg>
+         
+        Directory
+      </a>
+    </div>
+    <h1
+      className="FileHeader__Title">
+      Foo
+    </h1>
+  </header>
+  <div
+    className="File__MainContainer">
+    <div
+      className="File__ImageContainer"
+      style={
+        Object {
+          "height": "600px",
+        }
+      }>
+      <img
+        alt="Foo"
+        className="File__Image"
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
+    </div>
+  </div>
+  <div />
+  <table
+    className="Table">
+    <tbody>
+      <tr>
+        <th>
+          Camera
+        </th>
+        <td>
+           
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Date
+        </th>
+        <td />
+      </tr>
+      <tr>
+        <th>
+          Size
+        </th>
+        <td>
+          x
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`test renders real file without crashing 1`] = `
 <div>
   <header

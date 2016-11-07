@@ -11,6 +11,7 @@ it('renders directory without crashing', () => {
     slug=""
     loadImage={jest.fn()}
     hasBackground={false}
+    displayAdminLink
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -26,6 +27,23 @@ it('renders an empty directory', () => {
     slug=""
     loadImage={jest.fn()}
     hasBackground={false}
+    displayAdminLink
+  />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot()
+});
+
+it('renders an empty directory without admin link', () => {
+  const directory = new DirectoryModel({
+    name: 'foo',
+  });
+  const component = renderer.create(<Directory
+    directory={directory}
+    findDirectory={jest.fn()}
+    slug=""
+    loadImage={jest.fn()}
+    hasBackground={false}
+    displayAdminLink={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -65,6 +83,7 @@ it('renders a non empty directory', () => {
     slug=""
     loadImage={jest.fn()}
     hasBackground={false}
+    displayAdminLink
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -108,6 +127,7 @@ it('renders a non empty directory with parent', () => {
     slug=""
     loadImage={jest.fn()}
     hasBackground={false}
+    displayAdminLink
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -163,6 +183,7 @@ it('renders a directory with header', () => {
     hasBackground={true}
     backgroundLoaded={false}
     backgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
+    displayAdminLink
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -218,6 +239,7 @@ it('renders a directory with children and loaded background', () => {
     hasBackground={true}
     backgroundLoaded={true}
     backgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
+    displayAdminLink
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()

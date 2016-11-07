@@ -8,10 +8,30 @@ exports[`test renders login 1`] = `
       Demo credentials are:
       <ul>
         <li>
-          login: \"test\"
+          <div>
+            Basic user
+          </div>
+          <ul>
+            <li>
+              login: \"test\"
+            </li>
+            <li>
+               password: \"test\"
+            </li>
+          </ul>
         </li>
         <li>
-          password: \"test\"
+          <div>
+            Admin user
+          </div>
+          <ul>
+            <li>
+              login: \"admin\"
+            </li>
+            <li>
+               password: \"admin\"
+            </li>
+          </ul>
         </li>
       </ul>
     </div>

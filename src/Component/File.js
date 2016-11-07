@@ -79,12 +79,12 @@ const Exif = ({file}) =>
   </table>
 ;
 
-const FileMap = ({ file, updateFilePosition }) => {
+const FileMap = ({ file, updateFilePosition, canUpdatePosition }) => {
   const onSuggestionSelected = (event, { suggestion }) => {
     updateFilePosition(file, suggestion.lat, suggestion.lon);
   };
 
-  const addressAutosuggest = <AddressAutoggest onSuggestionSelected={onSuggestionSelected} />;
+  const addressAutosuggest = canUpdatePosition && <AddressAutoggest onSuggestionSelected={onSuggestionSelected} />;
 
   if (!file.position) {
     return addressAutosuggest;
@@ -121,6 +121,7 @@ class File extends Component {
     viewportHeight: PropTypes.number.isRequired,
     pushLocation: PropTypes.func.isRequired,
     updateFilePosition: PropTypes.func.isRequired,
+    canUpdatePosition: PropTypes.bool.isRequired,
   }
 
   constructor(props) {
@@ -216,6 +217,7 @@ class File extends Component {
         </div>
 
         <FileMap
+          canUpdatePosition={this.props.canUpdatePosition}
           file={file}
           updateFilePosition={this.props.updateFilePosition}
         />
