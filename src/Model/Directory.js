@@ -37,11 +37,20 @@ class Directory extends Record({
 
   getPositionBounds() {
     let bounds = Map();
-    for (const child of this.children) {
-      if (!child.position) {
-        continue;
-      }
+    const children = this.children.filter(c => !!c.position);
 
+    if (children.size === 1) {
+      const child = children.first().position;
+
+      return Map({
+        top: child.get('lat') + 1,
+        bottom: child.get('lat') - 1,
+        left: child.get('lng') - 1,
+        right: child.get('lng') + 1,
+      });
+    }
+
+    for (const child of children) {
       const latitude = child.position.get('lat');
       const longitude = child.position.get('lng');
 

@@ -5,6 +5,7 @@ import File from './File';
 import rawDirectory from 'rawDirectory';
 import rawDirectoryWithParent from 'rawDirectoryWithParent';
 import rawDirectoryWithFileAsChild from 'rawDirectoryWithFileAsChild';
+import rawDirectoryWithOneFileAsChild from 'rawDirectoryWithOneFileAsChild';
 
 
 it('test passing anything to entityFactory', () => {
@@ -79,4 +80,25 @@ it('generate a valid entity with file as children', () => {
   }));
 });
 
+it('generate a valid bounds with only one child', () => {
+  const directory = new Directory(rawDirectoryWithOneFileAsChild);
 
+  expect(directory.children).toBeInstanceOf(List);
+
+  const file = directory.children.first();
+  expect(file).toBeInstanceOf(File);
+
+  expect(directory.directoryThumbnail).toBeInstanceOf(File);
+  expect(directory.directoryThumbnail.name).toEqual('2909_vallon_moy_res.jpg');
+
+  // check lat / lng of childrens
+  expect(directory.children.getIn([0, 'position', 'lat'])).toEqual(-2);
+  expect(directory.children.getIn([0, 'position', 'lng'])).toEqual(0);
+
+  expect(directory.getPositionBounds()).toEqual(Map({
+    top: -1,
+    bottom: -3,
+    left: -1,
+    right: 1,
+  }));
+});
