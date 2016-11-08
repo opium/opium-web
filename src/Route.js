@@ -6,6 +6,7 @@ import DirectoryMap from './Container/DirectoryMapContainer';
 import File from './Container/File';
 import Login from './Container/LoginContainer';
 import Upload from './Container/UploadContainer';
+import Layout from './Container/LayoutContainer';
 import {
   ROUTE_PALETTE,
   ROUTE_LOGIN,
@@ -27,16 +28,18 @@ export default function configureRoutes(store) {
   const history = syncHistoryWithStore(browserHistory, store);
 
   return (<Router history={history}>
-    <Route path="/" component={Directory} />
+    <Route component={Layout}>
+      <Route path="/" component={Directory} />
 
-    <Route path={ROUTE_PALETTE} component={Palette} />
-    <Route path={ROUTE_LOGIN} component={Login} />
-    <Route path={`${ROUTE_UPLOAD}`} component={Upload} />
-    <Route path={`${ROUTE_UPLOAD}:directorySlug`} component={Upload} />
-    <Route path={`${ROUTE_DIRECTORY_MAP}:directorySlug`} component={DirectoryMap} />
+      <Route path={ROUTE_PALETTE} component={Palette} />
+      <Route path={ROUTE_LOGIN} component={Login} />
+      <Route path={`${ROUTE_UPLOAD}`} component={Upload} />
+      <Route path={`${ROUTE_UPLOAD}:directorySlug`} component={Upload} />
+      <Route path={`${ROUTE_DIRECTORY_MAP}:directorySlug`} component={DirectoryMap} />
 
-    <Route path=":directorySlug" component={Directory}>
-      <Route path=":fileSlug" component={File} />
+      <Route path=":directorySlug" component={Directory}>
+        <Route path=":fileSlug" component={File} />
+      </Route>
     </Route>
   </Router>);
 };

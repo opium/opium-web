@@ -61,7 +61,9 @@ class DirectoryHeader extends Component {
   }
 
   loadImage() {
-    this.props.loadImage(this.props.backgroundImage);
+    if (this.props.backgroundImage) {
+      this.props.loadImage(this.props.backgroundImage);
+    }
   }
 
   render() {
