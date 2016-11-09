@@ -116,18 +116,21 @@ class File extends Component {
     file: PropTypes.instanceOf(FileModel).isRequired,
     isFetchingFile: PropTypes.bool.isRequired,
     isLoadedImage: PropTypes.bool.isRequired,
+    isDirectoryCoverChanging: PropTypes.bool.isRequired,
     findFile: PropTypes.func.isRequired,
     removeCurrentFile: PropTypes.func.isRequired,
     viewportHeight: PropTypes.number.isRequired,
     pushLocation: PropTypes.func.isRequired,
     updateFilePosition: PropTypes.func.isRequired,
     canUpdatePosition: PropTypes.bool.isRequired,
+    updateDirectoryCover: PropTypes.func.isRequired,
   }
 
   constructor(props) {
     super(props);
 
     this.handleKeyup = this.handleKeyup.bind(this);
+    this.setAsDirectoryCover = this.setAsDirectoryCover.bind(this);
   }
 
   componentDidMount() {
@@ -177,6 +180,13 @@ class File extends Component {
     }
   }
 
+  setAsDirectoryCover(evt) {
+    evt.preventDefault();
+
+    const file = this.props.file;
+    this.props.updateDirectoryCover(file.parent, this.props.file);
+  }
+
   render() {
     const file = this.props.file;
 
@@ -223,6 +233,18 @@ class File extends Component {
         />
 
         <Exif file={file} />
+
+
+        {!this.props.isDirectoryCoverChanging ?
+          <a
+            href="#set-as-cover"
+            onClick={this.setAsDirectoryCover}
+            className="File__Button--SetCover"
+          >
+            Set as directory cover
+          </a> :
+           <Loader color="#1eb694" />
+        }
       </div>
     );
   }

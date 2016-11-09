@@ -82,6 +82,15 @@ class Directory extends Record({
       right: bounds.get('right') + lngDelta,
     });
   }
+
+  // hack until https://github.com/mapado/rest-client-js-sdk/issues/11 is resolved
+  get(key) {
+    if (key === '@id') {
+      return `/v1/directories/${this.id}`;
+    }
+
+    return super.get(key);
+  }
 }
 
 export default Directory;

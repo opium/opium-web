@@ -14,11 +14,13 @@ it('renders empty file without crashing', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
     loadImage={jest.fn()}
     isLoadedImage={false}
+    isDirectoryCoverChanging={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -32,11 +34,39 @@ it('renders a loader if file is not loaded', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={true}
     viewportHeight={700}
     loadImage={jest.fn()}
     isLoadedImage={false}
+    isDirectoryCoverChanging={false}
+  />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot()
+});
+
+it('renders a loader if directory cover is changing', () => {
+  const file = new FileModel({
+    name: 'Foo',
+    slug: 'foo',
+    thumbnails: {
+      image: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg',
+    },
+  });
+  const component = renderer.create(<File
+    canUpdatePosition
+    file={file}
+    findFile={() => {}}
+    removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
+    pushLocation={() => {}}
+    isFetchingFile={false}
+    viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage
+    isDirectoryCoverChanging
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -56,11 +86,13 @@ it('renders real file without crashing', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
     loadImage={jest.fn()}
     isLoadedImage={true}
+    isDirectoryCoverChanging={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -84,11 +116,13 @@ it('renders file with backlink', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
     loadImage={jest.fn()}
     isLoadedImage={true}
+    isDirectoryCoverChanging={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -120,11 +154,13 @@ it('renders file with prev / next links', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
     loadImage={jest.fn()}
     isLoadedImage={true}
+    isDirectoryCoverChanging={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -152,11 +188,13 @@ it('renders file with a map', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
     loadImage={jest.fn()}
     isLoadedImage={true}
+    isDirectoryCoverChanging={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -184,11 +222,13 @@ it('renders file without override position link', () => {
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
     pushLocation={() => {}}
     isFetchingFile={false}
     viewportHeight={700}
     loadImage={jest.fn()}
     isLoadedImage={true}
+    isDirectoryCoverChanging={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()

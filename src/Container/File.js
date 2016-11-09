@@ -4,6 +4,7 @@ import { Set } from 'immutable';
 import FileComponent from '../Component/File';
 import File from '../Model/File';
 import { find, removeCurrent, updateFilePosition } from '../Action/FileAction';
+import { updateDirectoryCover } from '../Action/DirectoryAction';
 import { loadImage } from '../Action/ImageAction';
 
 function mapStateToProps(state, ownProps) {
@@ -17,6 +18,7 @@ function mapStateToProps(state, ownProps) {
     slug: ownProps.params.fileSlug || '',
     viewportHeight: document.documentElement.clientHeight,
     canUpdatePosition: state.opium.get('me') ? state.opium.get('me').isAdmin() : false,
+    isDirectoryCoverChanging: !!state.opium.get('isFetchingDirectory'),
   }
 };
 
@@ -26,6 +28,7 @@ const mapDispatchToProps = {
   pushLocation: push,
   loadImage,
   updateFilePosition,
+  updateDirectoryCover,
 };
 
 export default connect(

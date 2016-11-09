@@ -2,6 +2,7 @@ import { push } from 'react-router-redux';
 import {
   OPIUM_RECEIVE_DIRECTORY,
   OPIUM_REQUEST_DIRECTORY,
+  OPIUM_REQUEST_DIRECTORY_COVER_CHANGE,
 } from '../Reducer/OpiumReducer';
 
 export function find(slug) {
@@ -29,6 +30,22 @@ export function uploadFile(directorySlug, file) {
         .then(uploadedFile => {
           dispatch(push(`/${directorySlug}`));
         })
+    ;
+  };
+}
+
+export function updateDirectoryCover(directory, file) {
+  return dispatch => {
+    const newDir = directory.setIn(['_embedded', 'directory_thumbnail', 'id'], file.id);
+    dispatch({ type: OPIUM_REQUEST_DIRECTORY_COVER_CHANGE });
+
+    window.container.sdk.directory.update(newDir)
+      .then(directory => {
+        dispatch({
+          type: OPIUM_RECEIVE_DIRECTORY,
+          directory,
+        });
+      })
     ;
   };
 }
