@@ -235,15 +235,17 @@ class File extends Component {
         <Exif file={file} />
 
 
-        {!this.props.isDirectoryCoverChanging ?
-          <a
-            href="#set-as-cover"
-            onClick={this.setAsDirectoryCover}
-            className="File__Button--SetCover"
-          >
-            Set as directory cover
-          </a> :
-           <Loader color="#1eb694" />
+        {this.props.canUpdatePosition && (
+          !this.props.isDirectoryCoverChanging ?
+            <a
+              href="#set-as-cover"
+              onClick={this.setAsDirectoryCover}
+              className="File__Button--SetCover"
+            >
+              Set as directory cover
+            </a> :
+             <Loader color="#1eb694" />
+          )
         }
       </div>
     );

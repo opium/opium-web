@@ -562,12 +562,6 @@ exports[`test renders file without override position link 1`] = `
       </tr>
     </tbody>
   </table>
-  <a
-    className="File__Button--SetCover"
-    href="#set-as-cover"
-    onClick={[Function]}>
-    Set as directory cover
-  </a>
 </div>
 `;
 
