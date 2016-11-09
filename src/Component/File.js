@@ -122,7 +122,7 @@ class File extends Component {
     viewportHeight: PropTypes.number.isRequired,
     pushLocation: PropTypes.func.isRequired,
     updateFilePosition: PropTypes.func.isRequired,
-    canUpdatePosition: PropTypes.bool.isRequired,
+    canEdit: PropTypes.bool.isRequired,
     updateDirectoryCover: PropTypes.func.isRequired,
   }
 
@@ -227,7 +227,7 @@ class File extends Component {
         </div>
 
         <FileMap
-          canUpdatePosition={this.props.canUpdatePosition}
+          canUpdatePosition={this.props.canEdit}
           file={file}
           updateFilePosition={this.props.updateFilePosition}
         />
@@ -235,7 +235,7 @@ class File extends Component {
         <Exif file={file} />
 
 
-        {this.props.canUpdatePosition && (
+        {this.props.canEdit && (
           !this.props.isDirectoryCoverChanging ?
             <a
               href="#set-as-cover"

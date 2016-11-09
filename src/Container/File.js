@@ -17,7 +17,7 @@ function mapStateToProps(state, ownProps) {
     isLoadedImage: loadedImages.has(file.thumbnails.get('image')),
     slug: ownProps.params.fileSlug || '',
     viewportHeight: document.documentElement.clientHeight,
-    canUpdatePosition: state.opium.get('me') ? state.opium.get('me').isAdmin() : false,
+    canEdit: state.opium.get('me') ? state.opium.get('me').isAdmin() : false,
     isDirectoryCoverChanging: !!state.opium.get('isFetchingDirectory'),
   }
 };

@@ -9,7 +9,7 @@ jest.mock('react-leaflet');
 
 it('renders empty file without crashing', () => {
   const component = renderer.create(<File
-    canUpdatePosition
+    canEdit
     file={new FileModel({})}
     findFile={() => {}}
     removeCurrentFile={() => {}}
@@ -29,7 +29,7 @@ it('renders empty file without crashing', () => {
 it('renders a loader if file is not loaded', () => {
   const file = new FileModel({});
   const component = renderer.create(<File
-    canUpdatePosition
+    canEdit
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
@@ -55,7 +55,7 @@ it('renders a loader if directory cover is changing', () => {
     },
   });
   const component = renderer.create(<File
-    canUpdatePosition
+    canEdit
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
@@ -81,7 +81,7 @@ it('renders real file without crashing', () => {
     },
   });
   const component = renderer.create(<File
-    canUpdatePosition
+    canEdit
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
@@ -111,7 +111,7 @@ it('renders file with backlink', () => {
     },
   });
   const component = renderer.create(<File
-    canUpdatePosition
+    canEdit
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
@@ -149,7 +149,7 @@ it('renders file with prev / next links', () => {
     },
   });
   const component = renderer.create(<File
-    canUpdatePosition
+    canEdit
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
@@ -183,7 +183,7 @@ it('renders file with a map', () => {
     },
   });
   const component = renderer.create(<File
-    canUpdatePosition
+    canEdit
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
@@ -217,7 +217,7 @@ it('renders file without override position link', () => {
     },
   });
   const component = renderer.create(<File
-    canUpdatePosition={false}
+    canEdit={false}
     file={file}
     findFile={() => {}}
     removeCurrentFile={() => {}}
