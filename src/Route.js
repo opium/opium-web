@@ -1,9 +1,9 @@
 import React from 'react';
 import { browserHistory, Router, Route } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import Directory from './Container/Directory';
+import Directory from './Container/DirectoryContainer';
 import DirectoryMap from './Container/DirectoryMapContainer';
-import File from './Container/File';
+import File from './Container/FileContainer';
 import Login from './Container/LoginContainer';
 import Upload from './Container/UploadContainer';
 import Layout from './Container/LayoutContainer';
