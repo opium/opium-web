@@ -6,6 +6,8 @@ class Thumbnail extends Component {
   static propTypes = {
     image: PropTypes.string,
     title: PropTypes.string.isRequired,
+    width: PropTypes.number,
+    height: PropTypes.number,
   }
 
   render() {
@@ -14,13 +16,26 @@ class Thumbnail extends Component {
       styles.backgroundImage = `url(${this.props.image})`;
     }
 
+    if (this.props.width) {
+      styles.width = this.props.width;
+    }
+
+    if (this.props.height) {
+      styles.height = this.props.height;
+    }
+
 
     return (
       <article
         className="Thumbnail"
         style={styles}
       >
-        {!this.props.image && <Folder className="Thumbnail_FolderPlaceholder" size={200} />}
+        {!this.props.image &&
+          <Folder
+            className="Thumbnail_FolderPlaceholder"
+            size={Math.min(this.props.width, this.props.height)}
+          />
+        }
 
         <span className="Thumbnail_Caption">
           {this.props.title}

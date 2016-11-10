@@ -13,6 +13,8 @@ class File extends Record({
   previous: null,
   cropTemplate: null,
   position: null,
+  width: null,
+  height: null,
   exif: Map(),
 }) {
   constructor(val) {

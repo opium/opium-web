@@ -11,6 +11,7 @@ import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 import Loader from './Loader';
 import { ROUTE_UPLOAD, ROUTE_DIRECTORY_MAP } from '../RouteName';
+import { computeRectangleList }  from '../Tool/LineLayout';
 
 
 const DirectoryMap = ({ bounds, markers }) =>
@@ -145,9 +146,21 @@ class Directory extends Component {
     super(props);
 
     this.renderOneLine = this.renderOneLine.bind(this);
+
+    this.state = {
+      viewportWidth: document.body.clientWidth,
+    };
   }
 
   componentDidMount() {
+    let resizeTimer = null;
+    window.onresize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        this.setState({ viewportWidth: document.body.clientWidth });
+      }, 250);
+    };
+
     this.props.findDirectory(this.props.slug);
   }
 
@@ -157,25 +170,35 @@ class Directory extends Component {
     }
   }
 
-  renderOneLine(line) {
+  renderOneLine(line, i) {
     const directory = this.props.directory;
 
-    return line.entrySeq().map(([id, thumbnail]) => {
-      const child = directory.getChildById(id);
-      const childSlug = child instanceof File ?
-        `/${directory.slug}/${child.slug}` :
-        `/${child.slug}`;
+    return (
+      <div className="Directory__Row" key={i}>
+        {line.map((rectangle, id) => {
+          const child = rectangle.item;
+          const childSlug = child instanceof File ?
+            `/${directory.slug}/${child.slug}` :
+            `/${child.slug}`;
 
-      return (
-        <Link to={childSlug}>
-          <Thumbnail
-            key={id}
-            title={child.name}
-            image={thumbnail.thumbs}
-          />
-        </Link>
-      );
-    });
+          const image = child instanceof File ? child : child.directoryThumbnail;
+
+          return (
+            <Link
+              to={childSlug}
+              key={id}
+            >
+              <Thumbnail
+                title={child.name}
+                image={image && image.generateCrop('auto', rectangle.geometry.height)}
+                width={rectangle.geometry.width}
+                height={rectangle.geometry.height}
+              />
+            </Link>
+          );
+        })}
+      </div>
+    );
   }
 
   render() {
@@ -189,14 +212,16 @@ class Directory extends Component {
       return <div />;
     }
 
+    const computedFileList = computeRectangleList(directory.children, this.state.viewportWidth, 200, 10);
+
     return (
       <div>
         <Helmet title={directory.name} />
 
         <DirectoryHeader {...this.props} />
 
-        <div className="Directory__ThumbnailList">
-          {directory.imageLines.map(this.renderOneLine)}
+        <div>
+          {computedFileList.map(this.renderOneLine)}
         </div>
 
         <footer className="DirectoryFooter">
