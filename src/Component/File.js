@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import { Map, Marker, setIconDefaultImagePath, TileLayer } from 'react-leaflet';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import ChevronRight from 'react-icons/lib/ti/chevron-right';
+import Swipeable from 'react-swipeable';
 import FileModel from '../Model/File';
 import AddressAutoggest from './AddressAutosuggest';
 import Loader from './Loader';
@@ -137,6 +138,14 @@ class File extends Component {
 
     this.handleKeyup = this.handleKeyup.bind(this);
     this.setAsDirectoryCover = this.setAsDirectoryCover.bind(this);
+    this.goToNext = this.goToNext.bind(this);
+    this.goToPrevious = this.goToPrevious.bind(this);
+    this.onSwipingRight = this.onSwipingRight.bind(this);
+    this.onSwipingLeft = this.onSwipingLeft.bind(this);
+
+    this.state = {
+      imgPosition: null,
+    };
   }
 
   componentDidMount() {
@@ -146,6 +155,14 @@ class File extends Component {
 
     this.loadImage();
   }
+
+  componentWillUpdate(nextProps) {
+    if (this.props.slug !== nextProps.slug) {
+      this.setState ({
+        imgPosition: null,
+      });
+    }
+  };
 
   componentDidUpdate(prevProps) {
     if (this.props.slug !== prevProps.slug) {
@@ -167,19 +184,29 @@ class File extends Component {
     window.removeEventListener('keydown', this.handleKeyup);
   }
 
-  handleKeyup(e) {
+  goToNext() {
     const file = this.props.file;
 
+    if (file.next) {
+      this.props.pushLocation(`/${file.parent.slug}/${file.next.slug}`);
+    }
+  }
+
+  goToPrevious() {
+    const file = this.props.file;
+
+    if (file.previous) {
+      this.props.pushLocation(`/${file.parent.slug}/${file.previous.slug}`);
+    }
+  }
+
+  handleKeyup(e) {
     switch (e.keyCode) {
       case 37:
-        if (file.previous) {
-          this.props.pushLocation(`/${file.parent.slug}/${file.previous.slug}`);
-        }
+        this.goToPrevious();
         break;
       case 39:
-        if (file.next) {
-          this.props.pushLocation(`/${file.parent.slug}/${file.next.slug}`);
-        }
+        this.goToNext();
         break;
       default:
         break;
@@ -193,11 +220,25 @@ class File extends Component {
     this.props.updateDirectoryCover(file.parent, this.props.file);
   }
 
+  onSwipingRight(event, delta) {
+    return this.setState({ imgPosition: delta });
+  }
+
+  onSwipingLeft(event, delta) {
+    return this.setState({ imgPosition: -delta });
+  }
+
   render() {
     const file = this.props.file;
 
     if (!file.thumbnails.get('image') || this.props.isFetchingFile) {
       return <div />;
+    }
+
+    const imageStyle = {};
+    if (this.state.imgPosition) {
+      imageStyle.marginRight = -this.state.imgPosition;
+      imageStyle.marginLeft = this.state.imgPosition;
     }
 
     return (
@@ -210,7 +251,13 @@ class File extends Component {
           </div>
         </header>
 
-        <div className="File__MainContainer">
+        <Swipeable
+          className="File__MainContainer"
+          onSwipingRight={this.onSwipingRight}
+          onSwipingLeft={this.onSwipingLeft}
+          onSwipedRight={this.goToPrevious}
+          onSwipedLeft={this.goToNext}
+        >
           <div
             className="File__ImageContainer"
             style={{ height: `${this.props.viewportHeight}px` }}
@@ -220,6 +267,7 @@ class File extends Component {
                 src={file.thumbnails.get('image')}
                 alt={file.name}
                 className="File__Image"
+                style={imageStyle}
               /> :
              <Loader color="#1eb694" />
             }
@@ -227,7 +275,7 @@ class File extends Component {
 
           <PrevLink file={file} />
           <NextLink file={file} />
-        </div>
+        </Swipeable>
 
         <FileMap
           canUpdatePosition={this.props.canEdit}
