@@ -14,6 +14,11 @@ import configureRoutes from './Route';
 import reducer from './Reducer';
 import apiErrorMiddleware from './Action/Middleware/ApiErrorMiddleware';
 
+if (process.env.NODE_ENV !== 'production') {
+  const { whyDidYouUpdate } = require('why-did-you-update');
+  whyDidYouUpdate(React)
+}
+
 window.container = {};
 window.container.sdk = configureSdk();
 
