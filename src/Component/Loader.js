@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import cn from 'classnames';
 import './Loader.css';
 
@@ -8,7 +8,7 @@ const InsideDiv = ({ color }) =>
     <div />
 ;
 
-class Loader extends Component {
+class Loader extends PureComponent {
   static propTypes = {
     color: PropTypes.string,
     className: PropTypes.string,

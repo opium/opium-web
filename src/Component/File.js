@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import { Map, Marker, setIconDefaultImagePath, TileLayer } from 'react-leaflet';
@@ -118,7 +118,7 @@ const FileMap = ({ file, updateFilePosition, canUpdatePosition }) => {
   );
 };
 
-class File extends Component {
+class File extends PureComponent {
   static propTypes = {
     file: PropTypes.instanceOf(FileModel).isRequired,
     isFetchingFile: PropTypes.bool.isRequired,

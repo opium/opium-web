@@ -5,6 +5,7 @@ import { fetchMe } from '../Action/UserAction';
 function mapStateToProps(state, ownProps) {
   return {
     isLogged: !!state.opium.get('me'),
+    isFetchingMe: !!state.opium.get('isFetchingMe'),
   }
 };
 

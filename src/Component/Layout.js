@@ -5,6 +5,7 @@ export default class Layout extends Component {
     children: PropTypes.element.isRequired,
     isLogged: PropTypes.bool.isRequired,
     fetchMe: PropTypes.func.isRequired,
+    isFetchingMe: PropTypes.bool.isRequired,
   };
 
   componentWillMount() {
@@ -14,7 +15,7 @@ export default class Layout extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.isLogged && !prevProps.isLogged) {
+    if (this.props.isLogged && !prevProps.isLogged && !prevProps.isFetchingMe) {
       this.props.fetchMe();
     }
   }
