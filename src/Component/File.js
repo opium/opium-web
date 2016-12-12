@@ -54,6 +54,12 @@ const Exif = ({file}) =>
   <table className="Table">
     <tbody>
       <tr>
+        <th>Filename</th>
+        <td>
+          {file.name}
+        </td>
+      </tr>
+      <tr>
         <th>Camera</th>
         <td>
           {file.exif.get('Make')}
@@ -202,15 +208,12 @@ class File extends Component {
           <div className="FileHeader__BackContainer">
             <BackLink file={file} className="FileHeader__BackToAlbum" />
           </div>
-          <h1 className="FileHeader__Title">
-            {file.name}
-          </h1>
         </header>
 
         <div className="File__MainContainer">
           <div
             className="File__ImageContainer"
-            style={{ height: `${this.props.viewportHeight - 100}px` }}
+            style={{ height: `${this.props.viewportHeight}px` }}
           >
             {this.props.isLoadedImage ?
               <img

@@ -18,6 +18,10 @@
     text-align: center;
 }
 
+.Thumbnail:hover .Thumbnail_Caption {
+    background: rgba(89, 79, 63, .85);
+}
+
 .Thumbnail_FolderPlaceholder {
     color: rgb( 89, 79, 63);
 }

@@ -1,14 +1,11 @@
 .FileHeader {
+    position: absolute;
+    z-index: 1;
     height: 80px;
     display: flex;
     align-items: center;
     max-width: 100%;
     overflow: hidden;
-}
-
-.FileHeader__Title {
-    flex: 1;
-    text-align: center;
 }
 
 .FileHeader__BackContainer {
@@ -21,7 +18,7 @@
     padding: .8em;
     border-radius: 3px;
     font-size: 1.2em;
-    background: #4F3A1B;
+    background: rgba(89,79,63,.6);
     color: #fff;
     text-decoration: none;
 }
