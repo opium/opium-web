@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import { Map, Marker, TileLayer } from 'react-leaflet';
@@ -33,7 +33,7 @@ const DirectoryMap = ({ bounds, markers }) =>
   </Map>
 ;
 
-class DirectoryHeader extends Component {
+class DirectoryHeader extends PureComponent {
   static propTypes = {
     directory: PropTypes.object.isRequired,
     displayAdminLink: PropTypes.bool.isRequired,
@@ -134,7 +134,7 @@ class DirectoryHeader extends Component {
   }
 };
 
-class Directory extends Component {
+class Directory extends PureComponent {
   static propTypes = {
     directory: PropTypes.object,
     findDirectory: PropTypes.func.isRequired,

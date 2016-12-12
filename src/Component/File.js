@@ -86,41 +86,52 @@ const Exif = ({file}) =>
   </table>
 ;
 
-const FileMap = ({ file, updateFilePosition, canUpdatePosition }) => {
-  const onSuggestionSelected = (event, { suggestion }) => {
-    updateFilePosition(file, suggestion.lat, suggestion.lon);
-  };
+class FileMap extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  const addressAutosuggest = canUpdatePosition && <AddressAutoggest onSuggestionSelected={onSuggestionSelected} />;
-
-  if (!file.position) {
-    return addressAutosuggest;
+    this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
   }
 
-  const position = [file.position.get('lat'), file.position.get('lng')];
+  onSuggestionSelected(event, { suggestion }) {
+    const { file, updateFilePosition } = this.props;
 
-  return (
-    <div>
-      <Map
-        style={{ width: '100%', height: '200px' }}
-        center={position}
-        zoom={10}
-        scrollWheelZoom={false}
-      >
-        <TileLayer
-          url='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-        />
-        <Marker position={position} />
-      </Map>
+    updateFilePosition(file, suggestion.lat, suggestion.lon);
+  }
 
-      {addressAutosuggest}
-    </div>
-  );
+  render() {
+    const { file, canUpdatePosition } = this.props;
+    const addressAutosuggest = canUpdatePosition && <AddressAutoggest onSuggestionSelected={this.onSuggestionSelected} />;
+
+    if (!file.position) {
+      return addressAutosuggest;
+    }
+
+    const position = [file.position.get('lat'), file.position.get('lng')];
+
+    return (
+      <div>
+        <Map
+          style={{ width: '100%', height: '200px' }}
+          center={position}
+          zoom={10}
+          scrollWheelZoom={false}
+        >
+          <TileLayer
+            url='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+          />
+          <Marker position={position} />
+        </Map>
+
+        {addressAutosuggest}
+      </div>
+    );
+  }
 };
 
 class File extends PureComponent {
   static propTypes = {
-    file: PropTypes.instanceOf(FileModel).isRequired,
+    file: PropTypes.instanceOf(FileModel),
     isFetchingFile: PropTypes.bool.isRequired,
     isLoadedImage: PropTypes.bool.isRequired,
     isDirectoryCoverChanging: PropTypes.bool.isRequired,
@@ -152,8 +163,6 @@ class File extends PureComponent {
     this.props.findFile(this.props.slug);
 
     window.addEventListener('keydown', this.handleKeyup);
-
-    this.loadImage();
   }
 
   componentWillUpdate(nextProps) {
@@ -169,7 +178,9 @@ class File extends PureComponent {
       this.props.findFile(this.props.slug);
     }
 
-    this.loadImage();
+    if(this.props.file !== prevProps.file) {
+      this.loadImage();
+    }
   }
 
   loadImage() {
@@ -230,6 +241,10 @@ class File extends PureComponent {
 
   render() {
     const file = this.props.file;
+
+    if (!file) {
+      return null;
+    }
 
     if (!file.thumbnails.get('image') || this.props.isFetchingFile) {
       return <div />;

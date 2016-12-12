@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import Autosuggest from 'react-autosuggest';
 import './AddressAutosuggest.css';
 
@@ -14,7 +14,7 @@ const renderSuggestion = suggestion => (
   </div>
 );
 
-export default class AddressAutosuggest extends Component {
+export default class AddressAutosuggest extends PureComponent {
   static propTypes = {
     onSuggestionSelected: PropTypes.func.isRequired,
   };

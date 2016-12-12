@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import Folder from 'react-icons/lib/ti/folder';
 import './Thumbnail.css';
 
-class Thumbnail extends Component {
+class Thumbnail extends PureComponent {
   static propTypes = {
     image: PropTypes.string,
     title: PropTypes.string.isRequired,

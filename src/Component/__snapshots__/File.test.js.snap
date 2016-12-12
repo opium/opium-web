@@ -4,24 +4,27 @@ exports[`test renders a loader if directory cover is changing 1`] = `
     className="FileHeader">
     <div
       className="FileHeader__BackContainer" />
-    <h1
-      className="FileHeader__Title">
-      Foo
-    </h1>
   </header>
   <div
-    className="File__MainContainer">
+    className="File__MainContainer"
+    onMouseDown={undefined}
+    onMouseMove={undefined}
+    onMouseUp={undefined}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}>
     <div
       className="File__ImageContainer"
       style={
         Object {
-          "height": "600px",
+          "height": "700px",
         }
       }>
       <img
         alt="Foo"
         className="File__Image"
-        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+        style={Object {}} />
     </div>
   </div>
   <div
@@ -49,6 +52,14 @@ exports[`test renders a loader if directory cover is changing 1`] = `
   <table
     className="Table">
     <tbody>
+      <tr>
+        <th>
+          Filename
+        </th>
+        <td>
+          Foo
+        </td>
+      </tr>
       <tr>
         <th>
           Camera
@@ -135,24 +146,27 @@ exports[`test renders file with a map 1`] = `
         Directory
       </a>
     </div>
-    <h1
-      className="FileHeader__Title">
-      Foo
-    </h1>
   </header>
   <div
-    className="File__MainContainer">
+    className="File__MainContainer"
+    onMouseDown={undefined}
+    onMouseMove={undefined}
+    onMouseUp={undefined}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}>
     <div
       className="File__ImageContainer"
       style={
         Object {
-          "height": "600px",
+          "height": "700px",
         }
       }>
       <img
         alt="Foo"
         className="File__Image"
-        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+        style={Object {}} />
     </div>
   </div>
   <div>
@@ -182,6 +196,14 @@ exports[`test renders file with a map 1`] = `
   <table
     className="Table">
     <tbody>
+      <tr>
+        <th>
+          Filename
+        </th>
+        <td>
+          Foo
+        </td>
+      </tr>
       <tr>
         <th>
           Camera
@@ -246,24 +268,27 @@ exports[`test renders file with backlink 1`] = `
         Bar
       </a>
     </div>
-    <h1
-      className="FileHeader__Title">
-      Foo
-    </h1>
   </header>
   <div
-    className="File__MainContainer">
+    className="File__MainContainer"
+    onMouseDown={undefined}
+    onMouseMove={undefined}
+    onMouseUp={undefined}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}>
     <div
       className="File__ImageContainer"
       style={
         Object {
-          "height": "600px",
+          "height": "700px",
         }
       }>
       <img
         alt="Foo"
         className="File__Image"
-        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+        style={Object {}} />
     </div>
   </div>
   <div
@@ -291,6 +316,14 @@ exports[`test renders file with backlink 1`] = `
   <table
     className="Table">
     <tbody>
+      <tr>
+        <th>
+          Filename
+        </th>
+        <td>
+          Foo
+        </td>
+      </tr>
       <tr>
         <th>
           Camera
@@ -355,24 +388,27 @@ exports[`test renders file with prev / next links 1`] = `
         Directory
       </a>
     </div>
-    <h1
-      className="FileHeader__Title">
-      Foo
-    </h1>
   </header>
   <div
-    className="File__MainContainer">
+    className="File__MainContainer"
+    onMouseDown={undefined}
+    onMouseMove={undefined}
+    onMouseUp={undefined}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}>
     <div
       className="File__ImageContainer"
       style={
         Object {
-          "height": "600px",
+          "height": "700px",
         }
       }>
       <img
         alt="Foo"
         className="File__Image"
-        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+        style={Object {}} />
     </div>
     <a
       className="FileOverlay__Link FileOverlay__Link--Prev"
@@ -452,6 +488,14 @@ exports[`test renders file with prev / next links 1`] = `
     <tbody>
       <tr>
         <th>
+          Filename
+        </th>
+        <td>
+          Foo
+        </td>
+      </tr>
+      <tr>
+        <th>
           Camera
         </th>
         <td>
@@ -514,30 +558,41 @@ exports[`test renders file without override position link 1`] = `
         Directory
       </a>
     </div>
-    <h1
-      className="FileHeader__Title">
-      Foo
-    </h1>
   </header>
   <div
-    className="File__MainContainer">
+    className="File__MainContainer"
+    onMouseDown={undefined}
+    onMouseMove={undefined}
+    onMouseUp={undefined}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}>
     <div
       className="File__ImageContainer"
       style={
         Object {
-          "height": "600px",
+          "height": "700px",
         }
       }>
       <img
         alt="Foo"
         className="File__Image"
-        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+        style={Object {}} />
     </div>
   </div>
   <div />
   <table
     className="Table">
     <tbody>
+      <tr>
+        <th>
+          Filename
+        </th>
+        <td>
+          Foo
+        </td>
+      </tr>
       <tr>
         <th>
           Camera
@@ -571,24 +626,27 @@ exports[`test renders real file without crashing 1`] = `
     className="FileHeader">
     <div
       className="FileHeader__BackContainer" />
-    <h1
-      className="FileHeader__Title">
-      Foo
-    </h1>
   </header>
   <div
-    className="File__MainContainer">
+    className="File__MainContainer"
+    onMouseDown={undefined}
+    onMouseMove={undefined}
+    onMouseUp={undefined}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}>
     <div
       className="File__ImageContainer"
       style={
         Object {
-          "height": "600px",
+          "height": "700px",
         }
       }>
       <img
         alt="Foo"
         className="File__Image"
-        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg" />
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+        style={Object {}} />
     </div>
   </div>
   <div
@@ -616,6 +674,14 @@ exports[`test renders real file without crashing 1`] = `
   <table
     className="Table">
     <tbody>
+      <tr>
+        <th>
+          Filename
+        </th>
+        <td>
+          Foo
+        </td>
+      </tr>
       <tr>
         <th>
           Camera
