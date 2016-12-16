@@ -244,3 +244,61 @@ it('renders a directory with children and loaded background', () => {
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
 });
+
+it('renders root directory with file as children', () => {
+  const directory = new DirectoryModel({
+    name: 'foo',
+    children: [
+      {
+        id: 1,
+        name: "Alps",
+        slug: "alps",
+        type: 'directory',
+      },
+      {
+        id: 2,
+        name: "Pacific Ocean",
+        slug: "pacific-ocean",
+        type: 'directory',
+      },
+      {
+        id: 3,
+        name: "A Photo",
+        slug: "a-photo",
+        type: 'file',
+      },
+    ],
+    image_lines: [
+      {
+        "1": {
+          thumbs: 'http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200',
+        },
+        "2": {
+          geometry: { width: 200, height: 200 }
+        }
+      }
+    ],
+    _embedded: {
+      directory_thumbnail: {
+        type: 'file',
+        _links: {
+          cropTemplate: {
+            href: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/%7BcropWidth%7D-%7BcropHeight%7D',
+          }
+        },
+      }
+    }
+  });
+  const component = renderer.create(<Directory
+    directory={directory}
+    findDirectory={jest.fn()}
+    slug=""
+    loadImage={jest.fn()}
+    hasBackground={true}
+    backgroundLoaded={true}
+    backgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
+    displayAdminLink
+  />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot()
+});

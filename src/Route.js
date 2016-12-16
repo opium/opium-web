@@ -37,9 +37,11 @@ export default function configureRoutes(store) {
       <Route path={`${ROUTE_UPLOAD}:directorySlug`} component={Upload} />
       <Route path={`${ROUTE_DIRECTORY_MAP}:directorySlug`} component={DirectoryMap} />
 
-      <Route path=":directorySlug" component={Directory}>
+      <Route path=":directorySlug/" component={Directory}>
         <Route path=":fileSlug" component={File} />
       </Route>
+
+      <Route path=":fileSlug" component={File} />
     </Route>
   </Router>);
 };

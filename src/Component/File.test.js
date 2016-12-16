@@ -98,6 +98,36 @@ it('renders real file without crashing', () => {
   expect(tree).toMatchSnapshot()
 });
 
+it('renders file with backlink and parent as root', () => {
+  const file = new FileModel({
+    name: 'Foo',
+    slug: 'foo',
+    thumbnails: {
+      image: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg',
+    },
+    parent: {
+      name: '',
+      slug: '',
+    },
+  });
+  const component = renderer.create(<File
+    canEdit
+    file={file}
+    findFile={() => {}}
+    removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
+    pushLocation={() => {}}
+    isFetchingFile={false}
+    viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage={true}
+    isDirectoryCoverChanging={false}
+  />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot()
+});
+
 it('renders file with backlink', () => {
   const file = new FileModel({
     name: 'Foo',
@@ -108,6 +138,86 @@ it('renders file with backlink', () => {
     parent: {
       name: 'Bar',
       slug: 'bar',
+    },
+  });
+  const component = renderer.create(<File
+    canEdit
+    file={file}
+    findFile={() => {}}
+    removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
+    pushLocation={() => {}}
+    isFetchingFile={false}
+    viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage={true}
+    isDirectoryCoverChanging={false}
+  />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot()
+});
+
+it('renders file with prev / next links', () => {
+  const file = new FileModel({
+    name: 'Foo',
+    slug: 'foo',
+    thumbnails: {
+      image: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg',
+    },
+    parent: {
+      name: 'Directory',
+      slug: 'directory',
+    },
+    previous: {
+      type: 'file',
+      name: 'Bar',
+      slug: 'bar',
+    },
+    next: {
+      type: 'file',
+      name: 'Baz',
+      slug: 'baz',
+    },
+  });
+  const component = renderer.create(<File
+    canEdit
+    file={file}
+    findFile={() => {}}
+    removeCurrentFile={() => {}}
+    updateFilePosition={jest.fn()}
+    updateDirectoryCover={jest.fn()}
+    pushLocation={() => {}}
+    isFetchingFile={false}
+    viewportHeight={700}
+    loadImage={jest.fn()}
+    isLoadedImage={true}
+    isDirectoryCoverChanging={false}
+  />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot()
+});
+
+it('does not render prev / next link for directory', () => {
+  const file = new FileModel({
+    name: 'Foo',
+    slug: 'foo',
+    thumbnails: {
+      image: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg',
+    },
+    parent: {
+      name: 'Directory',
+      slug: 'directory',
+    },
+    previous: {
+      name: 'Bar',
+      slug: 'bar',
+      type: 'directory',
+    },
+    next: {
+      name: 'Baz',
+      slug: 'baz',
+      type: 'directory',
     },
   });
   const component = renderer.create(<File

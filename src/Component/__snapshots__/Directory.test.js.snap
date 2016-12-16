@@ -634,3 +634,188 @@ exports[`test renders an empty directory without admin link 1`] = `
 `;
 
 exports[`test renders directory without crashing 1`] = `<div />`;
+
+exports[`test renders root directory with file as children 1`] = `
+<div>
+  <header
+    className="DirectoryHeader DirectoryHeader--WithBanner">
+    <div>
+      <div
+        className="Loader DirectoryHeader__Image">
+        <div
+          className="Loader__BallScaleRippleMultiple">
+          <div
+            style={
+              Object {
+                "borderColor": "#1eb694",
+              }
+            } />
+          <div
+            style={
+              Object {
+                "borderColor": "#1eb694",
+              }
+            } />
+          <div
+            style={
+              Object {
+                "borderColor": "#1eb694",
+              }
+            } />
+        </div>
+      </div>
+      <div
+        className="DirectoryHeader__Image DirectoryHeader__Image--Opaque"
+        style={
+          Object {
+            "backgroundImage": "linear-gradient(rgba(0, 0, 0, 0) 50%,
+                  rgba(0, 0, 0, 0.8)),
+                  url(http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400)",
+          }
+        } />
+    </div>
+    <a
+      className="DirectoryHeader__UploadLink"
+      onClick={[Function]}
+      style={Object {}}>
+      <svg
+        fill="currentColor"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "color": undefined,
+            "verticalAlign": "middle",
+          }
+        }
+        viewBox="0 0 40 40"
+        width="1em">
+        <g>
+          <path
+            d="m35 26.7c0-0.2 0-0.4-0.1-0.6l-3.3-10c-0.2-0.6-0.9-1.1-1.6-1.1h-6.7v3.3h5.5l2.8 8.4h-23.2l2.8-8.4h5.5v-3.3h-6.7c-0.7 0-1.4 0.5-1.6 1.1l-3.3 10c-0.1 0.2-0.1 0.4-0.1 0.6 0 0 0 8.3 0 8.3 0 0.9 0.7 1.7 1.7 1.7h26.6c1 0 1.7-0.8 1.7-1.7 0 0 0-8.3 0-8.3z m-8.3-13.5c0.4 0 0.8-0.2 1.1-0.5 0.7-0.6 0.7-1.7 0-2.4l-7.8-7.8-7.8 7.8c-0.7 0.7-0.7 1.8 0 2.4 0.3 0.3 0.7 0.5 1.1 0.5s0.9-0.2 1.2-0.5l3.8-3.8v11.1c0 0.9 0.8 1.7 1.7 1.7s1.7-0.8 1.7-1.7v-11.1l3.8 3.8c0.3 0.3 0.7 0.5 1.2 0.5z" />
+        </g>
+      </svg>
+      Upload file
+    </a>
+    <h1
+      className="DirectoryHeader__Title">
+      foo
+    </h1>
+  </header>
+  <div>
+    <div
+      className="Directory__Row">
+      <a
+        onClick={[Function]}
+        style={Object {}}>
+        <article
+          className="Thumbnail"
+          style={
+            Object {
+              "height": 200,
+              "width": 200,
+            }
+          }>
+          <svg
+            className="Thumbnail_FolderPlaceholder"
+            fill="currentColor"
+            height={200}
+            preserveAspectRatio="xMidYMid meet"
+            style={
+              Object {
+                "color": undefined,
+                "verticalAlign": "middle",
+              }
+            }
+            viewBox="0 0 40 40"
+            width={200}>
+            <g>
+              <path
+                d="m30 10h-10c0-1.8-1.5-3.3-3.3-3.3h-6.7c-2.8 0-5 2.2-5 5v16.6c0 2.8 2.2 5 5 5h20c2.8 0 5-2.2 5-5v-13.3c0-2.8-2.2-5-5-5z m-20 0h6.7c0 1.8 1.5 3.3 3.3 3.3h10c0.9 0 1.7 0.8 1.7 1.7h-23.4v-3.3c0-1 0.8-1.7 1.7-1.7z m20 20h-20c-0.9 0-1.7-0.7-1.7-1.7v-11.6h23.4v11.6c0 1-0.8 1.7-1.7 1.7z" />
+            </g>
+          </svg>
+          <span
+            className="Thumbnail_Caption">
+            Alps
+          </span>
+        </article>
+      </a>
+      <a
+        onClick={[Function]}
+        style={Object {}}>
+        <article
+          className="Thumbnail"
+          style={
+            Object {
+              "height": 200,
+              "width": 200,
+            }
+          }>
+          <svg
+            className="Thumbnail_FolderPlaceholder"
+            fill="currentColor"
+            height={200}
+            preserveAspectRatio="xMidYMid meet"
+            style={
+              Object {
+                "color": undefined,
+                "verticalAlign": "middle",
+              }
+            }
+            viewBox="0 0 40 40"
+            width={200}>
+            <g>
+              <path
+                d="m30 10h-10c0-1.8-1.5-3.3-3.3-3.3h-6.7c-2.8 0-5 2.2-5 5v16.6c0 2.8 2.2 5 5 5h20c2.8 0 5-2.2 5-5v-13.3c0-2.8-2.2-5-5-5z m-20 0h6.7c0 1.8 1.5 3.3 3.3 3.3h10c0.9 0 1.7 0.8 1.7 1.7h-23.4v-3.3c0-1 0.8-1.7 1.7-1.7z m20 20h-20c-0.9 0-1.7-0.7-1.7-1.7v-11.6h23.4v11.6c0 1-0.8 1.7-1.7 1.7z" />
+            </g>
+          </svg>
+          <span
+            className="Thumbnail_Caption">
+            Pacific Ocean
+          </span>
+        </article>
+      </a>
+      <a
+        onClick={[Function]}
+        style={Object {}}>
+        <article
+          className="Thumbnail"
+          style={
+            Object {
+              "height": 200,
+              "width": 200,
+            }
+          }>
+          <svg
+            className="Thumbnail_FolderPlaceholder"
+            fill="currentColor"
+            height={200}
+            preserveAspectRatio="xMidYMid meet"
+            style={
+              Object {
+                "color": undefined,
+                "verticalAlign": "middle",
+              }
+            }
+            viewBox="0 0 40 40"
+            width={200}>
+            <g>
+              <path
+                d="m30 10h-10c0-1.8-1.5-3.3-3.3-3.3h-6.7c-2.8 0-5 2.2-5 5v16.6c0 2.8 2.2 5 5 5h20c2.8 0 5-2.2 5-5v-13.3c0-2.8-2.2-5-5-5z m-20 0h6.7c0 1.8 1.5 3.3 3.3 3.3h10c0.9 0 1.7 0.8 1.7 1.7h-23.4v-3.3c0-1 0.8-1.7 1.7-1.7z m20 20h-20c-0.9 0-1.7-0.7-1.7-1.7v-11.6h23.4v11.6c0 1-0.8 1.7-1.7 1.7z" />
+            </g>
+          </svg>
+          <span
+            className="Thumbnail_Caption">
+            A Photo
+          </span>
+        </article>
+      </a>
+    </div>
+  </div>
+  <footer
+    className="DirectoryFooter">
+    Total number of items: 
+    3
+  </footer>
+</div>
+`;

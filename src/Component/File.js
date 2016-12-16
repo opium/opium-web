@@ -16,20 +16,22 @@ const BackLink = ({file, ...props}) => {
     return null;
   }
 
+  const link = file.parent.slug ? `/${file.parent.slug}/` : '/';
   return (
-    <Link to={`/${file.parent.slug}`} {...props}>
-      <ChevronLeft /> {file.parent.name}
+    <Link to={link} {...props}>
+      <ChevronLeft /> {file.parent.name || 'Back to albums'}
     </Link>
   );
 };
 
 const PrevLink = ({file}) => {
-  if (!file.previous) {
+  if (!file.previous || !(file.previous instanceof FileModel)) {
     return null;
   }
 
+  const link = file.parent.slug ? `/${file.parent.slug}/${file.next.slug}` : `/${file.previous.slug}`;
   return (
-    <Link className="FileOverlay__Link FileOverlay__Link--Prev" to={`/${file.parent.slug}/${file.previous.slug}`}>
+    <Link className="FileOverlay__Link FileOverlay__Link--Prev" to={link}>
       <div className="FileOverlay__ChevronContainer">
         <ChevronLeft />
       </div>
@@ -38,12 +40,13 @@ const PrevLink = ({file}) => {
 };
 
 const NextLink = ({file}) => {
-  if (!file.next) {
+  if (!file.next || !(file.next instanceof FileModel)) {
     return null;
   }
 
+  const link = file.parent.slug ? `/${file.parent.slug}/${file.next.slug}` : `/${file.next.slug}`;
   return (
-    <Link className="FileOverlay__Link FileOverlay__Link--Next" to={`/${file.parent.slug}/${file.next.slug}`}>
+    <Link className="FileOverlay__Link FileOverlay__Link--Next" to={link}>
       <div className="FileOverlay__ChevronContainer">
         <ChevronRight />
       </div>

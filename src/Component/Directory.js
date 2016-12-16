@@ -105,7 +105,7 @@ class DirectoryHeader extends PureComponent {
         }
 
         {directory.parent &&
-          <Link to={`/${directory.parent.slug}`} className="DirectoryHeader__Back">
+          <Link to={`/${directory.parent.slug}/`} className="DirectoryHeader__Back">
             <ChevronLeft />
             Back to albums
           </Link>
@@ -178,8 +178,8 @@ class Directory extends PureComponent {
         {line.map((rectangle, id) => {
           const child = rectangle.item;
           const childSlug = child instanceof File ?
-            `/${directory.slug}/${child.slug}` :
-            `/${child.slug}`;
+            (directory.slug ? `/${directory.slug}/${child.slug}` : `/${child.slug}`) :
+            `/${child.slug}/`;
 
           const image = child instanceof File ? child : child.directoryThumbnail;
 

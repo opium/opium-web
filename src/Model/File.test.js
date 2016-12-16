@@ -1,6 +1,7 @@
 import { Map } from 'immutable';
 import rawFile from 'rawFile';
 import rawEndFile from 'rawEndFile';
+import rawFileWithDirAsNext from 'rawFileWithDirAsNext';
 import File from './File';
 import Directory from './Directory';
 
@@ -43,4 +44,11 @@ describe('file creation', () => {
     expect(endFile.next).toBeFalsy();
     expect(endFile.previous).toBeInstanceOf(File);
   });
+
+  it('generate valid values for next / previous', () => {
+    const file = new File(rawFileWithDirAsNext);
+
+    expect(file.previous).toBeInstanceOf(Directory);
+    expect(file.next).toBeInstanceOf(Directory);
+  })
 });

@@ -1,3 +1,123 @@
+exports[`test does not render prev / next link for directory 1`] = `
+<div>
+  <header
+    className="FileHeader">
+    <div
+      className="FileHeader__BackContainer">
+      <a
+        className="FileHeader__BackToAlbum"
+        onClick={[Function]}
+        style={Object {}}>
+        <svg
+          fill="currentColor"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          style={
+            Object {
+              "color": undefined,
+              "verticalAlign": "middle",
+            }
+          }
+          viewBox="0 0 40 40"
+          width="1em">
+          <g>
+            <path
+              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
+          </g>
+        </svg>
+         
+        Directory
+      </a>
+    </div>
+  </header>
+  <div
+    className="File__MainContainer"
+    onMouseDown={undefined}
+    onMouseMove={undefined}
+    onMouseUp={undefined}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}>
+    <div
+      className="File__ImageContainer"
+      style={
+        Object {
+          "height": "700px",
+        }
+      }>
+      <img
+        alt="Foo"
+        className="File__Image"
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+        style={Object {}} />
+    </div>
+  </div>
+  <div
+    className="react-autosuggest__container">
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-1"
+      autoComplete="off"
+      className="react-autosuggest__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search for an address"
+      role="combobox"
+      type="text"
+      value="" />
+    <div
+      className="react-autosuggest__suggestions-container"
+      id="react-autowhatever-1" />
+  </div>
+  <table
+    className="Table">
+    <tbody>
+      <tr>
+        <th>
+          Filename
+        </th>
+        <td>
+          Foo
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Camera
+        </th>
+        <td>
+           
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Date
+        </th>
+        <td />
+      </tr>
+      <tr>
+        <th>
+          Size
+        </th>
+        <td>
+          x
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a
+    className="File__Button--SetCover"
+    href="#set-as-cover"
+    onClick={[Function]}>
+    Set as directory cover
+  </a>
+</div>
+`;
+
 exports[`test renders a loader if directory cover is changing 1`] = `
 <div>
   <header
@@ -357,7 +477,297 @@ exports[`test renders file with backlink 1`] = `
 </div>
 `;
 
+exports[`test renders file with backlink and parent as root 1`] = `
+<div>
+  <header
+    className="FileHeader">
+    <div
+      className="FileHeader__BackContainer">
+      <a
+        className="FileHeader__BackToAlbum"
+        onClick={[Function]}
+        style={Object {}}>
+        <svg
+          fill="currentColor"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          style={
+            Object {
+              "color": undefined,
+              "verticalAlign": "middle",
+            }
+          }
+          viewBox="0 0 40 40"
+          width="1em">
+          <g>
+            <path
+              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
+          </g>
+        </svg>
+         
+        Back to albums
+      </a>
+    </div>
+  </header>
+  <div
+    className="File__MainContainer"
+    onMouseDown={undefined}
+    onMouseMove={undefined}
+    onMouseUp={undefined}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}>
+    <div
+      className="File__ImageContainer"
+      style={
+        Object {
+          "height": "700px",
+        }
+      }>
+      <img
+        alt="Foo"
+        className="File__Image"
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+        style={Object {}} />
+    </div>
+  </div>
+  <div
+    className="react-autosuggest__container">
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-1"
+      autoComplete="off"
+      className="react-autosuggest__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search for an address"
+      role="combobox"
+      type="text"
+      value="" />
+    <div
+      className="react-autosuggest__suggestions-container"
+      id="react-autowhatever-1" />
+  </div>
+  <table
+    className="Table">
+    <tbody>
+      <tr>
+        <th>
+          Filename
+        </th>
+        <td>
+          Foo
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Camera
+        </th>
+        <td>
+           
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Date
+        </th>
+        <td />
+      </tr>
+      <tr>
+        <th>
+          Size
+        </th>
+        <td>
+          x
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a
+    className="File__Button--SetCover"
+    href="#set-as-cover"
+    onClick={[Function]}>
+    Set as directory cover
+  </a>
+</div>
+`;
+
 exports[`test renders file with prev / next links 1`] = `
+<div>
+  <header
+    className="FileHeader">
+    <div
+      className="FileHeader__BackContainer">
+      <a
+        className="FileHeader__BackToAlbum"
+        onClick={[Function]}
+        style={Object {}}>
+        <svg
+          fill="currentColor"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          style={
+            Object {
+              "color": undefined,
+              "verticalAlign": "middle",
+            }
+          }
+          viewBox="0 0 40 40"
+          width="1em">
+          <g>
+            <path
+              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
+          </g>
+        </svg>
+         
+        Directory
+      </a>
+    </div>
+  </header>
+  <div
+    className="File__MainContainer"
+    onMouseDown={undefined}
+    onMouseMove={undefined}
+    onMouseUp={undefined}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}>
+    <div
+      className="File__ImageContainer"
+      style={
+        Object {
+          "height": "700px",
+        }
+      }>
+      <img
+        alt="Foo"
+        className="File__Image"
+        src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
+        style={Object {}} />
+    </div>
+    <a
+      className="FileOverlay__Link FileOverlay__Link--Prev"
+      onClick={[Function]}
+      style={Object {}}>
+      <div
+        className="FileOverlay__ChevronContainer">
+        <svg
+          fill="currentColor"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          style={
+            Object {
+              "color": undefined,
+              "verticalAlign": "middle",
+            }
+          }
+          viewBox="0 0 40 40"
+          width="1em">
+          <g>
+            <path
+              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
+          </g>
+        </svg>
+      </div>
+    </a>
+    <a
+      className="FileOverlay__Link FileOverlay__Link--Next"
+      onClick={[Function]}
+      style={Object {}}>
+      <div
+        className="FileOverlay__ChevronContainer">
+        <svg
+          fill="currentColor"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          style={
+            Object {
+              "color": undefined,
+              "verticalAlign": "middle",
+            }
+          }
+          viewBox="0 0 40 40"
+          width="1em">
+          <g>
+            <path
+              d="m14.3 9.3c-1.3 1.3-1.3 3.4 0 4.7l6 6-6 6c-1.3 1.3-1.3 3.4 0 4.7 0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1l10.7-10.7-10.7-10.7c-1.3-1.3-3.4-1.3-4.7 0z" />
+          </g>
+        </svg>
+      </div>
+    </a>
+  </div>
+  <div
+    className="react-autosuggest__container">
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup={false}
+      aria-owns="react-autowhatever-1"
+      autoComplete="off"
+      className="react-autosuggest__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search for an address"
+      role="combobox"
+      type="text"
+      value="" />
+    <div
+      className="react-autosuggest__suggestions-container"
+      id="react-autowhatever-1" />
+  </div>
+  <table
+    className="Table">
+    <tbody>
+      <tr>
+        <th>
+          Filename
+        </th>
+        <td>
+          Foo
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Camera
+        </th>
+        <td>
+           
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Date
+        </th>
+        <td />
+      </tr>
+      <tr>
+        <th>
+          Size
+        </th>
+        <td>
+          x
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a
+    className="File__Button--SetCover"
+    href="#set-as-cover"
+    onClick={[Function]}>
+    Set as directory cover
+  </a>
+</div>
+`;
+
+exports[`test renders file with prev / next links 2`] = `
 <div>
   <header
     className="FileHeader">
