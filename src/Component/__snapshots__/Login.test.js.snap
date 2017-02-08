@@ -59,7 +59,7 @@ exports[`test renders login 1`] = `
           className="Login__Input"
           onChange={[Function]}
           placeholder="password"
-          type="text"
+          type="password"
           value="" />
       </label>
     </div>
