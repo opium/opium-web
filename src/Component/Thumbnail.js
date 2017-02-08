@@ -5,7 +5,7 @@ import './Thumbnail.css';
 class Thumbnail extends PureComponent {
   static propTypes = {
     image: PropTypes.string,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     width: PropTypes.number,
     height: PropTypes.number,
   }
@@ -37,9 +37,11 @@ class Thumbnail extends PureComponent {
           />
         }
 
-        <span className="Thumbnail_Caption">
-          {this.props.title}
-        </span>
+        {this.props.title &&
+          <span className="Thumbnail_Caption">
+            {this.props.title}
+          </span>
+        }
       </article>
     );
   }

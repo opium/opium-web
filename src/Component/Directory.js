@@ -9,6 +9,7 @@ import Upload from 'react-icons/lib/ti/upload';
 import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
+import DirectoryModel from '../Model/Directory';
 import Loader from './Loader';
 import { ROUTE_UPLOAD, ROUTE_DIRECTORY_MAP } from '../RouteName';
 import { computeRectangleList }  from '../Tool/LineLayout';
@@ -189,7 +190,7 @@ class Directory extends PureComponent {
               key={id}
             >
               <Thumbnail
-                title={child.name}
+                title={child instanceof DirectoryModel ? child.name : null}
                 image={image && image.generateCrop('auto', rectangle.geometry.height)}
                 width={rectangle.geometry.width}
                 height={rectangle.geometry.height}
