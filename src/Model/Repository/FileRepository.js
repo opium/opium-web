@@ -8,6 +8,10 @@ class FileRepository extends AbstractClient {
   getName() {
       return 'File';
   }
+
+  getFile(file) {
+    return this._doFetch(file);
+  }
 }
 
 export default FileRepository;

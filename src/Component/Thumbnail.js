@@ -10,10 +10,28 @@ class Thumbnail extends PureComponent {
     height: PropTypes.number,
   }
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      realImage: null,
+    };
+  }
+
   render() {
     const styles = {};
     if (this.props.image) {
-      styles.backgroundImage = `url(${this.props.image})`;
+      if (!this.state.realImage) {
+        window.container.sdk
+          .file
+        .getFile(this.props.image)
+        .then(r => r.blob())
+        .then((blob) => {
+          this.setState({ realImage: URL.createObjectURL(blob) });
+        })
+      } else {
+        styles.backgroundImage = `url(${this.state.realImage})`;
+      }
     }
 
     if (this.props.width) {
