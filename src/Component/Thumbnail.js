@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import Folder from 'react-icons/lib/ti/folder';
+import FileWithToken from '../Tool/FileWithToken';
 import './Thumbnail.css';
 
 class Thumbnail extends PureComponent {
@@ -22,13 +23,11 @@ class Thumbnail extends PureComponent {
     const styles = {};
     if (this.props.image) {
       if (!this.state.realImage) {
-        window.container.sdk
-          .file
-        .getFile(this.props.image)
-        .then(r => r.blob())
-        .then((blob) => {
-          this.setState({ realImage: URL.createObjectURL(blob) });
-        })
+        FileWithToken(this.props.image)
+          .then((url) => {
+            this.setState({ realImage: url });
+          })
+        ;
       } else {
         styles.backgroundImage = `url(${this.state.realImage})`;
       }

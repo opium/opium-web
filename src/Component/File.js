@@ -29,7 +29,7 @@ const PrevLink = ({file}) => {
     return null;
   }
 
-  const link = file.parent.slug ? `/${file.parent.slug}/${file.next.slug}` : `/${file.previous.slug}`;
+  const link = file.parent.slug ? `/${file.parent.slug}/${file.previous.slug}` : `/${file.previous.slug}`;
   return (
     <Link className="FileOverlay__Link FileOverlay__Link--Prev" to={link}>
       <div className="FileOverlay__ChevronContainer">
@@ -136,7 +136,7 @@ class File extends PureComponent {
   static propTypes = {
     file: PropTypes.instanceOf(FileModel),
     isFetchingFile: PropTypes.bool.isRequired,
-    isLoadedImage: PropTypes.bool.isRequired,
+    localFile: PropTypes.string,
     isDirectoryCoverChanging: PropTypes.bool.isRequired,
     findFile: PropTypes.func.isRequired,
     removeCurrentFile: PropTypes.func.isRequired,
@@ -181,13 +181,13 @@ class File extends PureComponent {
       this.props.findFile(this.props.slug);
     }
 
-    if(this.props.file !== prevProps.file) {
+    if(!this.props.localFile) {
       this.loadImage();
     }
   }
 
   loadImage() {
-    const src = this.props.file.thumbnails.get('image');
+    const src = this.props.file && this.props.file.thumbnails.get('image');
     if (src) {
       this.props.loadImage(src);
     }
@@ -280,9 +280,9 @@ class File extends PureComponent {
             className="File__ImageContainer"
             style={{ height: `${this.props.viewportHeight}px` }}
           >
-            {this.props.isLoadedImage ?
+            {this.props.localFile ?
               <img
-                src={file.thumbnails.get('image')}
+                src={this.props.localFile}
                 alt={file.name}
                 className="File__Image"
                 style={imageStyle}

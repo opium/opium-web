@@ -15,7 +15,7 @@ function mapStateToProps(state, ownProps) {
     directory,
     slug: ownProps.params.directorySlug || '',
     hasBackground,
-    backgroundLoaded: directory && loadedImages.has(directoryImage),
+    localBackgroundImage: directory && loadedImages.get(directoryImage),
     backgroundImage: directoryImage,
     displayAdminLink: state.opium.get('me') ? state.opium.get('me').isAdmin() : false,
   }

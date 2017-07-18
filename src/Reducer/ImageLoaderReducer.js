@@ -1,4 +1,4 @@
-import { Map, Set } from 'immutable';
+import { Map } from 'immutable';
 
 export const OPIUM_REQUEST_IMAGE_LOAD = '@@opium/REQUEST_IMAGE_LOAD';
 export const OPIUM_RECEIVE_IMAGE_LOADED = '@@opium/RECEIVE_IMAGE_LOADED';
@@ -11,10 +11,9 @@ export default function opiumReducer(state = Map(), action) {
       });
 
     case OPIUM_RECEIVE_IMAGE_LOADED:
-      return state.mergeDeep({
-        'loadedImages': Set.of(action.image),
-        'isFetchingImage': false,
-      });
+      return state.set('isFetchingImage', false)
+        .setIn(['loadedImages', action.image], action.localImage)
+      ;
 
     default:
       return state;

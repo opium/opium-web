@@ -6,9 +6,9 @@ import UserRepository from './Model/Repository/UserRepository';
 import { entityFactory } from './Model/Factory';
 import { tokenGenerator, apiConfig } from './Config';
 
-export default function configureSdk() {
-  const tokenStorage = new TokenStorage(tokenGenerator, localforage);
+export const tokenStorage = new TokenStorage(tokenGenerator, localforage);
 
+export default function configureSdk() {
   const clients = {
     directory: DirectoryRepository,
     file: FileRepository,

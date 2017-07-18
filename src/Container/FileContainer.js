@@ -13,7 +13,7 @@ function mapStateToProps(state, ownProps) {
   return {
     file,
     isFetchingFile: !!state.opium.get('isFetchingFile'),
-    isLoadedImage: !!(file && loadedImages.has(file.thumbnails.get('image'))),
+    localFile: file && loadedImages.get(file.thumbnails.get('image')),
     slug: ownProps.params.fileSlug || '',
     viewportHeight: document.documentElement.clientHeight,
     canEdit: state.opium.get('me') ? state.opium.get('me').isAdmin() : false,

@@ -44,11 +44,7 @@ class DirectoryHeader extends PureComponent {
         throw new Error('backgroundImage should be a string');
       }
     },
-    backgroundLoaded: (props, propName) => {
-      if (props.hasBackground && typeof props[propName] !== 'boolean') {
-        throw new Error('backgroundImage should be a string');
-      }
-    },
+    localBackgroundImage: PropTypes.string,
     loadImage: PropTypes.func.isRequired,
   };
 
@@ -63,19 +59,19 @@ class DirectoryHeader extends PureComponent {
   }
 
   loadImage() {
-    if (this.props.backgroundImage) {
+    if (this.props.hasBackground) {
       this.props.loadImage(this.props.backgroundImage);
     }
   }
 
   render() {
-    const { directory, backgroundLoaded, backgroundImage } = this.props;
+    const { directory, localBackgroundImage, backgroundImage } = this.props;
 
     const styles = {};
-    if (backgroundLoaded && backgroundImage) {
+    if (localBackgroundImage) {
       styles.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0) 50%,
         rgba(0, 0, 0, 0.8)),
-        url(${backgroundImage})`;
+        url(${localBackgroundImage})`;
     }
 
     const bounds = directory.getPositionBounds();
@@ -98,7 +94,7 @@ class DirectoryHeader extends PureComponent {
             <div
               className={cn(
                 'DirectoryHeader__Image',
-                this.props.backgroundLoaded && 'DirectoryHeader__Image--Opaque'
+                this.props.localBackgroundImage && 'DirectoryHeader__Image--Opaque'
               )}
               style={styles}
             />
