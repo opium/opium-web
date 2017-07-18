@@ -142,6 +142,8 @@ class Directory extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.resizeTimer = null;
+
     this.renderOneLine = this.renderOneLine.bind(this);
 
     this.state = {
@@ -150,10 +152,9 @@ class Directory extends PureComponent {
   }
 
   componentDidMount() {
-    let resizeTimer = null;
     window.onresize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
+      clearTimeout(this.resizeTimer);
+      this.resizeTimer = setTimeout(() => {
         this.setState({ viewportWidth: document.body.clientWidth });
       }, 250);
     };
@@ -167,11 +168,15 @@ class Directory extends PureComponent {
     }
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.resizeTimer);
+  }
+
   renderOneLine(line, i) {
     const directory = this.props.directory;
 
     return (
-      <div className="Directory__Row" key={i}>
+      <div className="Directory__Row" key={`${directory.id}-${i}`}>
         {line.map((rectangle, id) => {
           const child = rectangle.item;
           const childSlug = child instanceof File ?
@@ -183,7 +188,7 @@ class Directory extends PureComponent {
           return (
             <Link
               to={childSlug}
-              key={id}
+              key={childSlug}
             >
               <Thumbnail
                 title={child instanceof DirectoryModel ? child.name : null}

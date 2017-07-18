@@ -14,9 +14,19 @@ class Thumbnail extends PureComponent {
   constructor(props) {
     super(props);
 
+    this._isMounted = false;
+
     this.state = {
       realImage: null,
     };
+  }
+
+  componentWillMount() {
+    this._isMounted = true;
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {
@@ -25,7 +35,9 @@ class Thumbnail extends PureComponent {
       if (!this.state.realImage) {
         FileWithToken(this.props.image)
           .then((url) => {
-            this.setState({ realImage: url });
+            if (this._isMounted) {
+              this.setState({ realImage: url });
+            }
           })
         ;
       } else {
