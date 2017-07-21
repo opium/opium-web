@@ -323,6 +323,4 @@ class File extends PureComponent {
   }
 }
 
-// waiting fo https://github.com/PaulLeCam/react-leaflet/pull/238 to be merged
-
 export default File;
