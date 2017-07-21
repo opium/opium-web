@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 import Autosuggest from 'react-autosuggest';
 import './AddressAutosuggest.css';
 
@@ -75,7 +76,7 @@ export default class AddressAutosuggest extends PureComponent {
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
-        focusFirstSuggestion
+        highlightFirstSuggestion
       />
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
-import { browserHistory, Router, Route } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { Route } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
+
 import Directory from './Container/DirectoryContainer';
 import DirectoryMap from './Container/DirectoryMapContainer';
 import File from './Container/FileContainer';
@@ -24,24 +25,22 @@ const Palette = () =>
   </div>
 ;
 
-export default function configureRoutes(store) {
-  const history = syncHistoryWithStore(browserHistory, store);
+export default function Routes({ history }) {
+  return (<ConnectedRouter history={history}>
+      <div>
+        <Route path="/" component={Layout} />
+        <Route exact strict path="/" component={Directory} />
 
-  return (<Router history={history}>
-    <Route component={Layout}>
-      <Route path="/" component={Directory} />
+        <Route exact strict path={ROUTE_PALETTE} component={Palette} />
+        <Route exact strict path={ROUTE_LOGIN} component={Login} />
+        <Route exact strict path={`${ROUTE_UPLOAD}`} component={Upload} />
+        <Route exact strict path={`${ROUTE_UPLOAD}:directorySlug`} component={Upload} />
+        <Route exact strict path={`${ROUTE_DIRECTORY_MAP}:directorySlug`} component={DirectoryMap} />
 
-      <Route path={ROUTE_PALETTE} component={Palette} />
-      <Route path={ROUTE_LOGIN} component={Login} />
-      <Route path={`${ROUTE_UPLOAD}`} component={Upload} />
-      <Route path={`${ROUTE_UPLOAD}:directorySlug`} component={Upload} />
-      <Route path={`${ROUTE_DIRECTORY_MAP}:directorySlug`} component={DirectoryMap} />
+        <Route exact strict path="/:directorySlug/" component={Directory} />
+        <Route exact strict path="/:directorySlug/:fileSlug" component={File} />
 
-      <Route path=":directorySlug/" component={Directory}>
-        <Route path=":fileSlug" component={File} />
-      </Route>
-
-      <Route path=":fileSlug" component={File} />
-    </Route>
-  </Router>);
+        <Route exact strict path="/:fileSlug" component={File} />
+      </div>
+  </ConnectedRouter>);
 };

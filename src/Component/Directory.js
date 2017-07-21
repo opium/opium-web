@@ -1,8 +1,8 @@
-import React, { PureComponent, PropTypes } from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import { Map, Marker, TileLayer } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 import cn from 'classnames';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import Upload from 'react-icons/lib/ti/upload';
@@ -102,7 +102,7 @@ class DirectoryHeader extends PureComponent {
         }
 
         {directory.parent &&
-          <Link to={`/${directory.parent.slug}/`} className="DirectoryHeader__Back">
+          <Link to={`/${directory.parent.slug ? `${directory.parent.slug}/` : ''}`} className="DirectoryHeader__Back">
             <ChevronLeft />
             Back to albums
           </Link>
@@ -129,7 +129,7 @@ class DirectoryHeader extends PureComponent {
       </header>
     );
   }
-};
+}
 
 class Directory extends PureComponent {
   static propTypes = {
@@ -137,6 +137,7 @@ class Directory extends PureComponent {
     findDirectory: PropTypes.func.isRequired,
     slug: PropTypes.string.isRequired,
     displayAdminLink: PropTypes.bool.isRequired,
+    isFetchingDirectory: PropTypes.bool.isRequired,
   }
 
   constructor(props) {
@@ -204,8 +205,8 @@ class Directory extends PureComponent {
   }
 
   render() {
-    if (this.props.children) {
-      return this.props.children;
+    if (this.props.isFetchingDirectory) {
+      return null;
     }
 
     const directory = this.props.directory;
@@ -218,7 +219,9 @@ class Directory extends PureComponent {
 
     return (
       <div>
-        <Helmet title={directory.name} />
+        <Helmet>
+          <title>{directory.name}</title>
+        </Helmet>
 
         <DirectoryHeader {...this.props} />
 

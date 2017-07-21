@@ -13,7 +13,8 @@ function mapStateToProps(state, ownProps) {
 
   return {
     directory,
-    slug: ownProps.params.directorySlug || '',
+    isFetchingDirectory: state.opium.get('isFetchingDirectory') || false,
+    slug: ownProps.match.params.directorySlug || '',
     hasBackground,
     localBackgroundImage: directory && loadedImages.get(directoryImage),
     backgroundImage: directoryImage,

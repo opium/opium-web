@@ -1,8 +1,9 @@
-import { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import { Component } from 'react';
 
 export default class Layout extends Component {
   static propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.element,
     isLogged: PropTypes.bool.isRequired,
     fetchMe: PropTypes.func.isRequired,
     isFetchingMe: PropTypes.bool.isRequired,
@@ -21,6 +22,6 @@ export default class Layout extends Component {
   }
 
   render() {
-    return this.props.children;
+    return this.props.children || null;
   }
 }

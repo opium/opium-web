@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Map, Marker, TileLayer } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 
 const DirectoryMapInner = ({ bounds, markers, ...rest }) =>
   <Map
@@ -51,7 +51,9 @@ class DirectoryMap extends Component {
 
     return (
       <div>
-        <Helmet title={`${directory.name} - World Map`} />
+        <Helmet>
+          <title>{`${directory.name} - World Map`}</title>
+        </Helmet>
 
         <DirectoryMapInner
           bounds={directory.getPositionBounds()}

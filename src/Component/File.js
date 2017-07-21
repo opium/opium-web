@@ -1,14 +1,14 @@
-import React, { PureComponent, PropTypes } from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import { Map, Marker, setIconDefaultImagePath, TileLayer } from 'react-leaflet';
+import { Map, Marker, TileLayer } from 'react-leaflet';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import ChevronRight from 'react-icons/lib/ti/chevron-right';
 import Swipeable from 'react-swipeable';
 import FileModel from '../Model/File';
 import AddressAutoggest from './AddressAutosuggest';
 import Loader from './Loader';
-import 'leaflet/dist/leaflet.css';
 import './File.css';
 
 const BackLink = ({file, ...props}) => {
@@ -130,7 +130,7 @@ class FileMap extends PureComponent {
       </div>
     );
   }
-};
+}
 
 class File extends PureComponent {
   static propTypes = {
@@ -261,7 +261,9 @@ class File extends PureComponent {
 
     return (
       <div>
-        <Helmet title={file.name} />
+        <Helmet>
+          <title>{file.name}</title>
+        </Helmet>
 
         <header className="FileHeader">
           <div className="FileHeader__BackContainer">
@@ -322,6 +324,5 @@ class File extends PureComponent {
 }
 
 // waiting fo https://github.com/PaulLeCam/react-leaflet/pull/238 to be merged
-setIconDefaultImagePath('//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/images/');
 
 export default File;

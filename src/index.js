@@ -1,36 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { browserHistory } from 'react-router';
+import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import thunk from 'redux-thunk';
 import Helmet from 'react-helmet';
+import registerServiceWorker from './registerServiceWorker';
 import 'normalize.css';
 import './Opium.css';
 import configureSdk from './Sdk';
-import configureRoutes from './Route';
+import Routes from './Route';
 import reducer from './Reducer';
 import apiErrorMiddleware from './Action/Middleware/ApiErrorMiddleware';
-
-if (process.env.NODE_ENV !== 'production') {
-  const { whyDidYouUpdate } = require('why-did-you-update');
-  whyDidYouUpdate(React)
-}
 
 window.container = {};
 window.container.sdk = configureSdk();
 
-const composeEnhancers = composeWithDevTools({
-  // Specify here name, actionsBlacklist, actionsCreators and other options
-});
+/* eslint-disable no-underscore-dangle */
+const composeEnhancers =
+  (process.env.NODE_ENV !== 'production' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ name: 'Mapado booking' })) ||
+  compose;
+/* eslint-enable */
+
+  const history = createHistory();
 
 
 const middlewares = [
   apiErrorMiddleware,
   thunk,
-  routerMiddleware(browserHistory)
+  routerMiddleware(history)
 ];
 
 const store = createStore(
@@ -43,13 +44,15 @@ const store = createStore(
 ReactDOM.render(
   (
     <div>
-      <Helmet title="Opium" titleTemplate="%s | Opium" />
+      <Helmet titleTemplate="%s | Opium">
+        <title>Opium</title>
+      </Helmet>
       <Provider store={store}>
-        {configureRoutes(store)}
+        <Routes history={history} />
       </Provider>
     </div>
   ),
   document.getElementById('root')
 );
 
-
+registerServiceWorker();

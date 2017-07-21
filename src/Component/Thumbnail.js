@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 import Folder from 'react-icons/lib/ti/folder';
 import FileWithToken from '../Tool/FileWithToken';
 import './Thumbnail.css';
