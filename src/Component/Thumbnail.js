@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import LazyLoad from 'react-lazyload';
 import Folder from 'react-icons/lib/ti/folder';
 import FileWithToken from '../Tool/FileWithToken';
 import './Thumbnail.css';
@@ -77,4 +78,12 @@ class Thumbnail extends PureComponent {
   }
 }
 
-export default Thumbnail;
+function withLazyload(Component) {
+  return (props) => (
+    <LazyLoad height={props.height} offset={300} once resize>
+      <Component {...props} />
+    </LazyLoad>
+  )
+}
+
+export default withLazyload(Thumbnail);
