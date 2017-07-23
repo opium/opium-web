@@ -63,7 +63,7 @@ class ImageUpload extends Component {
             onChange={this.handleImageChange}
           />
           <div>
-            <Link to={`/${this.props.slug}`}>
+            <Link to={`/${this.props.slug}/`}>
               Back
             </Link>
 

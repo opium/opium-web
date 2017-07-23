@@ -4,7 +4,7 @@ import { uploadFile } from '../Action/DirectoryAction';
 
 function mapStateToProps(state, ownProps) {
   return {
-    slug: ownProps.params.directorySlug || '',
+    slug: ownProps.match.params.directorySlug || '',
   }
 };
 
