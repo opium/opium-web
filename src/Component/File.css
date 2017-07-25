@@ -12,22 +12,6 @@
     flex-shrink: 0;
 }
 
-.FileHeader__BackToAlbum {
-    margin-left: .5em;
-    margin-right: .5em;
-    padding: .8em;
-    border-radius: 3px;
-    font-size: 1.2em;
-    background: rgba(89,79,63,.6);
-    color: #fff;
-    text-decoration: none;
-}
-
-.FileHeader__BackToAlbum:hover {
-    text-decoration: underline;
-}
-
-
 .File__MainContainer {
     display: flex;
     justify-content: center;
@@ -107,19 +91,4 @@
 }
 .Table th {
     text-align: left;
-}
-
-.File__Button--SetCover {
-    margin-left: .5em;
-    margin-right: .5em;
-    padding: .8em;
-    border-radius: 3px;
-    font-size: 1.2em;
-    background: #4F3A1B;
-    color: #fff;
-    text-decoration: none;
-}
-
-.File__Button--SetCover:hover {
-    text-decoration: underline;
 }

@@ -11,6 +11,7 @@
 .DirectoryHeader {
     position: relative;
     min-height: 80px;
+    padding: .5rem;
 }
 
 .DirectoryHeader--WithBanner {
@@ -47,25 +48,10 @@
     font-size: 54px;
 }
 
-.DirectoryHeader__Back, .DirectoryHeader__ActionLinks > a {
-    display: inline-block;
-    margin: .5em;
-    padding: .8em;
-    font-size: 1.2em;
-    background: rgba(89,79,63,.6);
-    border-radius: 3px;
-    color: #fff;
-    text-decoration: none;
-}
-
-.DirectoryHeader__Back:hover, .DirectoryHeader__ActionLinks > a:hover {
-    text-decoration: underline;
-}
-
 .DirectoryHeader__ActionLinks {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: .5rem;
+    right: .5rem;
 }
 
 .DirectoryHeader__MapContainer {

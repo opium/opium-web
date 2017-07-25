@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Button from './Button';
 import { createDir } from '../Action/DirectoryAction';
 
 class CreateDir extends PureComponent {
@@ -23,15 +24,19 @@ class CreateDir extends PureComponent {
 
     return (
       <form onSubmit={this.handleFormSubmit}>
-        <input type="text" ref={(input) => this.input = input} />
+        <input type="text" ref={(input) => this.input = input} required />
         <div>
-          <Link to={`/${directorySlug}/`}>
+          <Button
+            secondary
+            tag={Link}
+            to={`/${directorySlug && `${directorySlug}/`}`}
+          >
             Back
-          </Link>
+          </Button>
 
-          <button type="submit">
+          <Button type="submit" primary>
             Create directory
-          </button>
+          </Button>
         </div>
       </form>
     )

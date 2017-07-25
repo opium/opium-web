@@ -9,6 +9,7 @@ import Swipeable from 'react-swipeable';
 import FileModel from '../Model/File';
 import AddressAutoggest from './AddressAutosuggest';
 import Loader from './Loader';
+import Button from './Button';
 import './File.css';
 
 const BackLink = ({file, ...props}) => {
@@ -18,9 +19,9 @@ const BackLink = ({file, ...props}) => {
 
   const link = file.parent.slug ? `/${file.parent.slug}/` : '/';
   return (
-    <Link to={link} {...props}>
+    <Button tag={Link} to={link} {...props} primary large>
       <ChevronLeft /> {file.parent.name || 'Back to albums'}
-    </Link>
+    </Button>
   );
 };
 
@@ -267,7 +268,7 @@ class File extends PureComponent {
 
         <header className="FileHeader">
           <div className="FileHeader__BackContainer">
-            <BackLink file={file} className="FileHeader__BackToAlbum" />
+            <BackLink file={file} />
           </div>
         </header>
 
@@ -308,13 +309,12 @@ class File extends PureComponent {
 
         {this.props.canEdit && (
           !this.props.isDirectoryCoverChanging ?
-            <a
-              href="#set-as-cover"
+            <Button
               onClick={this.setAsDirectoryCover}
-              className="File__Button--SetCover"
+              primary
             >
               Set as directory cover
-            </a> :
+            </Button> :
              <Loader color="#1eb694" />
           )
         }

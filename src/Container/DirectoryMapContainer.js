@@ -7,7 +7,7 @@ function mapStateToProps(state, ownProps) {
 
   return {
     directory,
-    slug: ownProps.params.directorySlug || '',
+    slug: ownProps.match.params.directorySlug || '',
     mapHeight: document.documentElement.clientHeight,
   }
 };

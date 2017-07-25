@@ -12,6 +12,7 @@ import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 import DirectoryModel from '../Model/Directory';
 import Loader from './Loader';
+import Button from './Button';
 import { ROUTE_UPLOAD, ROUTE_DIRECTORY_MAP, ROUTE_CREATE_DIR } from '../RouteName';
 import { computeRectangleList }  from '../Tool/LineLayout';
 
@@ -19,15 +20,15 @@ import { computeRectangleList }  from '../Tool/LineLayout';
 function AdminLinks({ directory, displayAdminLink }) {
   return (
     <div className="DirectoryHeader__ActionLinks">
-      <Link to={`${ROUTE_CREATE_DIR}${directory.slug}`}>
+      <Button secondary tag={Link} to={`${ROUTE_CREATE_DIR}${directory.slug}`}>
         <Plus />
         Create directory
-      </Link>
+      </Button>
 
-      <Link to={`${ROUTE_UPLOAD}${directory.slug}`}>
+      <Button secondary tag={Link} to={`${ROUTE_UPLOAD}${directory.slug}`}>
         <Upload />
         Upload file
-      </Link>
+      </Button>
     </div>
   );
 }
@@ -119,10 +120,10 @@ class DirectoryHeader extends PureComponent {
         }
 
         {directory.parent &&
-          <Link to={`/${directory.parent.slug ? `${directory.parent.slug}/` : ''}`} className="DirectoryHeader__Back">
+          <Button to={`/${directory.parent.slug ? `${directory.parent.slug}/` : ''}`} tag={Link} primary large>
             <ChevronLeft />
             Back to albums
-          </Link>
+          </Button>
         }
 
         <AdminLinks directory={directory} displayAdminLink={this.props.displayAdminLink} />
