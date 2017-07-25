@@ -6,14 +6,31 @@ import { Map, Marker, TileLayer } from 'react-leaflet';
 import cn from 'classnames';
 import ChevronLeft from 'react-icons/lib/ti/chevron-left';
 import Upload from 'react-icons/lib/ti/upload';
+import Plus from 'react-icons/lib/ti/plus';
 import './Directory.css';
 import Thumbnail from './Thumbnail';
 import File from '../Model/File';
 import DirectoryModel from '../Model/Directory';
 import Loader from './Loader';
-import { ROUTE_UPLOAD, ROUTE_DIRECTORY_MAP } from '../RouteName';
+import { ROUTE_UPLOAD, ROUTE_DIRECTORY_MAP, ROUTE_CREATE_DIR } from '../RouteName';
 import { computeRectangleList }  from '../Tool/LineLayout';
 
+
+function AdminLinks({ directory, displayAdminLink }) {
+  return (
+    <div className="DirectoryHeader__ActionLinks">
+      <Link to={`${ROUTE_CREATE_DIR}${directory.slug}`}>
+        <Plus />
+        Create directory
+      </Link>
+
+      <Link to={`${ROUTE_UPLOAD}${directory.slug}`}>
+        <Upload />
+        Upload file
+      </Link>
+    </div>
+  );
+}
 
 const DirectoryMap = ({ bounds, markers }) =>
   <Map
@@ -108,12 +125,7 @@ class DirectoryHeader extends PureComponent {
           </Link>
         }
 
-        {this.props.displayAdminLink &&
-          <Link to={`${ROUTE_UPLOAD}${directory.slug}`} className="DirectoryHeader__UploadLink">
-            <Upload />
-            Upload file
-          </Link>
-        }
+        <AdminLinks directory={directory} displayAdminLink={this.props.displayAdminLink} />
 
         {backgroundImage &&
           <h1 className="DirectoryHeader__Title">

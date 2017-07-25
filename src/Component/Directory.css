@@ -47,7 +47,7 @@
     font-size: 54px;
 }
 
-.DirectoryHeader__Back, .DirectoryHeader__UploadLink {
+.DirectoryHeader__Back, .DirectoryHeader__ActionLinks > a {
     display: inline-block;
     margin: .5em;
     padding: .8em;
@@ -58,11 +58,11 @@
     text-decoration: none;
 }
 
-.DirectoryHeader__Back:hover, .DirectoryHeader__UploadLink:hover {
+.DirectoryHeader__Back:hover, .DirectoryHeader__ActionLinks > a:hover {
     text-decoration: underline;
 }
 
-.DirectoryHeader__UploadLink {
+.DirectoryHeader__ActionLinks {
     position: absolute;
     top: 0;
     right: 0;

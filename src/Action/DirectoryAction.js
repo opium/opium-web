@@ -4,6 +4,7 @@ import {
   OPIUM_REQUEST_DIRECTORY,
   OPIUM_REQUEST_DIRECTORY_COVER_CHANGE,
 } from '../Reducer/OpiumReducer';
+import Directory from '../Model/Directory';
 
 export function find(slug) {
   return dispatch => {
@@ -47,5 +48,22 @@ export function updateDirectoryCover(directory, file) {
         });
       })
     ;
+  };
+}
+
+export function createDir(dirName, parentSlug) {
+  return dispatch => {
+    const dir = new Directory({
+      name: dirName,
+      parent: new Directory({
+        slug: parentSlug,
+      }),
+    });
+
+    window.container.sdk.directory
+      .create(dir)
+      .then(dir => {
+        dispatch(push(`/${dir.slug}/`));
+      })
   };
 }
