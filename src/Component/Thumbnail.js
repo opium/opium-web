@@ -1,5 +1,3 @@
-jest.mock('react-lazyload');
-jest.mock('../Tool/FileWithToken');
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import LazyLoad from 'react-lazyload';

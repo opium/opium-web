@@ -1,3 +1,6 @@
+jest.mock('react-lazyload');
+jest.mock('../Tool/FileWithToken');
+
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Thumbnail from './Thumbnail';
