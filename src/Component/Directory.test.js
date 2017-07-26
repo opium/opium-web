@@ -69,17 +69,7 @@ it('renders a non empty directory', () => {
         slug: "pacific-ocean",
         type: 'directory',
       }
-    ],
-    image_lines: [
-      {
-        "1": {
-          thumbs: 'http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200',
-        },
-        "2": {
-          thumbs: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200',
-        }
-      }
-    ],
+    ]
   });
   const component = renderer.create(<Directory
     directory={directory}
@@ -109,16 +99,6 @@ it('renders a non empty directory with parent', () => {
         name: "Pacific Ocean",
         slug: "pacific-ocean",
         type: 'directory',
-      }
-    ],
-    image_lines: [
-      {
-        "1": {
-          thumbs: 'http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200',
-        },
-        "2": {
-          thumbs: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200',
-        }
       }
     ],
     parent: {
@@ -154,16 +134,6 @@ it('renders a directory with header', () => {
         name: "Pacific Ocean",
         slug: "pacific-ocean",
         type: 'directory',
-      }
-    ],
-    image_lines: [
-      {
-        "1": {
-          thumbs: 'http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200',
-        },
-        "2": {
-          thumbs: 'http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200',
-        }
       }
     ],
     parent: {
@@ -212,16 +182,6 @@ it('renders a directory with children and loaded background', () => {
         name: "Pacific Ocean",
         slug: "pacific-ocean",
         type: 'directory',
-      }
-    ],
-    image_lines: [
-      {
-        "1": {
-          thumbs: 'http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200',
-        },
-        "2": {
-          geometry: { width: 200, height: 200 }
-        }
       }
     ],
     parent: {
@@ -277,16 +237,6 @@ it('renders root directory with file as children', () => {
         slug: "a-photo",
         type: 'file',
       },
-    ],
-    image_lines: [
-      {
-        "1": {
-          thumbs: 'http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200',
-        },
-        "2": {
-          geometry: { width: 200, height: 200 }
-        }
-      }
     ],
     _embedded: {
       directory_thumbnail: {

@@ -11,8 +11,8 @@ export function find(slug) {
     dispatch({ type: OPIUM_REQUEST_DIRECTORY });
 
     const finder = slug ?
-      window.container.sdk.directory.find(slug, { gutter: 10 }) :
-      window.container.sdk.directory.findBy({ gutter: 10 })
+      window.container.sdk.directory.find(slug) :
+      window.container.sdk.directory.findBy({})
 
     return finder
       .then(directory => {

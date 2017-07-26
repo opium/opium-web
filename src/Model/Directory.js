@@ -1,4 +1,4 @@
-import { List, Map, Record } from 'immutable';
+import { Map, Record } from 'immutable';
 import { entityFactory, mapEntityRelationShips } from './Factory';
 
 class Directory extends Record({
@@ -8,18 +8,11 @@ class Directory extends Record({
   children: [],
   _links: {},
   _embedded: {},
-  imageLines: [],
   parent: null,
   directoryThumbnail: null,
 }) {
   constructor(val) {
     const data = val;
-    if (val.image_lines) {
-      data.imageLines = List(val.image_lines.map(line =>
-        Map(Object.keys(line).map(key => [key, line[key]]))
-      ));
-    }
-
      data.directoryThumbnail = val._embedded &&
        val._embedded.directory_thumbnail &&
        entityFactory(val._embedded.directory_thumbnail);

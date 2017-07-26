@@ -30,16 +30,6 @@ it('generate a valid entity', () => {
   expect(alps.id).toEqual(2);
   expect(alps.name).toEqual('Alps');
 
-  // image lines
-  const imageLines = directory.imageLines;
-  expect(imageLines).toBeInstanceOf(List);
-  expect(imageLines.size).toEqual(1);
-  expect(imageLines.first()).toBeInstanceOf(Map);
-  expect(imageLines.first().size).toEqual(3);
-
-  expect(directory.getChildById(2).name).toEqual('Alps');
-  expect(directory.getChildrenSize()).toEqual(3);
-
   // directory thumbnail
   expect(directory.directoryThumbnail).toBeFalsy();
 });

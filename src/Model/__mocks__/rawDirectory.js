@@ -261,30 +261,5 @@ export default {
   },
   "_embedded": {
     "directory_thumbnail": null
-  },
-  "image_lines": [
-    {
-      "2": {
-        "geometry": {
-          "width": 200,
-          "height": 200
-        },
-        "thumbs": "http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/200-200"
-      },
-      "3": {
-        "geometry": {
-          "width": 200,
-          "height": 200
-        },
-        "thumbs": "http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg/thumbs/200-200"
-      },
-      "4": {
-        "geometry": {
-          "width": 200,
-          "height": 200
-        },
-        "thumbs": "http://demo.opium.sitioweb.fr/basilica-di-san-giorgio-maggiore-a-venezia-jpg/thumbs/200-200"
-      }
-    }
-  ]
+  }
 };
