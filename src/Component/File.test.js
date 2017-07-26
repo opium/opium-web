@@ -1,4 +1,5 @@
 jest.mock('react-leaflet');
+jest.mock('react-router-dom');
 
 import React from 'react';
 import renderer from 'react-test-renderer';
@@ -57,6 +58,7 @@ it('renders a loader if directory cover is changing', () => {
   const component = renderer.create(<File
     canEdit
     file={file}
+    localFile={file.thumbnails.get('image')}
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
@@ -83,6 +85,7 @@ it('renders real file without crashing', () => {
   const component = renderer.create(<File
     canEdit
     file={file}
+    localFile={file.thumbnails.get('image')}
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
@@ -113,6 +116,7 @@ it('renders file with backlink and parent as root', () => {
   const component = renderer.create(<File
     canEdit
     file={file}
+    localFile={file.thumbnails.get('image')}
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
@@ -143,6 +147,7 @@ it('renders file with backlink', () => {
   const component = renderer.create(<File
     canEdit
     file={file}
+    localFile={file.thumbnails.get('image')}
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
@@ -183,6 +188,7 @@ it('renders file with prev / next links', () => {
   const component = renderer.create(<File
     canEdit
     file={file}
+    localFile={file.thumbnails.get('image')}
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
@@ -223,6 +229,7 @@ it('does not render prev / next link for directory', () => {
   const component = renderer.create(<File
     canEdit
     file={file}
+    localFile={file.thumbnails.get('image')}
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
@@ -261,6 +268,7 @@ it('renders file with prev / next links', () => {
   const component = renderer.create(<File
     canEdit
     file={file}
+    localFile={file.thumbnails.get('image')}
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
@@ -295,6 +303,7 @@ it('renders file with a map', () => {
   const component = renderer.create(<File
     canEdit
     file={file}
+    localFile={file.thumbnails.get('image')}
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}
@@ -329,6 +338,7 @@ it('renders file without override position link', () => {
   const component = renderer.create(<File
     canEdit={false}
     file={file}
+    localFile={file.thumbnails.get('image')}
     findFile={() => {}}
     removeCurrentFile={() => {}}
     updateFilePosition={jest.fn()}

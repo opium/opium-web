@@ -12,14 +12,14 @@ import Loader from './Loader';
 import Button from './Button';
 import './File.css';
 
-const BackLink = ({file, ...props}) => {
+const BackLink = ({ file }) => {
   if (!file.parent) {
     return null;
   }
 
   const link = file.parent.slug ? `/${file.parent.slug}/` : '/';
   return (
-    <Button tag={Link} to={link} {...props} primary large>
+    <Button tag={Link} to={link} primary large>
       <ChevronLeft /> {file.parent.name || 'Back to albums'}
     </Button>
   );

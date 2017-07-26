@@ -1,59 +1,40 @@
-exports[`test does not render prev / next link for directory 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`does not render prev / next link for directory 1`] = `
 <div>
   <header
-    className="FileHeader">
+    className="FileHeader"
+  >
     <div
-      className="FileHeader__BackContainer">
-      <a
-        className="FileHeader__BackToAlbum"
-        onClick={[Function]}
-        style={Object {}}>
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
-          </g>
-        </svg>
-         
-        Directory
-      </a>
-    </div>
+      className="FileHeader__BackContainer"
+    />
   </header>
   <div
     className="File__MainContainer"
-    onMouseDown={undefined}
-    onMouseMove={undefined}
-    onMouseUp={undefined}
+    onMouseDown={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
-    onTouchStart={[Function]}>
+    onTouchStart={[Function]}
+  >
     <div
       className="File__ImageContainer"
       style={
         Object {
           "height": "700px",
         }
-      }>
+      }
+    >
       <img
         alt="Foo"
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
   </div>
   <div
-    className="react-autosuggest__container">
+    className="react-autosuggest__container"
+  >
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -69,13 +50,16 @@ exports[`test does not render prev / next link for directory 1`] = `
       placeholder="Search for an address"
       role="combobox"
       type="text"
-      value="" />
+      value=""
+    />
     <div
       className="react-autosuggest__suggestions-container"
-      id="react-autowhatever-1" />
+      id="react-autowhatever-1"
+    />
   </div>
   <table
-    className="Table">
+    className="Table"
+  >
     <tbody>
       <tr>
         <th>
@@ -109,46 +93,52 @@ exports[`test does not render prev / next link for directory 1`] = `
       </tr>
     </tbody>
   </table>
-  <a
-    className="File__Button--SetCover"
-    href="#set-as-cover"
-    onClick={[Function]}>
+  <button
+    className="OpiumBtn OpiumBtn--primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
     Set as directory cover
-  </a>
+  </button>
 </div>
 `;
 
-exports[`test renders a loader if directory cover is changing 1`] = `
+exports[`renders a loader if directory cover is changing 1`] = `
 <div>
   <header
-    className="FileHeader">
+    className="FileHeader"
+  >
     <div
-      className="FileHeader__BackContainer" />
+      className="FileHeader__BackContainer"
+    />
   </header>
   <div
     className="File__MainContainer"
-    onMouseDown={undefined}
-    onMouseMove={undefined}
-    onMouseUp={undefined}
+    onMouseDown={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
-    onTouchStart={[Function]}>
+    onTouchStart={[Function]}
+  >
     <div
       className="File__ImageContainer"
       style={
         Object {
           "height": "700px",
         }
-      }>
+      }
+    >
       <img
         alt="Foo"
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
   </div>
   <div
-    className="react-autosuggest__container">
+    className="react-autosuggest__container"
+  >
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -164,13 +154,16 @@ exports[`test renders a loader if directory cover is changing 1`] = `
       placeholder="Search for an address"
       role="combobox"
       type="text"
-      value="" />
+      value=""
+    />
     <div
       className="react-autosuggest__suggestions-container"
-      id="react-autowhatever-1" />
+      id="react-autowhatever-1"
+    />
   </div>
   <table
-    className="Table">
+    className="Table"
+  >
     <tbody>
       <tr>
         <th>
@@ -205,93 +198,77 @@ exports[`test renders a loader if directory cover is changing 1`] = `
     </tbody>
   </table>
   <div
-    className="Loader">
+    className="Loader"
+  >
     <div
-      className="Loader__BallScaleRippleMultiple">
+      className="Loader__BallScaleRippleMultiple"
+    >
       <div
         style={
           Object {
             "borderColor": "#1eb694",
           }
-        } />
+        }
+      />
       <div
         style={
           Object {
             "borderColor": "#1eb694",
           }
-        } />
+        }
+      />
       <div
         style={
           Object {
             "borderColor": "#1eb694",
           }
-        } />
+        }
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`test renders a loader if file is not loaded 1`] = `<div />`;
+exports[`renders a loader if file is not loaded 1`] = `<div />`;
 
-exports[`test renders empty file without crashing 1`] = `<div />`;
+exports[`renders empty file without crashing 1`] = `<div />`;
 
-exports[`test renders file with a map 1`] = `
+exports[`renders file with a map 1`] = `
 <div>
   <header
-    className="FileHeader">
+    className="FileHeader"
+  >
     <div
-      className="FileHeader__BackContainer">
-      <a
-        className="FileHeader__BackToAlbum"
-        onClick={[Function]}
-        style={Object {}}>
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
-          </g>
-        </svg>
-         
-        Directory
-      </a>
-    </div>
+      className="FileHeader__BackContainer"
+    />
   </header>
   <div
     className="File__MainContainer"
-    onMouseDown={undefined}
-    onMouseMove={undefined}
-    onMouseUp={undefined}
+    onMouseDown={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
-    onTouchStart={[Function]}>
+    onTouchStart={[Function]}
+  >
     <div
       className="File__ImageContainer"
       style={
         Object {
           "height": "700px",
         }
-      }>
+      }
+    >
       <img
         alt="Foo"
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
   </div>
   <div>
     <div
-      className="react-autosuggest__container">
+      className="react-autosuggest__container"
+    >
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
@@ -307,14 +284,17 @@ exports[`test renders file with a map 1`] = `
         placeholder="Search for an address"
         role="combobox"
         type="text"
-        value="" />
+        value=""
+      />
       <div
         className="react-autosuggest__suggestions-container"
-        id="react-autowhatever-1" />
+        id="react-autowhatever-1"
+      />
     </div>
   </div>
   <table
-    className="Table">
+    className="Table"
+  >
     <tbody>
       <tr>
         <th>
@@ -348,71 +328,52 @@ exports[`test renders file with a map 1`] = `
       </tr>
     </tbody>
   </table>
-  <a
-    className="File__Button--SetCover"
-    href="#set-as-cover"
-    onClick={[Function]}>
+  <button
+    className="OpiumBtn OpiumBtn--primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
     Set as directory cover
-  </a>
+  </button>
 </div>
 `;
 
-exports[`test renders file with backlink 1`] = `
+exports[`renders file with backlink 1`] = `
 <div>
   <header
-    className="FileHeader">
+    className="FileHeader"
+  >
     <div
-      className="FileHeader__BackContainer">
-      <a
-        className="FileHeader__BackToAlbum"
-        onClick={[Function]}
-        style={Object {}}>
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
-          </g>
-        </svg>
-         
-        Bar
-      </a>
-    </div>
+      className="FileHeader__BackContainer"
+    />
   </header>
   <div
     className="File__MainContainer"
-    onMouseDown={undefined}
-    onMouseMove={undefined}
-    onMouseUp={undefined}
+    onMouseDown={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
-    onTouchStart={[Function]}>
+    onTouchStart={[Function]}
+  >
     <div
       className="File__ImageContainer"
       style={
         Object {
           "height": "700px",
         }
-      }>
+      }
+    >
       <img
         alt="Foo"
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
   </div>
   <div
-    className="react-autosuggest__container">
+    className="react-autosuggest__container"
+  >
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -428,13 +389,16 @@ exports[`test renders file with backlink 1`] = `
       placeholder="Search for an address"
       role="combobox"
       type="text"
-      value="" />
+      value=""
+    />
     <div
       className="react-autosuggest__suggestions-container"
-      id="react-autowhatever-1" />
+      id="react-autowhatever-1"
+    />
   </div>
   <table
-    className="Table">
+    className="Table"
+  >
     <tbody>
       <tr>
         <th>
@@ -468,71 +432,52 @@ exports[`test renders file with backlink 1`] = `
       </tr>
     </tbody>
   </table>
-  <a
-    className="File__Button--SetCover"
-    href="#set-as-cover"
-    onClick={[Function]}>
+  <button
+    className="OpiumBtn OpiumBtn--primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
     Set as directory cover
-  </a>
+  </button>
 </div>
 `;
 
-exports[`test renders file with backlink and parent as root 1`] = `
+exports[`renders file with backlink and parent as root 1`] = `
 <div>
   <header
-    className="FileHeader">
+    className="FileHeader"
+  >
     <div
-      className="FileHeader__BackContainer">
-      <a
-        className="FileHeader__BackToAlbum"
-        onClick={[Function]}
-        style={Object {}}>
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
-          </g>
-        </svg>
-         
-        Back to albums
-      </a>
-    </div>
+      className="FileHeader__BackContainer"
+    />
   </header>
   <div
     className="File__MainContainer"
-    onMouseDown={undefined}
-    onMouseMove={undefined}
-    onMouseUp={undefined}
+    onMouseDown={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
-    onTouchStart={[Function]}>
+    onTouchStart={[Function]}
+  >
     <div
       className="File__ImageContainer"
       style={
         Object {
           "height": "700px",
         }
-      }>
+      }
+    >
       <img
         alt="Foo"
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
   </div>
   <div
-    className="react-autosuggest__container">
+    className="react-autosuggest__container"
+  >
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -548,13 +493,16 @@ exports[`test renders file with backlink and parent as root 1`] = `
       placeholder="Search for an address"
       role="combobox"
       type="text"
-      value="" />
+      value=""
+    />
     <div
       className="react-autosuggest__suggestions-container"
-      id="react-autowhatever-1" />
+      id="react-autowhatever-1"
+    />
   </div>
   <table
-    className="Table">
+    className="Table"
+  >
     <tbody>
       <tr>
         <th>
@@ -588,121 +536,52 @@ exports[`test renders file with backlink and parent as root 1`] = `
       </tr>
     </tbody>
   </table>
-  <a
-    className="File__Button--SetCover"
-    href="#set-as-cover"
-    onClick={[Function]}>
+  <button
+    className="OpiumBtn OpiumBtn--primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
     Set as directory cover
-  </a>
+  </button>
 </div>
 `;
 
-exports[`test renders file with prev / next links 1`] = `
+exports[`renders file with prev / next links 1`] = `
 <div>
   <header
-    className="FileHeader">
+    className="FileHeader"
+  >
     <div
-      className="FileHeader__BackContainer">
-      <a
-        className="FileHeader__BackToAlbum"
-        onClick={[Function]}
-        style={Object {}}>
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
-          </g>
-        </svg>
-         
-        Directory
-      </a>
-    </div>
+      className="FileHeader__BackContainer"
+    />
   </header>
   <div
     className="File__MainContainer"
-    onMouseDown={undefined}
-    onMouseMove={undefined}
-    onMouseUp={undefined}
+    onMouseDown={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
-    onTouchStart={[Function]}>
+    onTouchStart={[Function]}
+  >
     <div
       className="File__ImageContainer"
       style={
         Object {
           "height": "700px",
         }
-      }>
+      }
+    >
       <img
         alt="Foo"
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
-    <a
-      className="FileOverlay__Link FileOverlay__Link--Prev"
-      onClick={[Function]}
-      style={Object {}}>
-      <div
-        className="FileOverlay__ChevronContainer">
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
-          </g>
-        </svg>
-      </div>
-    </a>
-    <a
-      className="FileOverlay__Link FileOverlay__Link--Next"
-      onClick={[Function]}
-      style={Object {}}>
-      <div
-        className="FileOverlay__ChevronContainer">
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m14.3 9.3c-1.3 1.3-1.3 3.4 0 4.7l6 6-6 6c-1.3 1.3-1.3 3.4 0 4.7 0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1l10.7-10.7-10.7-10.7c-1.3-1.3-3.4-1.3-4.7 0z" />
-          </g>
-        </svg>
-      </div>
-    </a>
   </div>
   <div
-    className="react-autosuggest__container">
+    className="react-autosuggest__container"
+  >
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -718,13 +597,16 @@ exports[`test renders file with prev / next links 1`] = `
       placeholder="Search for an address"
       role="combobox"
       type="text"
-      value="" />
+      value=""
+    />
     <div
       className="react-autosuggest__suggestions-container"
-      id="react-autowhatever-1" />
+      id="react-autowhatever-1"
+    />
   </div>
   <table
-    className="Table">
+    className="Table"
+  >
     <tbody>
       <tr>
         <th>
@@ -758,121 +640,52 @@ exports[`test renders file with prev / next links 1`] = `
       </tr>
     </tbody>
   </table>
-  <a
-    className="File__Button--SetCover"
-    href="#set-as-cover"
-    onClick={[Function]}>
+  <button
+    className="OpiumBtn OpiumBtn--primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
     Set as directory cover
-  </a>
+  </button>
 </div>
 `;
 
-exports[`test renders file with prev / next links 2`] = `
+exports[`renders file with prev / next links 2`] = `
 <div>
   <header
-    className="FileHeader">
+    className="FileHeader"
+  >
     <div
-      className="FileHeader__BackContainer">
-      <a
-        className="FileHeader__BackToAlbum"
-        onClick={[Function]}
-        style={Object {}}>
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
-          </g>
-        </svg>
-         
-        Directory
-      </a>
-    </div>
+      className="FileHeader__BackContainer"
+    />
   </header>
   <div
     className="File__MainContainer"
-    onMouseDown={undefined}
-    onMouseMove={undefined}
-    onMouseUp={undefined}
+    onMouseDown={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
-    onTouchStart={[Function]}>
+    onTouchStart={[Function]}
+  >
     <div
       className="File__ImageContainer"
       style={
         Object {
           "height": "700px",
         }
-      }>
+      }
+    >
       <img
         alt="Foo"
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
-    <a
-      className="FileOverlay__Link FileOverlay__Link--Prev"
-      onClick={[Function]}
-      style={Object {}}>
-      <div
-        className="FileOverlay__ChevronContainer">
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
-          </g>
-        </svg>
-      </div>
-    </a>
-    <a
-      className="FileOverlay__Link FileOverlay__Link--Next"
-      onClick={[Function]}
-      style={Object {}}>
-      <div
-        className="FileOverlay__ChevronContainer">
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m14.3 9.3c-1.3 1.3-1.3 3.4 0 4.7l6 6-6 6c-1.3 1.3-1.3 3.4 0 4.7 0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1l10.7-10.7-10.7-10.7c-1.3-1.3-3.4-1.3-4.7 0z" />
-          </g>
-        </svg>
-      </div>
-    </a>
   </div>
   <div
-    className="react-autosuggest__container">
+    className="react-autosuggest__container"
+  >
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -888,13 +701,16 @@ exports[`test renders file with prev / next links 2`] = `
       placeholder="Search for an address"
       role="combobox"
       type="text"
-      value="" />
+      value=""
+    />
     <div
       className="react-autosuggest__suggestions-container"
-      id="react-autowhatever-1" />
+      id="react-autowhatever-1"
+    />
   </div>
   <table
-    className="Table">
+    className="Table"
+  >
     <tbody>
       <tr>
         <th>
@@ -928,72 +744,53 @@ exports[`test renders file with prev / next links 2`] = `
       </tr>
     </tbody>
   </table>
-  <a
-    className="File__Button--SetCover"
-    href="#set-as-cover"
-    onClick={[Function]}>
+  <button
+    className="OpiumBtn OpiumBtn--primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
     Set as directory cover
-  </a>
+  </button>
 </div>
 `;
 
-exports[`test renders file without override position link 1`] = `
+exports[`renders file without override position link 1`] = `
 <div>
   <header
-    className="FileHeader">
+    className="FileHeader"
+  >
     <div
-      className="FileHeader__BackContainer">
-      <a
-        className="FileHeader__BackToAlbum"
-        onClick={[Function]}
-        style={Object {}}>
-        <svg
-          fill="currentColor"
-          height="1em"
-          preserveAspectRatio="xMidYMid meet"
-          style={
-            Object {
-              "color": undefined,
-              "verticalAlign": "middle",
-            }
-          }
-          viewBox="0 0 40 40"
-          width="1em">
-          <g>
-            <path
-              d="m24 9.3c-1.3-1.3-3.4-1.3-4.7 0l-10.7 10.7 10.7 10.7c0.7 0.6 1.5 1 2.4 1s1.7-0.4 2.3-1c1.3-1.3 1.3-3.4 0-4.7l-5.9-6 5.9-6c1.3-1.3 1.3-3.4 0-4.7z" />
-          </g>
-        </svg>
-         
-        Directory
-      </a>
-    </div>
+      className="FileHeader__BackContainer"
+    />
   </header>
   <div
     className="File__MainContainer"
-    onMouseDown={undefined}
-    onMouseMove={undefined}
-    onMouseUp={undefined}
+    onMouseDown={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
-    onTouchStart={[Function]}>
+    onTouchStart={[Function]}
+  >
     <div
       className="File__ImageContainer"
       style={
         Object {
           "height": "700px",
         }
-      }>
+      }
+    >
       <img
         alt="Foo"
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
   </div>
   <div />
   <table
-    className="Table">
+    className="Table"
+  >
     <tbody>
       <tr>
         <th>
@@ -1030,37 +827,41 @@ exports[`test renders file without override position link 1`] = `
 </div>
 `;
 
-exports[`test renders real file without crashing 1`] = `
+exports[`renders real file without crashing 1`] = `
 <div>
   <header
-    className="FileHeader">
+    className="FileHeader"
+  >
     <div
-      className="FileHeader__BackContainer" />
+      className="FileHeader__BackContainer"
+    />
   </header>
   <div
     className="File__MainContainer"
-    onMouseDown={undefined}
-    onMouseMove={undefined}
-    onMouseUp={undefined}
+    onMouseDown={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
-    onTouchStart={[Function]}>
+    onTouchStart={[Function]}
+  >
     <div
       className="File__ImageContainer"
       style={
         Object {
           "height": "700px",
         }
-      }>
+      }
+    >
       <img
         alt="Foo"
         className="File__Image"
         src="http://demo.opium.sitioweb.fr/2010-mavericks-competition-edit1-jpg"
-        style={Object {}} />
+        style={Object {}}
+      />
     </div>
   </div>
   <div
-    className="react-autosuggest__container">
+    className="react-autosuggest__container"
+  >
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
@@ -1076,13 +877,16 @@ exports[`test renders real file without crashing 1`] = `
       placeholder="Search for an address"
       role="combobox"
       type="text"
-      value="" />
+      value=""
+    />
     <div
       className="react-autosuggest__suggestions-container"
-      id="react-autowhatever-1" />
+      id="react-autowhatever-1"
+    />
   </div>
   <table
-    className="Table">
+    className="Table"
+  >
     <tbody>
       <tr>
         <th>
@@ -1116,11 +920,13 @@ exports[`test renders real file without crashing 1`] = `
       </tr>
     </tbody>
   </table>
-  <a
-    className="File__Button--SetCover"
-    href="#set-as-cover"
-    onClick={[Function]}>
+  <button
+    className="OpiumBtn OpiumBtn--primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
     Set as directory cover
-  </a>
+  </button>
 </div>
 `;

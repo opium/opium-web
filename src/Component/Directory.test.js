@@ -1,4 +1,5 @@
 jest.mock('react-leaflet');
+jest.mock('react-router-dom');
 
 import React from 'react';
 import renderer from 'react-test-renderer';
@@ -12,6 +13,7 @@ it('renders directory without crashing', () => {
     loadImage={jest.fn()}
     hasBackground={false}
     displayAdminLink
+    isFetchingDirectory={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -28,6 +30,7 @@ it('renders an empty directory', () => {
     loadImage={jest.fn()}
     hasBackground={false}
     displayAdminLink
+    isFetchingDirectory={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -44,6 +47,7 @@ it('renders an empty directory without admin link', () => {
     loadImage={jest.fn()}
     hasBackground={false}
     displayAdminLink={false}
+    isFetchingDirectory={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -84,6 +88,7 @@ it('renders a non empty directory', () => {
     loadImage={jest.fn()}
     hasBackground={false}
     displayAdminLink
+    isFetchingDirectory={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -128,6 +133,7 @@ it('renders a non empty directory with parent', () => {
     loadImage={jest.fn()}
     hasBackground={false}
     displayAdminLink
+    isFetchingDirectory={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -183,7 +189,9 @@ it('renders a directory with header', () => {
     hasBackground={true}
     backgroundLoaded={false}
     backgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
+    localBackgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
     displayAdminLink
+    isFetchingDirectory={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -239,7 +247,9 @@ it('renders a directory with children and loaded background', () => {
     hasBackground={true}
     backgroundLoaded={true}
     backgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
+    localBackgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
     displayAdminLink
+    isFetchingDirectory={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
@@ -297,7 +307,9 @@ it('renders root directory with file as children', () => {
     hasBackground={true}
     backgroundLoaded={true}
     backgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
+    localBackgroundImage="http://demo.opium.sitioweb.fr/2909-vallon-moy-res-jpg/thumbs/1170-400"
     displayAdminLink
+    isFetchingDirectory={false}
   />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot()
