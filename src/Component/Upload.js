@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Button from './Button';
 import './Upload.css';
 
 function fileListToList(fileList) {
@@ -10,6 +11,20 @@ function fileListToList(fileList) {
   }
 
   return outList;
+}
+
+function ImagePreview({ imagesPreviewUrl }) {
+  if (imagesPreviewUrl.length <= 0) {
+    return (<div>
+      Please select an Image for Preview
+    </div>);
+  }
+
+  return (<div className="Upload__Preview">
+    {imagesPreviewUrl.map(imagePreviewUrl =>
+      <img key={imagePreviewUrl} className="Upload__PreviewImage" src={imagePreviewUrl} alt="preview" />
+    )}
+  </div>);
 }
 
 class ImageUpload extends Component {
@@ -32,19 +47,19 @@ class ImageUpload extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.uploadImages(this.props.slug, fileListToList(this.state.files));
+    this.props.uploadImages(this.props.slug, this.state.files);
   }
 
   handleImageChange(e) {
     e.preventDefault();
 
-    let files = e.target.files;
+    let files = fileListToList(e.target.files);
 
-    this.setState({
-      files,
-    });
+    this.setState(prevState => ({
+      files: prevState.files.concat(files),
+    }));
 
-    fileListToList(files)
+    files
       .forEach(file => {
         const reader = new FileReader();
 
@@ -66,17 +81,6 @@ class ImageUpload extends Component {
   render() {
     const { imagesPreviewUrl } = this.state;
 
-    let imagePreview = null;
-    if (imagesPreviewUrl.length > 0) {
-      imagePreview = (<div>
-        {imagesPreviewUrl.map(imagePreviewUrl =>
-          <img key={imagePreviewUrl} className="Upload__PreviewImage" src={imagePreviewUrl} alt="preview" />
-        )}
-      </div>);
-    } else {
-      imagePreview = 'Please select an Image for Preview';
-    }
-
     return (
       <div className="Upload__Container">
         <form
@@ -89,20 +93,18 @@ class ImageUpload extends Component {
             onChange={this.handleImageChange}
           />
           <div>
-            <Link to={`/${this.props.slug}/`}>
+            <Button tag={Link}  to={`/${this.props.slug}/`} secondary>
               Back
-            </Link>
+            </Button>
 
-            <button type="submit" className="Upload__Link">
+            <Button type="submit" primary>
               Upload Image
-            </button>
+            </Button>
           </div>
         </form>
 
-        <div className="Upload__Preview">
-          <h2>Preview</h2>
-          {imagePreview}
-        </div>
+        <h2>Preview</h2>
+        <ImagePreview imagesPreviewUrl={imagesPreviewUrl} />
       </div>
     )
   }
