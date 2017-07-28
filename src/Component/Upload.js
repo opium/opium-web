@@ -3,9 +3,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Upload.css';
 
+function fileListToList(fileList) {
+  const outList = [];
+  for (let i = 0; i < fileList.length; i++) {
+    outList.push(fileList[i]);
+  }
+
+  return outList;
+}
+
 class ImageUpload extends Component {
   static propTypes = {
-    uploadImage: PropTypes.func.isRequired,
+    uploadImages: PropTypes.func.isRequired,
     slug: PropTypes.string.isRequired,
   }
 
@@ -16,38 +25,54 @@ class ImageUpload extends Component {
     this.handleImageChange = this.handleImageChange.bind(this);
 
     this.state = {
-      file: '',
-      imagePreviewUrl: ''
+      files: [],
+      imagesPreviewUrl: [],
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.uploadImage(this.props.slug, this.state.file);
+    this.props.uploadImages(this.props.slug, fileListToList(this.state.files));
   }
 
   handleImageChange(e) {
     e.preventDefault();
 
-    let reader = new FileReader();
-    let file = e.target.files[0];
+    let files = e.target.files;
 
-    reader.onloadend = () => {
-      this.setState({
-        file,
-        imagePreviewUrl: reader.result,
-      });
-    }
+    this.setState({
+      files,
+    });
 
-    reader.readAsDataURL(file);
+    fileListToList(files)
+      .forEach(file => {
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+          this.setState((prevState) => {
+            const imagesPreviewUrl = prevState.imagesPreviewUrl;
+            imagesPreviewUrl.push(reader.result);
+
+            return {
+              imagesPreviewUrl,
+            };
+          });
+        }
+        reader.readAsDataURL(file);
+      })
+    ;
   }
 
   render() {
-    const { imagePreviewUrl } = this.state;
+    const { imagesPreviewUrl } = this.state;
 
     let imagePreview = null;
-    if (imagePreviewUrl) {
-      imagePreview = (<img className="Upload__PreviewImage" src={imagePreviewUrl} alt="preview" />);
+    if (imagesPreviewUrl.length > 0) {
+      imagePreview = (<div>
+        {imagesPreviewUrl.map(imagePreviewUrl =>
+          <img key={imagePreviewUrl} className="Upload__PreviewImage" src={imagePreviewUrl} alt="preview" />
+        )}
+      </div>);
     } else {
       imagePreview = 'Please select an Image for Preview';
     }
@@ -60,6 +85,7 @@ class ImageUpload extends Component {
         >
           <input
             type="file"
+            multiple
             onChange={this.handleImageChange}
           />
           <div>
@@ -74,6 +100,7 @@ class ImageUpload extends Component {
         </form>
 
         <div className="Upload__Preview">
+          <h2>Preview</h2>
           {imagePreview}
         </div>
       </div>

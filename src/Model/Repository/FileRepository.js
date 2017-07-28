@@ -5,6 +5,10 @@ class FileRepository extends AbstractClient {
     return '/v1/files';
   }
 
+  getEntityURI(entity) {
+    return `${this.getPathBase()}/${entity.slug}`;
+  }
+
   getName() {
       return 'File';
   }

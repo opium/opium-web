@@ -26,7 +26,7 @@
     "react-swipeable": "^4.0.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "rest-client-sdk": "^0.10.0"
+    "rest-client-sdk": "^1.0.4"
   },
   "devDependencies": {
     "gh-pages": "^1.0.0",

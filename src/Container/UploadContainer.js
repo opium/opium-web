@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Upload from '../Component/Upload';
-import { uploadFile } from '../Action/DirectoryAction';
+import { uploadFiles } from '../Action/DirectoryAction';
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -9,7 +9,7 @@ function mapStateToProps(state, ownProps) {
 };
 
 const mapDispatchToProps = {
-  uploadImage: uploadFile,
+  uploadImages: uploadFiles,
 };
 
 export default connect(

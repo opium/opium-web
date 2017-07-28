@@ -25,12 +25,12 @@ export function find(slug) {
   }
 }
 
-export function uploadFile(directorySlug, file) {
+export function uploadFiles(directorySlug, files) {
   return dispatch => {
-    window.container.sdk.directory.uploadFile(directorySlug, file)
-        .then(uploadedFile => {
-          dispatch(push(`/${directorySlug}`));
-        })
+    Promise.all(files.map(file => window.container.sdk.directory.uploadFile(directorySlug, file)))
+      .then(() => {
+        dispatch(push(`/${directorySlug}/`));
+      })
     ;
   };
 }

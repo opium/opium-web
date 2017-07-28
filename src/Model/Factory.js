@@ -1,9 +1,10 @@
 import { fromJS, List } from 'immutable';
+import { Serializer } from 'rest-client-sdk';
 import Directory from './Directory';
 import File from './File';
 import User from './User';
 
-export function entityFactory(input) {
+function entityFactory(input) {
   switch (input.type) {
     case 'directory':
       return new Directory(input);
@@ -37,3 +38,22 @@ export function mapEntityRelationShips(entity, baseJson) {
     }
   });
 }
+
+
+class OpiumSerializer extends Serializer {
+  deserializeItem(rawData, type) {
+    const data = typeof rawData === 'string' ? JSON.parse(rawData) : rawData;
+    return entityFactory(data);
+  }
+
+  deserializeList(rawListData, type) {
+    return this.deserializeItem(rawListData, type);
+  }
+
+  serializeItem(entity, type) {
+    return JSON.stringify(entity.toJSON());
+  }
+}
+
+export default new OpiumSerializer();
+

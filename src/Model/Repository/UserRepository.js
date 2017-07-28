@@ -5,12 +5,16 @@ class FileRepository extends AbstractClient {
     return '/v1/me';
   }
 
+  getEntityURI(entity) {
+    return this.getPathBase();
+  }
+
   getName() {
       return 'User';
   }
 
   getMe() {
-    return this.createEntityFromJsonResponse(this.authorizedFetch('/v1/me'), 'item');
+    return this.deserializeResponse(this.authorizedFetch('/v1/me'), 'item');
   }
 }
 

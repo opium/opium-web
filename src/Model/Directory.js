@@ -1,5 +1,5 @@
 import { Map, Record } from 'immutable';
-import { entityFactory, mapEntityRelationShips } from './Factory';
+import serializer, { mapEntityRelationShips } from './Factory';
 
 class Directory extends Record({
   id: null,
@@ -15,7 +15,7 @@ class Directory extends Record({
     const data = val;
      data.directoryThumbnail = val._embedded &&
        val._embedded.directory_thumbnail &&
-       entityFactory(val._embedded.directory_thumbnail);
+       serializer.deserializeItem(val._embedded.directory_thumbnail, 'file');
 
     return mapEntityRelationShips(super(data), data);
   }

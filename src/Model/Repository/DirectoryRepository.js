@@ -5,6 +5,10 @@ class DirectoryRepository extends AbstractClient {
     return '/v1/directories';
   }
 
+  getEntityURI(entity) {
+    return `${this.getPathBase()}/${entity.slug}`;
+  }
+
   getName() {
       return 'Directory';
   }
@@ -15,8 +19,11 @@ class DirectoryRepository extends AbstractClient {
 
     const dirWithSlash = directory && `/${directory}`;
 
-    return this.createEntityFromJsonResponse(
+    return this.deserializeResponse(
       this.authorizedFetch(`${this.getPathBase()}${dirWithSlash}/upload`, {
+        headers: {
+          'Content-Type': undefined, // remove content type as it will be generate by client
+        },
         method: 'POST',
         body: data
       }),
