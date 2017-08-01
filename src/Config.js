@@ -5,7 +5,7 @@ import { ProvidedTokenGenerator } from 'rest-client-sdk';
 
 export const tokenGenerator = new ProvidedTokenGenerator(null);
 export const apiConfig = {
-  path: 'demo.opium.sitioweb.fr',
+  path: 'demo.opium.deniau.me',
   scheme: 'https',
   authorizationType: 'Basic',
 };
