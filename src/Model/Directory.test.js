@@ -1,5 +1,5 @@
 import { List, Map } from 'immutable';
-import { entityFactory } from './Factory';
+import serializer from './Factory';
 import Directory from './Directory';
 import File from './File';
 import rawDirectory from 'rawDirectory';
@@ -8,8 +8,8 @@ import rawDirectoryWithFileAsChild from 'rawDirectoryWithFileAsChild';
 import rawDirectoryWithOneFileAsChild from 'rawDirectoryWithOneFileAsChild';
 
 
-it('test passing anything to entityFactory', () => {
-  const item = entityFactory({ a: 'A' });
+it('test passing anything to serializer', () => {
+  const item = serializer.deserializeItem({ a: 'A' });
 
   expect(item).toBeInstanceOf(Map);
   expect(item.get('a')).toEqual('A');
