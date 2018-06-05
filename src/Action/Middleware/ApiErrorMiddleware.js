@@ -40,6 +40,7 @@ const apiError = store => next => action => {
     // a middleware further in chain changed it.
     return returnValue;
   } catch (error) {
+    console.error(error);
   }
 };
 

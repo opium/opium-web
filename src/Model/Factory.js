@@ -3,17 +3,28 @@ import { Serializer } from 'rest-client-sdk';
 import Directory from './Directory';
 import File from './File';
 import User from './User';
+import Collection from './Collection';
 
 function entityFactory(input) {
-  switch (input.type) {
-    case 'directory':
+  switch (input['@type']) {
+    case 'Directory':
       return new Directory(input);
-    case 'file':
+    case 'File':
+    case 'Photo':
       return new File(input);
-    case 'user':
+    case 'User':
       return new User(input);
-    default:
+    case 'hydra:Collection':
+      return new Collection(input);
+    case 'hydra:PartialCollectionView':
+    case 'hydra:IriTemplate':
       return fromJS(input);
+    default:
+      if (typeof input === 'object') {
+        console.warn('Could not convert object to entity', input);
+        return fromJS(input);
+      }
+      return input;
   }
 }
 
@@ -41,19 +52,29 @@ export function mapEntityRelationShips(entity, baseJson) {
 
 
 class OpiumSerializer extends Serializer {
-  deserializeItem(rawData, type) {
-    const data = typeof rawData === 'string' ? JSON.parse(rawData) : rawData;
-    return entityFactory(data);
+  normalizeItem(entity, classMetadata) {
+    return entity.toJSON();
   }
 
-  deserializeList(rawListData, type) {
-    return this.deserializeItem(rawListData, type);
+  encodeItem(object, classMetadata) {
+    return JSON.stringify(object);
   }
 
-  serializeItem(entity, type) {
-    return JSON.stringify(entity.toJSON());
+  denormalizeItem(object, classMetadata, response) {
+    return object ? entityFactory(object) : null;
+  }
+
+  decodeItem(rawData, classMetadata, response) {
+    return rawData ? JSON.parse(rawData) : null;
+  }
+
+  denormalizeList(objectList, classMetadata, response) {
+    return objectList ? entityFactory(objectList) : null;
+  }
+
+  decodeList(rawListData, classMetadata, response) {
+    return rawListData ? JSON.parse(rawListData) : null;
   }
 }
 
 export default new OpiumSerializer();
-

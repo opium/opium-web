@@ -5,32 +5,30 @@ class Directory extends Record({
   id: null,
   name: null,
   slug: null,
-  children: [],
-  _links: {},
-  _embedded: {},
+  displayableChildren: null,
   parent: null,
   directoryThumbnail: null,
 }) {
   constructor(val) {
     const data = val;
-     data.directoryThumbnail = val._embedded &&
-       val._embedded.directory_thumbnail &&
-       serializer.deserializeItem(val._embedded.directory_thumbnail, 'file');
+    data.id = val['@id'].replace('/v2/directories/', '');
+    // data.directoryThumbnail = typeof val.directoryThumbnail === 'object' ?
+    //    serializer.denormalizeItem(val.directoryThumbnail) : val.directoryThumbnail;
 
     return mapEntityRelationShips(super(data), data);
   }
 
   getChildById(id) {
-    return this.children.find(item => item.id === parseInt(id, 10));
+    return this.displayableChildren.find(item => item.id === parseInt(id, 10));
   }
 
   getChildrenSize() {
-    return this.children.size || 0;
+    return this.displayableChildren.size || 0;
   }
 
   getPositionBounds() {
     let bounds = Map();
-    const children = this.children.filter(c => !!c.position);
+    const children = this.displayableChildren.filter(c => !!c.position);
 
     if (children.size === 1) {
       const child = children.first().position;

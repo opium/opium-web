@@ -11,14 +11,14 @@ export function find(slug) {
     dispatch({ type: OPIUM_REQUEST_DIRECTORY });
 
     const finder = slug ?
-      window.container.sdk.directory.find(slug) :
-      window.container.sdk.directory.findBy({})
+      window.container.sdk.getRepository('directories').findBy({slug: slug}) :
+      window.container.sdk.getRepository('directories').findBy({slug: ''})
 
     return finder
       .then(directory => {
         dispatch({
           type: OPIUM_RECEIVE_DIRECTORY,
-          directory,
+          directory: directory.getMembers() ? directory.getMembers().first() : null,
         });
       })
     ;
@@ -27,7 +27,7 @@ export function find(slug) {
 
 export function uploadFiles(directorySlug, files) {
   return dispatch => {
-    Promise.all(files.map(file => window.container.sdk.directory.uploadFile(directorySlug, file)))
+    Promise.all(files.map(file => window.container.sdk.getRepository('directories').uploadFile(directorySlug, file)))
       .then(() => {
         dispatch(push(`/${directorySlug}/`));
       })
@@ -40,7 +40,7 @@ export function updateDirectoryCover(directory, file) {
     const newDir = directory.setIn(['_embedded', 'directory_thumbnail', 'id'], file.id);
     dispatch({ type: OPIUM_REQUEST_DIRECTORY_COVER_CHANGE });
 
-    window.container.sdk.directory.update(newDir)
+    window.container.sdk.getRepository('directories').update(newDir)
       .then(directory => {
         dispatch({
           type: OPIUM_RECEIVE_DIRECTORY,
@@ -60,7 +60,7 @@ export function createDir(dirName, parentSlug) {
       }),
     });
 
-    window.container.sdk.directory
+    window.container.sdk.getRepository('directories')
       .create(dir)
       .then(dir => {
         dispatch(push(`/${dir.slug}/`));

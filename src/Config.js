@@ -5,7 +5,8 @@ import { ProvidedTokenGenerator } from 'rest-client-sdk';
 
 export const tokenGenerator = new ProvidedTokenGenerator(null);
 export const apiConfig = {
-  path: 'demo.opium.deniau.me',
-  scheme: 'https',
+  // path: 'demo.opium.deniau.me',
+  path: 'leela.deniau.me:8000',
+  scheme: 'http',
   authorizationType: 'Basic',
 };

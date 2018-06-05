@@ -54,7 +54,7 @@ const DirectoryMap = ({ bounds, markers }) =>
 
 class DirectoryHeader extends PureComponent {
   static propTypes = {
-    directory: PropTypes.object.isRequired,
+    directory: PropTypes.instanceOf(DirectoryModel).isRequired,
     displayAdminLink: PropTypes.bool.isRequired,
     hasBackground: PropTypes.bool.isRequired,
     backgroundImage: (props, propName) => {
@@ -94,7 +94,7 @@ class DirectoryHeader extends PureComponent {
 
     const bounds = directory.getPositionBounds();
 
-    const markers = directory.children
+    const markers = directory.displayableChildren
       .filter(child => !!child.position)
       .map(child => [child.position.get('lat'), child.position.get('lng')]);
 
@@ -146,7 +146,7 @@ class DirectoryHeader extends PureComponent {
 
 class Directory extends PureComponent {
   static propTypes = {
-    directory: PropTypes.object,
+    directory: PropTypes.instanceOf(DirectoryModel),
     findDirectory: PropTypes.func.isRequired,
     slug: PropTypes.string.isRequired,
     displayAdminLink: PropTypes.bool.isRequired,
@@ -228,7 +228,7 @@ class Directory extends PureComponent {
       return <div />;
     }
 
-    const computedFileList = computeRectangleList(directory.children, this.state.viewportWidth, 200, 10);
+    const computedFileList = computeRectangleList(directory.displayableChildren, this.state.viewportWidth, 200, 10);
 
     return (
       <div>
